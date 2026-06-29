@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --font-body: "New York", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --font-ui: "Avenir Next", "Segoe UI", Inter, sans-serif;
   --font-mono: "SFMono-Regular", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
@@ -35,30 +35,8 @@
   --color-code: rgba(221, 208, 198, 0.62);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-base: #303446;
-    --color-mantle: #292c3c;
-    --color-crust: #232634;
-    --color-surface: rgba(81, 86, 108, 0.34);
-    --color-surface-strong: rgba(81, 86, 108, 0.62);
-    --color-border: rgba(198, 208, 245, 0.16);
-    --color-border-strong: rgba(198, 208, 245, 0.28);
-    --color-text: #c6d0f5;
-    --color-text-soft: #b5bddc;
-    --color-text-faint: #9399b2;
-    --color-accent: #11b7c5;
-    --color-peach: #ef9f76;
-    --color-rose: #ea999c;
-    --color-green: #a6d189;
-    --color-yellow: #e5c890;
-    --color-shadow: rgba(17, 17, 27, 0.3);
-    --color-backdrop: rgba(17, 17, 27, 0.76);
-    --color-code: rgba(35, 38, 52, 0.92);
-  }
-}
-
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --color-base: #303446;
   --color-mantle: #292c3c;
   --color-crust: #232634;
@@ -99,26 +77,6 @@ body {
   background:
     linear-gradient(90deg, rgba(26, 125, 164, 0.05), transparent 12rem),
     linear-gradient(180deg, var(--color-base), color-mix(in srgb, var(--color-base) 78%, white));
-}
-
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, transparent, var(--color-accent) 12%, var(--color-accent) 88%, transparent);
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-body::before {
-  left: 19rem;
-}
-
-body::after {
-  right: 22rem;
 }
 
 a {
@@ -177,7 +135,7 @@ img {
   justify-content: space-between;
   gap: 2rem;
   padding: 1.25rem 1.4rem 1rem;
-  border-bottom: var(--border-strong) solid var(--color-accent);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .site-header__brand-block {

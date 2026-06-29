@@ -1,26 +1,19 @@
 (function () {
   var docEl = document.documentElement;
+  var themeStorageKey = "blog-theme-v2";
   docEl.dataset.js = "enabled";
   var siteBaseurl = document.body ? (document.body.dataset.baseurl || "") : "";
 
   function applyTheme(theme) {
-    if (theme === "light" || theme === "dark") {
-      docEl.dataset.theme = theme;
-    } else {
-      delete docEl.dataset.theme;
-    }
+    docEl.dataset.theme = theme === "dark" ? "dark" : "light";
   }
 
   var themeToggle = document.querySelector("[data-theme-toggle]");
   if (themeToggle) {
     themeToggle.addEventListener("click", function () {
-      var current = localStorage.getItem("blog-theme");
-      var next = current === "dark" ? "light" : current === "light" ? "" : "dark";
-      if (next) {
-        localStorage.setItem("blog-theme", next);
-      } else {
-        localStorage.removeItem("blog-theme");
-      }
+      var current = localStorage.getItem(themeStorageKey) === "dark" ? "dark" : "light";
+      var next = current === "dark" ? "light" : "dark";
+      localStorage.setItem(themeStorageKey, next);
       applyTheme(next);
     });
   }
