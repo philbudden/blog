@@ -1,0 +1,21 @@
+---
+layout: none
+---
+[
+{% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
+{% for post in published_articles %}
+  {% assign words = post.content | strip_html | number_of_words %}
+  {% assign reading_time = words | divided_by: 200.0 | ceil %}
+  {
+    "id": {{ forloop.index0 }},
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "summary": {{ post.summary | default: post.excerpt | strip_html | strip_newlines | jsonify }},
+    "tags": {{ post.tags | jsonify }},
+    "series": {{ post.series | default: "" | jsonify }},
+    "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
+    "display_date": {{ post.date | date: "%-d %B %Y" | jsonify }},
+    "reading_time": {{ reading_time | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

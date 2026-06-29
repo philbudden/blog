@@ -1,0 +1,39 @@
+title: Philip Budden
+description: A Markdown-first blog on AI, systems, infrastructure, and ongoing technical work.
+url: ""
+baseurl: ""
+timezone: Europe/London
+lang: en-GB
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+latest_posts_count: 8
+
+collections:
+  articles:
+    output: true
+    permalink: /posts/:slug/
+  series:
+    output: true
+    permalink: /series/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: article
+  - scope:
+      path: ""
+      type: series
+    values:
+      layout: series
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

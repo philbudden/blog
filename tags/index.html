@@ -1,0 +1,49 @@
+---
+layout: default
+title: Tags
+body_class: page-tags
+is_listing: true
+---
+{% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
+{% assign all_tags = published_articles | map: "tags" | join: "|" | split: "|" | uniq | sort_natural %}
+
+<section class="page-shell">
+  <header class="page-heading">
+    <p class="page-heading__eyebrow">Tags</p>
+    <h1>Browse by tag</h1>
+    <p class="page-heading__summary">Use the tag bar to filter the newest posts, or jump to the grouped archive below.</p>
+  </header>
+
+  <div class="chip-row" data-tag-toolbar>
+    <button class="tag-chip tag-chip--button is-active" type="button" data-filter-reset>All posts</button>
+    {% for tag in all_tags %}
+      {% if tag != "" %}
+        <button class="tag-chip tag-chip--button" id="{{ tag | slugify }}" type="button" data-tag-filter-button="{{ tag | downcase }}">{{ tag }}</button>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <section class="listing-section">
+    <div class="post-list" data-post-list>
+      {% for post in published_articles %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="tag-groups no-js-fallback">
+    {% for tag in all_tags %}
+      {% if tag != "" %}
+        {% assign tag_posts = published_articles | where_exp: "item", "item.tags contains tag" %}
+        <section class="tag-group">
+          <h2>{{ tag }}</h2>
+          <div class="post-list">
+            {% for post in tag_posts %}
+              {% include post-card.html post=post %}
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+    {% endfor %}
+  </section>
+</section>

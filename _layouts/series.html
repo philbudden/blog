@@ -1,0 +1,38 @@
+---
+layout: default
+is_listing: true
+body_class: page-series
+---
+{% assign published_articles = site.articles | where_exp: "item", "item.draft != true" %}
+{% assign series_posts = published_articles | where: "series", page.slug %}
+{% assign sort_field = page.order_by | default: "date" %}
+{% assign ordered_series_posts = series_posts | sort: sort_field %}
+{% if page.order_direction == "desc" %}
+  {% assign ordered_series_posts = ordered_series_posts | reverse %}
+{% endif %}
+
+<section class="page-shell">
+  <header class="page-heading">
+    <p class="page-heading__eyebrow">Series</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}
+      <p class="page-heading__summary">{{ page.summary }}</p>
+    {% endif %}
+  </header>
+
+  <section class="series-listing">
+    {% if page.content != blank %}
+      <div class="page-copy article-prose">{{ content }}</div>
+    {% endif %}
+
+    {% if ordered_series_posts.size > 0 %}
+      <div class="post-list" data-post-list>
+        {% for post in ordered_series_posts %}
+          {% include post-card.html post=post %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No published posts in this series yet.</p>
+    {% endif %}
+  </section>
+</section>

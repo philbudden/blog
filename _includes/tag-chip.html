@@ -1,0 +1,10 @@
+{% assign chip_tag = include.tag %}
+{% assign tag_slug = chip_tag | slugify %}
+<a
+  class="tag-chip"
+  href="{{ '/tags/#' | append: tag_slug | relative_url }}"
+  data-tag-filter="{{ chip_tag | escape }}"
+  data-tag-slug="{{ tag_slug }}"
+>
+  {{ chip_tag }}
+</a>

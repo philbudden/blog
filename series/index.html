@@ -1,0 +1,38 @@
+---
+layout: default
+title: Series
+body_class: page-series-index
+is_listing: true
+---
+{% assign published_articles = site.articles | where_exp: "item", "item.draft != true" %}
+{% assign sorted_series = site.series | sort: "title" %}
+
+<section class="page-shell">
+  <header class="page-heading">
+    <p class="page-heading__eyebrow">Series</p>
+    <h1>Browse by series</h1>
+    <p class="page-heading__summary">Grouped reading paths for recurring formats such as diaries and interview-question posts.</p>
+  </header>
+
+  <div class="series-grid">
+    {% for entry in sorted_series %}
+      {% assign series_posts = published_articles | where: "series", entry.slug %}
+      {% assign newest = series_posts | sort: "date" | last %}
+      <article class="series-card">
+        <a href="{{ entry.url | relative_url }}">
+          <p class="series-card__eyebrow">Series</p>
+          <h2>{{ entry.title }}</h2>
+          {% if entry.summary %}
+            <p>{{ entry.summary }}</p>
+          {% endif %}
+          <div class="series-card__meta">
+            <span>{{ series_posts.size }} post{% if series_posts.size != 1 %}s{% endif %}</span>
+            {% if newest %}
+              <span>Latest: {{ newest.date | date: "%-d %B %Y" }}</span>
+            {% endif %}
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</section>

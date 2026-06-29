@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="{{ page.body_class }}" data-baseurl="{{ site.baseurl }}" {% if page.is_listing %}data-listing-page="true"{% endif %}>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    {% include site-header.html %}
+
+    <main id="main-content" class="site-main">
+      {{ content }}
+    </main>
+
+    {% include site-footer.html %}
+    {% if page.is_listing %}
+      {% include modal-shell.html %}
+    {% endif %}
+
+    <script src="{{ '/assets/vendor/minisearch.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  </body>
+</html>
