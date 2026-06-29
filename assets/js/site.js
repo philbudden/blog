@@ -64,6 +64,8 @@
 
   var searchInput = document.querySelector("[data-search-input]");
   var searchResults = document.querySelector("[data-search-results]");
+  var searchForm = document.querySelector("[data-search-form]");
+  var openModal = null;
 
   if (searchInput && searchResults && window.MiniSearch) {
     fetch((siteBaseurl + "/search.json").replace(/\/{2,}/g, "/"))
@@ -123,12 +125,11 @@
           renderResults(searchInput.value.trim());
         });
 
-        searchInput.addEventListener("keydown", function (event) {
-          if (event.key !== "Enter") return;
+        function activateFirstResult(event) {
           var query = searchInput.value.trim();
           renderResults(query);
           if (!currentResults.length) return;
-          event.preventDefault();
+          if (event) event.preventDefault();
           var firstResult = currentResults[0];
           var resultUrl = firstResult.url;
           if (document.body.dataset.listingPage === "true" && typeof openModal === "function") {
@@ -136,7 +137,18 @@
           } else {
             window.location.href = resultUrl;
           }
+        }
+
+        searchInput.addEventListener("keydown", function (event) {
+          if (event.key !== "Enter") return;
+          activateFirstResult(event);
         });
+
+        if (searchForm) {
+          searchForm.addEventListener("submit", function (event) {
+            activateFirstResult(event);
+          });
+        }
       })
       .catch(function () {
         searchResults.hidden = true;
@@ -210,10 +222,17 @@
       }
 
       seriesButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
+        function applySeriesSelection() {
           currentSeries = button.dataset.seriesFilterButton;
           setActive(seriesToolbar, ".series-chip--button", button);
           applyFilters();
+        }
+        button.addEventListener("click", applySeriesSelection);
+        button.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            applySeriesSelection();
+          }
         });
       });
     }
@@ -250,7 +269,7 @@
     return true;
   }
 
-  function openModal(url, pushState) {
+  openModal = function (url, pushState) {
     lastFocused = document.activeElement;
     fetch(url, { headers: { "X-Requested-With": "XMLHttpRequest" } })
       .then(function (response) {
@@ -274,7 +293,7 @@
       .catch(function () {
         window.location.href = url;
       });
-  }
+  };
 
   window.history.replaceState({ modal: false, url: currentUrl }, "", currentUrl);
 

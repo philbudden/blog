@@ -1,27 +1,29 @@
 <header class="site-header">
-  <div class="site-header__inner">
-    <div class="site-header__brand-block">
-      <a class="site-brand" href="{{ '/' | relative_url }}">
-        <span class="site-brand__eyebrow">secondbrain / published</span>
-        <span class="site-brand__title">{{ site.title }}</span>
-      </a>
-      <p class="site-brand__context">An external publishing surface for the Obsidian vault.</p>
+  <div class="note-toolbar">
+    <div class="note-toolbar__path">
+      {% if page.body_class == "page-home" %}
+        published / blog
+      {% elsif page.body_class == "page-tags" %}
+        published / tags
+      {% elsif page.body_class == "page-series-index" %}
+        published / series
+      {% elsif page.layout == "series" %}
+        series / {{ page.title | downcase }}
+      {% elsif page.layout == "article" %}
+        post / {{ page.title | downcase }}
+      {% else %}
+        published / {{ page.title | default: site.title | downcase }}
+      {% endif %}
     </div>
 
-    <div class="site-header__actions">
-      <nav class="site-nav" aria-label="Primary">
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/tags/' | relative_url }}">Tags</a>
-        <a href="{{ '/series/' | relative_url }}">Series</a>
-      </nav>
-
+    <div class="note-toolbar__actions">
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
         <span aria-hidden="true">◐</span>
       </button>
     </div>
   </div>
 
-  <div class="search-shell">
+  <form class="search-shell" id="search-posts" data-search-form>
     <label class="search-shell__label" for="site-search">Search posts</label>
     <input
       class="search-shell__input"
@@ -35,5 +37,5 @@
     >
     <p class="search-shell__help" id="site-search-help">Fuzzy search across post titles, summaries, tags, series, and dates.</p>
     <div class="search-results" data-search-results hidden></div>
-  </div>
+  </form>
 </header>

@@ -15,6 +15,16 @@ is_listing: true
   </header>
 
   <section class="browse-panel">
+    <div class="browse-panel__section" id="browse-series">
+      <h2>Browse series</h2>
+      <div class="chip-row" data-series-toolbar>
+        <button class="series-chip series-chip--button is-active" type="button" data-series-filter-reset>All series</button>
+        {% assign sorted_series = site.series | sort: "title" %}
+        {% for entry in sorted_series %}
+          <button class="series-chip series-chip--button" type="button" data-series-filter-button="{{ entry.slug | downcase }}">{{ entry.title }}</button>
+        {% endfor %}
+      </div>
+    </div>
     <div class="browse-panel__section" id="filter-by-tag">
       <h2>Filter by tag</h2>
       <div class="chip-row" data-tag-toolbar>
@@ -24,16 +34,6 @@ is_listing: true
           {% if tag != "" %}
             <button class="tag-chip tag-chip--button" type="button" data-tag-filter-button="{{ tag | downcase }}">{{ tag }}</button>
           {% endif %}
-        {% endfor %}
-      </div>
-    </div>
-    <div class="browse-panel__section" id="browse-series">
-      <h2>Browse series</h2>
-      <div class="chip-row" data-series-toolbar>
-        <button class="series-chip series-chip--button is-active" type="button" data-series-filter-reset>All series</button>
-        {% assign sorted_series = site.series | sort: "title" %}
-        {% for entry in sorted_series %}
-          <button class="series-chip series-chip--button" type="button" data-series-filter-button="{{ entry.slug | downcase }}">{{ entry.title }}</button>
         {% endfor %}
       </div>
     </div>
