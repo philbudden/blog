@@ -168,6 +168,8 @@ setup:
 ## Deployment
 
 This project includes `.github/workflows/pages.yml` for GitHub Pages.
+The current external repository is [philbudden/blog](https://github.com/philbudden/blog).
+It is currently deployed at [https://www.data-savvy-solutions.com/blog/](https://www.data-savvy-solutions.com/blog/).
 
 Typical deployment flow:
 
@@ -175,6 +177,9 @@ Typical deployment flow:
 2. Push to the `main` branch.
 3. Enable GitHub Pages for the repository.
 4. Let the workflow build and deploy the site.
+
+If you deploy the site under a different host or path, update `url` and
+`baseurl` in `_config.yml` so asset and page links resolve correctly.
 
 ## Assumptions
 
