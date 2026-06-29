@@ -79,15 +79,18 @@
           }
         });
         miniSearch.addAll(documents);
+        var currentResults = [];
 
         function renderResults(query) {
           if (!query) {
+            currentResults = [];
             searchResults.hidden = true;
             searchResults.innerHTML = "";
             return;
           }
 
           var results = miniSearch.search(query, { combineWith: "OR" }).slice(0, 8);
+          currentResults = results;
           searchResults.hidden = false;
 
           if (!results.length) {
@@ -119,53 +122,100 @@
         searchInput.addEventListener("input", function () {
           renderResults(searchInput.value.trim());
         });
+
+        searchInput.addEventListener("keydown", function (event) {
+          if (event.key !== "Enter") return;
+          var query = searchInput.value.trim();
+          renderResults(query);
+          if (!currentResults.length) return;
+          event.preventDefault();
+          var firstResult = currentResults[0];
+          var resultUrl = firstResult.url;
+          if (document.body.dataset.listingPage === "true" && typeof openModal === "function") {
+            openModal(resultUrl, true);
+          } else {
+            window.location.href = resultUrl;
+          }
+        });
       })
       .catch(function () {
         searchResults.hidden = true;
       });
   }
 
-  document.querySelectorAll("[data-tag-toolbar]").forEach(function (toolbar) {
-    var container = toolbar.closest(".page-shell");
-    var list = container ? container.querySelector("[data-post-list]") : null;
+  document.querySelectorAll(".page-shell").forEach(function (container) {
+    var list = container.querySelector("[data-post-list]");
     if (!list) return;
 
-    var buttons = toolbar.querySelectorAll("[data-tag-filter-button]");
-    var resetButton = toolbar.querySelector("[data-filter-reset]");
     var cards = list.querySelectorAll("[data-filterable-post]");
+    var tagToolbar = container.querySelector("[data-tag-toolbar]");
+    var seriesToolbar = container.querySelector("[data-series-toolbar]");
+    var currentTag = "";
+    var currentSeries = "";
 
-    function setActive(button) {
-      toolbar.querySelectorAll(".tag-chip--button").forEach(function (item) {
-        item.classList.toggle("is-active", item === button);
-      });
-    }
-
-    function filterBy(tag) {
+    function applyFilters() {
       cards.forEach(function (card) {
         var tags = card.dataset.tags || "";
-        var show = !tag || tags.indexOf(tag) !== -1;
-        card.classList.toggle("hidden-by-filter", !show);
+        var series = card.dataset.series || "";
+        var matchesTag = !currentTag || tags.indexOf(currentTag) !== -1;
+        var matchesSeries = !currentSeries || series === currentSeries;
+        card.classList.toggle("hidden-by-filter", !(matchesTag && matchesSeries));
       });
     }
 
-    if (resetButton) {
-      resetButton.addEventListener("click", function () {
-        setActive(resetButton);
-        filterBy("");
+    function setActive(toolbar, selector, activeButton) {
+      if (!toolbar) return;
+      toolbar.querySelectorAll(selector).forEach(function (item) {
+        item.classList.toggle("is-active", item === activeButton);
       });
     }
 
-    buttons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        setActive(button);
-        filterBy(button.dataset.tagFilterButton);
-      });
-    });
+    if (tagToolbar) {
+      var tagButtons = tagToolbar.querySelectorAll("[data-tag-filter-button]");
+      var tagResetButton = tagToolbar.querySelector("[data-filter-reset]");
 
-    if (window.location.hash) {
-      var hash = window.location.hash.slice(1);
-      var matching = toolbar.querySelector('[id="' + CSS.escape(hash) + '"]');
-      if (matching) matching.click();
+      if (tagResetButton) {
+        tagResetButton.addEventListener("click", function () {
+          currentTag = "";
+          setActive(tagToolbar, ".tag-chip--button", tagResetButton);
+          applyFilters();
+        });
+      }
+
+      tagButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          currentTag = button.dataset.tagFilterButton;
+          setActive(tagToolbar, ".tag-chip--button", button);
+          applyFilters();
+        });
+      });
+
+      if (window.location.hash) {
+        var hash = window.location.hash.slice(1);
+        var matching = tagToolbar.querySelector('[id="' + CSS.escape(hash) + '"]');
+        if (matching) matching.click();
+      }
+    }
+
+    if (seriesToolbar) {
+      var seriesButtons = seriesToolbar.querySelectorAll("[data-series-filter-button]");
+      var seriesResetButton = seriesToolbar.querySelector("[data-series-filter-reset]");
+
+      if (seriesResetButton) {
+        seriesResetButton.addEventListener("click", function () {
+          currentSeries = "";
+          setActive(seriesToolbar, ".series-chip--button", seriesResetButton);
+          applyFilters();
+        });
+      }
+
+      seriesButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          currentSeries = button.dataset.seriesFilterButton;
+          setActive(seriesToolbar, ".series-chip--button", button);
+          applyFilters();
+        });
+      });
     }
   });
 

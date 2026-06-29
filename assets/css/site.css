@@ -372,7 +372,8 @@ img {
 
 .tag-chip,
 .tag-chip--button,
-.series-chip {
+.series-chip,
+.series-chip--button {
   display: inline-flex;
   align-items: center;
   min-height: 2rem;
@@ -386,13 +387,16 @@ img {
   font-size: 0.88rem;
 }
 
-.tag-chip--button {
+.tag-chip--button,
+.series-chip--button {
   cursor: pointer;
 }
 
 .tag-chip--button.is-active,
+.series-chip--button.is-active,
 .tag-chip:hover,
-.series-chip:hover {
+.series-chip:hover,
+.series-chip--button:hover {
   background: rgba(26, 125, 164, 0.16);
   border-color: rgba(26, 125, 164, 0.34);
 }
