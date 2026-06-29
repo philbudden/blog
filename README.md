@@ -170,6 +170,7 @@ setup:
 This project includes `.github/workflows/pages.yml` for GitHub Pages.
 The current external repository is [philbudden/blog](https://github.com/philbudden/blog).
 It is currently deployed at [https://www.data-savvy-solutions.com/blog/](https://www.data-savvy-solutions.com/blog/).
+The public RSS feed lives at [https://www.data-savvy-solutions.com/blog/feed.xml](https://www.data-savvy-solutions.com/blog/feed.xml).
 
 Typical deployment flow:
 
@@ -191,7 +192,6 @@ If you deploy the site under a different host or path, update `url` and
 
 ## Future enhancements
 
-- RSS feed
 - sitemap and robots.txt tuning
 - SEO metadata and social cards
 - pagination for larger archives

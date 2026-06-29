@@ -210,6 +210,28 @@ img {
   border-radius: 0.9rem;
 }
 
+.header-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.9rem;
+  background: var(--color-surface);
+  color: var(--color-accent);
+  font-family: var(--font-ui);
+  font-size: 0.96rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.header-chip:hover,
+.header-chip:focus-visible {
+  background: var(--color-surface-strong);
+  color: var(--color-accent);
+}
+
 .theme-toggle {
   border: 1px solid var(--color-border);
   background: var(--color-surface);
@@ -762,6 +784,10 @@ img {
   .theme-toggle {
     width: 2.85rem;
     height: 2.85rem;
+  }
+
+  .header-chip {
+    min-height: 2.85rem;
   }
 
   .browse-panel__section,
