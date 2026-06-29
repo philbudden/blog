@@ -9,13 +9,13 @@ is_listing: true
 
 <section class="page-shell">
   <header class="page-heading">
-    <p class="page-heading__eyebrow">Latest writing</p>
-    <h1>A Markdown-first blog shaped like an Obsidian vault.</h1>
-    <p class="page-heading__summary">Recent posts, quick tag filters, and series browsing with progressive-enhancement article overlays.</p>
+    <p class="page-heading__eyebrow">daily / blog</p>
+    <h1>Philip Budden</h1>
+    <p class="page-heading__summary">Writing from the same system I use to think: notes, diaries, technical guides, and longer reflections on local AI, infrastructure, and knowledge work.</p>
   </header>
 
   <section class="browse-panel">
-    <div>
+    <div class="browse-panel__section">
       <h2>Filter by tag</h2>
       <div class="chip-row" data-tag-toolbar>
         <button class="tag-chip tag-chip--button is-active" type="button" data-filter-reset>All posts</button>
@@ -27,7 +27,7 @@ is_listing: true
         {% endfor %}
       </div>
     </div>
-    <div>
+    <div class="browse-panel__section">
       <h2>Browse series</h2>
       <div class="chip-row">
         {% assign sorted_series = site.series | sort: "title" %}
