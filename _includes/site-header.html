@@ -17,6 +17,9 @@
     </div>
 
     <div class="note-toolbar__actions">
+      {% unless page.body_class == "page-home" %}
+        <a class="header-chip" href="{{ '/' | relative_url }}">Home</a>
+      {% endunless %}
       <a class="header-chip" href="{{ '/feed.xml' | relative_url }}">RSS</a>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
         <span aria-hidden="true">◐</span>
