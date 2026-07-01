@@ -4,9 +4,11 @@ date: 2026-02-03
 summary: "A practical guide to writing clearer prompts for generative AI, with an emphasis on context, constraints, and usable outputs."
 tags:
   - ai
+  - working-with-ai
   - prompting
   - writing
   - productivity
+series: working-with-ai
 draft: false
 layout: article
 ---
