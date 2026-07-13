@@ -11,7 +11,7 @@ body_class: page-blog
     <div>
       <p class="section-kicker">Writing archive</p>
       <h1>Essays, diaries, and technical reflections.</h1>
-      <p class="archive-hero__summary">Notes from the practical edge of working with AI, systems, infrastructure, and knowledge work, with recurring series and topic filters for the archive.</p>
+      <p class="archive-hero__summary">Notes from the practical edge of working with AI, systems, infrastructure, and knowledge work, organised around recurring series and a chronological archive.</p>
     </div>
     <div class="archive-hero__aside">
       <p>The archive mixes shorter essays, technical notes, and longer reflections on the systems decisions that determine whether AI becomes useful in practice.</p>
@@ -26,18 +26,6 @@ body_class: page-blog
         {% assign sorted_series = site.series | sort: "title" %}
         {% for entry in sorted_series %}
           <button class="filter-chip" type="button" data-series-filter-button="{{ entry.slug | downcase }}">{{ entry.title }}</button>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="archive-controls__group">
-      <p class="section-kicker">Topics</p>
-      <div class="filter-row" data-tag-toolbar>
-        <button class="filter-chip is-active" type="button" data-filter-reset>All writing</button>
-        {% assign all_tags = published_articles | map: "tags" | join: "|" | split: "|" | uniq | sort_natural %}
-        {% for tag in all_tags %}
-          {% if tag != "" %}
-            <button class="filter-chip" type="button" data-tag-filter-button="{{ tag | downcase }}">{{ tag }}</button>
-          {% endif %}
         {% endfor %}
       </div>
     </div>
