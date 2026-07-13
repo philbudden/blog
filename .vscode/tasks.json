@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Jekyll Preview",
+      "type": "shell",
+      "command": "bundle exec jekyll serve --livereload --host 0.0.0.0 --port 4000",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false
+      },
+      "problemMatcher": {
+        "owner": "jekyll",
+        "pattern": {
+          "regexp": "^(Error: .*)$",
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*Generating.*",
+          "endsPattern": ".*Server running.*"
+        }
+      }
+    },
+    {
+      "label": "Build Jekyll Site",
+      "type": "shell",
+      "command": "bundle exec jekyll build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

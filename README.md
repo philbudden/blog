@@ -182,6 +182,35 @@ Typical deployment flow:
 If you deploy the site under a different host or path, update `url` and
 `baseurl` in `_config.yml` so asset and page links resolve correctly.
 
+## Local preview with a devcontainer
+
+This repo includes a standard `.devcontainer/` setup for local and remote VS Code development without installing Ruby, Bundler, or Jekyll on the host.
+
+The intended remote workflow matches the `Neo to Mac Mini Remote Dev Setup` note:
+
+1. From the Neo, connect to the Mini with VS Code Remote SSH.
+2. Open `~/Developer/philbudden-blog` on the Mini.
+3. Run `Dev Containers: Reopen in Container`.
+4. Start the preview with the repo task:
+
+   `Terminal -> Run Task... -> Start Jekyll Preview`
+
+   Or run the underlying command manually in the container terminal:
+
+```bash
+bundle exec jekyll serve --livereload --host 0.0.0.0 --port 4000
+```
+
+5. Open the forwarded preview port from VS Code on the Neo.
+
+Notes:
+
+- Port `4000` is the Jekyll preview site.
+- Port `35729` is LiveReload.
+- The repo also includes a `Build Jekyll Site` task for one-off local validation without starting the preview server.
+- Binding to `0.0.0.0` is required so the forwarded port can reach Jekyll from outside the container.
+- The container uses the multi-architecture `mcr.microsoft.com/devcontainers/ruby` base image, so Apple Silicon runs natively where available and non-native fallback remains possible through the container runtime.
+
 ## Assumptions
 
 - The site lives as a self-contained repo snapshot under `work/blog-site/`.
