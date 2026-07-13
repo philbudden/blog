@@ -67,20 +67,6 @@ body_class: page-home
             <p>{{ featured_publication.summary }}</p>
             <a class="action-link" href="{{ featured_publication.url | relative_url }}">Read the essay</a>
           </div>
-          <div class="feature-publication__art" aria-hidden="true">
-            <div class="publication-sheet">
-              <div class="publication-sheet__band"></div>
-              <div class="publication-sheet__body">
-                <p class="publication-sheet__eyebrow">{{ featured_publication.publication_kind | default: "Publication" }}</p>
-                <h3>{{ featured_publication.title }}</h3>
-                <p class="publication-sheet__summary">A practical framework for moving from experimentation to responsible adoption in real organisational settings.</p>
-                <div class="publication-sheet__footer">
-                  <span>Philip Budden</span>
-                  <span>Edition 01</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       {% else %}
         <div class="feature-publication">
