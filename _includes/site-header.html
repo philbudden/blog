@@ -1,40 +1,42 @@
 <header class="site-header">
-  <div class="site-header__inner">
-    <div class="site-header__brand-block">
-      <a class="site-brand" href="{{ '/' | relative_url }}">
-        <span class="site-brand__eyebrow">Philip Budden</span>
-        <span class="site-brand__title">Responsible AI, data, and architecture</span>
-      </a>
-      <p class="site-brand__context">Practical writing for people turning AI ideas into useful, accountable systems.</p>
-    </div>
+  <div class="site-header__bar">
+    <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="Philip Budden, home">
+      <span class="site-brand__mark" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="site-brand__copy">
+        <span class="site-brand__name">Philip Budden</span>
+        <span class="site-brand__descriptor">AI strategy · systems · leadership</span>
+      </span>
+    </a>
 
-    <div class="site-header__actions">
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/publications/' | relative_url }}">Publications</a>
-        <a href="{{ '/blog/' | relative_url }}">Blog</a>
-        <a href="{{ '/about/' | relative_url }}">About</a>
-      </nav>
-      <a class="header-chip" href="{{ '/feed.xml' | relative_url }}">RSS</a>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">
-        <span aria-hidden="true">◐</span>
-      </button>
-    </div>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="{{ '/blog/' | relative_url }}">Writing</a>
+      <a href="{{ '/publications/' | relative_url }}">Publications</a>
+      <a href="{{ '/tags/' | relative_url }}">Topics</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </nav>
   </div>
 
-  <form class="search-shell" id="search-posts" data-search-form>
-    <label class="search-shell__label" for="site-search">Search site</label>
-    <input
-      class="search-shell__input"
-      id="site-search"
-      type="search"
-      name="q"
-      placeholder="Search writing, publications, tags, topics, or dates"
-      autocomplete="off"
-      data-search-input
-      aria-describedby="site-search-help"
-    >
-    <p class="search-shell__help" id="site-search-help">Search across posts, publications, topics, tags, and dates.</p>
+  <form class="site-search" id="search-posts" data-search-form>
+    <label class="site-search__label" for="site-search">Search the archive</label>
+    <div class="site-search__row">
+      <input
+        class="site-search__input"
+        id="site-search"
+        type="search"
+        name="q"
+        placeholder="Search essays, publications, topics, or dates"
+        autocomplete="off"
+        data-search-input
+        aria-describedby="site-search-help"
+      >
+      <button class="site-search__button" type="submit">Open best match</button>
+    </div>
+    <p class="site-search__help" id="site-search-help">Search across writing, publications, topics, tags, series, and dates.</p>
     <div class="search-results" data-search-results hidden></div>
   </form>
 </header>

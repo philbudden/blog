@@ -6,29 +6,21 @@ summary: Whitepapers, frameworks, guides, reports, and other long-form public ar
 ---
 {% assign published_publications = site.publications | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
 
-<section class="page-shell">
-  <header class="page-heading">
-    <p class="page-heading__eyebrow">publications</p>
-    <h1>Publications</h1>
-    <p class="page-heading__summary">Whitepapers, frameworks, guides, and other longer-form work for readers who want more than a short post.</p>
+<section class="archive-shell archive-shell--publications">
+  <header class="archive-hero">
+    <div>
+      <p class="section-kicker">Publications</p>
+      <h1>Long-form work with more room to think.</h1>
+      <p class="archive-hero__summary">Whitepapers, frameworks, and longer arguments for readers who want more than a short post.</p>
+    </div>
+    <div class="archive-hero__aside">
+      <p>These pieces are intended to be durable: structured, referenceable, and eventually paired with downloadable PDFs where appropriate.</p>
+    </div>
   </header>
 
-  <section class="publication-model">
-    <div>
-      <h2>Longer arguments, practical tools</h2>
-      <p>This section is for pieces that need room to develop an argument, define a model, or give people something practical to use in their own work.</p>
-    </div>
-    <p class="publication-model__note">Expect work on responsible AI adoption, AI strategy, data foundations, and the architecture needed to make these systems dependable.</p>
-  </section>
-
-  <section class="listing-section">
-    <div class="section-heading">
-      <h2>Publications</h2>
-    </div>
-    <div class="publication-list">
-      {% for publication in published_publications %}
-        {% include publication-card.html publication=publication %}
-      {% endfor %}
-    </div>
+  <section class="archive-list archive-list--publications">
+    {% for publication in published_publications %}
+      {% include publication-card.html publication=publication %}
+    {% endfor %}
   </section>
 </section>

@@ -1,27 +1,25 @@
-{% assign publication = include.publication %}
 {% assign words = publication.content | strip_html | number_of_words %}
 {% assign reading_time = words | divided_by: 200.0 | ceil %}
-<article class="publication-card{% if publication.placeholder %} publication-card--placeholder{% endif %}">
-  <p class="publication-card__eyebrow">
-    {{ publication.publication_kind | default: "Publication" }}
-    {% if publication.placeholder %} / forthcoming{% endif %}
-  </p>
-  <h3><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3>
-  <div class="publication-card__meta">
+<article class="archive-entry archive-entry--publication {% if publication.placeholder %}archive-entry--placeholder{% endif %}">
+  <div class="archive-entry__date">
     {% if publication.date %}
-      <time datetime="{{ publication.date | date_to_xmlschema }}">{{ publication.date | date: "%-d %B %Y" }}</time>
-    {% endif %}
-    <span>{{ reading_time }} min read</span>
-    {% if publication.pdf_url %}
-      <a href="{{ publication.pdf_url | relative_url }}">Download PDF</a>
+      <time datetime="{{ publication.date | date_to_xmlschema }}">{{ publication.date | date: "%b %-d, %Y" }}</time>
     {% endif %}
   </div>
-  <p>{{ publication.summary | default: publication.excerpt | strip_html | strip_newlines }}</p>
-  {% if publication.topics and publication.topics.size > 0 %}
-    <div class="chip-row" aria-label="Topics">
-      {% for topic in publication.topics %}
-        <span class="tag-chip">{{ topic }}</span>
-      {% endfor %}
-    </div>
-  {% endif %}
+  <div class="archive-entry__content">
+    <p class="archive-entry__eyebrow">
+      {{ publication.publication_kind | default: "Publication" }}
+      <span>{% if publication.placeholder %}Forthcoming{% else %}{{ reading_time }} min read{% endif %}</span>
+    </p>
+    <h3 class="archive-entry__title"><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3>
+    <p class="archive-entry__summary">{{ publication.summary }}</p>
+    {% if publication.topics and publication.topics.size > 0 %}
+      <div class="archive-entry__tags" aria-label="Topics">
+        {% for topic in publication.topics %}
+          <span class="tag-chip">{{ topic }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <a class="archive-entry__arrow" href="{{ publication.url | relative_url }}" aria-label="Open {{ publication.title }}">→</a>
 </article>

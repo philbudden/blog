@@ -4,92 +4,109 @@ title: Home
 body_class: page-home
 ---
 {% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
-{% assign latest_articles = published_articles | slice: 0, 3 %}
+{% assign latest_articles = published_articles | slice: 0, 4 %}
 {% assign published_publications = site.publications | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
 {% assign featured_publication = published_publications | first %}
 
-<section class="page-shell">
+<section class="home-shell">
   <header class="home-hero">
-    <p class="page-heading__eyebrow">AI / data / architecture</p>
-    <h1>Responsible AI adoption needs clear thinking and grounded delivery.</h1>
-    <p class="home-hero__summary">Practical writing on AI adoption, strategy, data engineering, and architecture for people trying to make useful decisions in real organisations.</p>
-    <div class="home-hero__actions">
-      <a class="button-link button-link--primary" href="{{ '/publications/' | relative_url }}">Read publications</a>
-      <a class="button-link" href="{{ '/blog/' | relative_url }}">Browse the blog</a>
+    <div class="home-hero__copy">
+      <p class="section-kicker">AI strategy. Responsible by design.</p>
+      <h1>Building AI systems that earn trust and deliver compounding value.</h1>
+      <p class="home-hero__summary">I write about responsible AI adoption, strategy, architecture, and leadership with a focus on systems that are reliable, observable, and built to scale with integrity.</p>
+      <div class="home-hero__actions">
+        <a class="action-link action-link--primary" href="{{ '/blog/' | relative_url }}">Explore my writing</a>
+        <a class="action-link" href="{{ '/about/' | relative_url }}">About me</a>
+      </div>
+    </div>
+    <div class="systems-graphic" aria-hidden="true">
+      <div class="systems-graphic__grid"></div>
+      <div class="systems-graphic__layer systems-graphic__layer--top"></div>
+      <div class="systems-graphic__layer systems-graphic__layer--mid"></div>
+      <div class="systems-graphic__layer systems-graphic__layer--focus"></div>
+      <div class="systems-graphic__layer systems-graphic__layer--base"></div>
+      <div class="systems-graphic__labels">
+        <div><span>People &amp; process</span><small>Alignment, roles, and ways of working</small></div>
+        <div><span>Model &amp; application</span><small>Capabilities, evaluation, and safety</small></div>
+        <div><span>Data &amp; infrastructure</span><small>Pipelines, platforms, and governance</small></div>
+        <div><span>Foundation</span><small>Principles, risk posture, and accountability</small></div>
+      </div>
     </div>
   </header>
 
-  <section class="home-grid" aria-label="Featured areas">
-    <article class="feature-card feature-card--accent">
-      <p class="feature-card__eyebrow">Focus</p>
-      <h2>Judgement matters more as AI does more.</h2>
-      <p>When execution gets cheaper, the hard work shifts towards choosing the right problems, setting clear constraints, evaluating outputs, and staying accountable for the result.</p>
-    </article>
-    <article class="feature-card">
-      <p class="feature-card__eyebrow">Areas</p>
-      <h2>AI adoption, strategy, data, and architecture.</h2>
-      <p>The common thread is making AI useful without losing sight of governance, data foundations, operating models, and the people who have to work with the systems.</p>
-    </article>
-  </section>
+  <section class="home-grid">
+    <section class="home-panel home-panel--publication">
+      <p class="section-kicker">Featured publication</p>
+      {% if featured_publication %}
+        <div class="feature-publication">
+          <div class="feature-publication__copy">
+            <h2>{{ featured_publication.title }}</h2>
+            <p>{{ featured_publication.summary }}</p>
+            <a class="action-link" href="{{ featured_publication.url | relative_url }}">Read the essay</a>
+          </div>
+          <div class="feature-publication__art" aria-hidden="true">
+            <div class="feature-publication__art-frame"></div>
+          </div>
+        </div>
+      {% else %}
+        <div class="feature-publication">
+          <div class="feature-publication__copy">
+            <h2>Long-form work will appear here</h2>
+            <p>Whitepapers, frameworks, and guides will sit alongside the blog when a short post is not enough.</p>
+          </div>
+        </div>
+      {% endif %}
+    </section>
 
-  <section class="listing-section">
-    <div class="section-heading">
-      <h2>Featured publication</h2>
-      <a href="{{ '/publications/' | relative_url }}">All publications</a>
-    </div>
-    {% if featured_publication %}
-      {% include publication-card.html publication=featured_publication %}
-    {% else %}
-      <article class="publication-card publication-card--placeholder">
-        <p class="publication-card__eyebrow">Forthcoming</p>
-        <h3>Longer-form work will appear here</h3>
-        <p>Whitepapers, frameworks, and guides will sit alongside the blog when they need more room than a short post.</p>
-      </article>
-    {% endif %}
-  </section>
+    <section class="home-panel home-panel--writing">
+      <div class="home-panel__heading">
+        <p class="section-kicker">Recent writing</p>
+        <a href="{{ '/blog/' | relative_url }}">View all</a>
+      </div>
+      <div class="writing-list">
+        {% for post in latest_articles %}
+          <article class="writing-list__item">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <div>
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+              {% if post.tags and post.tags.size > 0 %}
+                <p>{{ post.tags | first }}</p>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
 
-  <section class="home-topics" aria-label="Topics">
-    <div class="section-heading">
-      <h2>What I write about</h2>
-    </div>
-    <div class="topic-grid">
-      <article>
-        <h3>Responsible AI adoption</h3>
-        <p>Moving beyond experiments into practices that are useful, explainable, and accountable.</p>
-      </article>
-      <article>
-        <h3>AI strategy</h3>
-        <p>Choosing where AI should help, where it should not, and what capabilities need to exist around it.</p>
-      </article>
-      <article>
-        <h3>Data engineering</h3>
-        <p>The less glamorous foundations that make better decisions and reliable AI work possible.</p>
-      </article>
-      <article>
-        <h3>AI architecture</h3>
-        <p>Patterns, constraints, and operating models for systems that include people and models.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="listing-section" id="latest-posts">
-    <div class="section-heading">
-      <h2>Latest writing</h2>
-      <a href="{{ '/blog/' | relative_url }}">All posts</a>
-    </div>
-    <div class="post-list" data-post-list>
-      {% for post in latest_articles %}
-        {% include post-card.html post=post %}
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="home-about">
-    <div>
-      <p class="page-heading__eyebrow">About</p>
-      <h2>Writing for people trying to make useful decisions about AI and data.</h2>
-      <p>I’m interested in the practical middle ground between hype and resistance: the place where strategy, engineering judgement, governance, and organisational reality all meet.</p>
-    </div>
-    <a class="button-link" href="{{ '/about/' | relative_url }}">Read more</a>
+    <section class="home-panel home-panel--areas">
+      <p class="section-kicker">Topics &amp; practice areas</p>
+      <div class="areas-grid">
+        <article class="area-card">
+          <div class="area-card__icon area-card__icon--stack"></div>
+          <h3>AI Strategy</h3>
+          <p>Aligning AI initiatives with business strategy, operating models, and measurable outcomes.</p>
+        </article>
+        <article class="area-card">
+          <div class="area-card__icon area-card__icon--network"></div>
+          <h3>AI Architecture</h3>
+          <p>Designing resilient, scalable systems that integrate models, tools, and data effectively.</p>
+        </article>
+        <article class="area-card">
+          <div class="area-card__icon area-card__icon--data"></div>
+          <h3>Data Engineering</h3>
+          <p>Building trustworthy data foundations: pipelines, platforms, quality, and governance.</p>
+        </article>
+        <article class="area-card">
+          <div class="area-card__icon area-card__icon--shield"></div>
+          <h3>Responsible AI</h3>
+          <p>Managing risk, safety, privacy, and compliance across the AI lifecycle.</p>
+        </article>
+        <article class="area-card">
+          <div class="area-card__icon area-card__icon--people"></div>
+          <h3>Technical Leadership</h3>
+          <p>Leading teams and organisations through complexity with clarity and integrity.</p>
+        </article>
+      </div>
+    </section>
   </section>
 </section>

@@ -4,38 +4,61 @@ layout: default
 {% assign words = page.content | strip_html | number_of_words %}
 {% assign reading_time = words | divided_by: 200.0 | ceil %}
 
-<article class="article-page publication-page">
-  <header class="article-hero">
-    <p class="article-hero__eyebrow">publication / {{ page.publication_kind | default: "long-form" }}</p>
+<article class="reading-shell reading-shell--publication">
+  <header class="reading-hero">
+    <p class="section-kicker">{{ page.publication_kind | default: "Publication" }}</p>
     <h1>{{ page.title }}</h1>
-    <div class="article-hero__meta">
-      {% if page.date %}
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
-      {% endif %}
-      <span>{{ reading_time }} min read</span>
-      {% if page.pdf_url %}
-        <a href="{{ page.pdf_url | relative_url }}">Download PDF</a>
-      {% endif %}
-    </div>
     {% if page.summary %}
-      <p class="article-hero__summary">{{ page.summary }}</p>
-    {% endif %}
-    {% if page.topics and page.topics.size > 0 %}
-      <div class="article-hero__tags" aria-label="Topics">
-        {% for topic in page.topics %}
-          <span class="tag-chip">{{ topic }}</span>
-        {% endfor %}
-      </div>
+      <p class="reading-hero__summary">{{ page.summary }}</p>
     {% endif %}
   </header>
 
-  {% if page.placeholder %}
-    <aside class="placeholder-note" aria-label="Forthcoming publication notice">
-      <strong>Forthcoming publication.</strong> This page introduces the topic ahead of the full paper.
+  <div class="reading-layout">
+    <aside class="reading-sidebar">
+      {% if page.date %}
+        <div class="reading-sidebar__panel">
+          <p class="reading-sidebar__label">Published</p>
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+        </div>
+      {% endif %}
+      <div class="reading-sidebar__panel">
+        <p class="reading-sidebar__label">Reading time</p>
+        <p>{{ reading_time }} min</p>
+      </div>
+      <div class="reading-sidebar__panel">
+        <p class="reading-sidebar__label">Format</p>
+        <p>{{ page.publication_kind | default: "Publication" }}</p>
+      </div>
+      <div class="reading-sidebar__panel">
+        <p class="reading-sidebar__label">PDF</p>
+        {% if page.pdf_url %}
+          <a href="{{ page.pdf_url | relative_url }}">Download PDF</a>
+        {% else %}
+          <p>PDF forthcoming</p>
+        {% endif %}
+      </div>
+      {% if page.topics and page.topics.size > 0 %}
+        <div class="reading-sidebar__panel">
+          <p class="reading-sidebar__label">Topics</p>
+          <div class="reading-sidebar__tags">
+            {% for topic in page.topics %}
+              <span class="tag-chip">{{ topic }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
     </aside>
-  {% endif %}
 
-  <div class="article-prose">
-    {{ content }}
+    <div class="reading-main">
+      {% if page.placeholder %}
+        <aside class="notice-panel" aria-label="Forthcoming publication notice">
+          <strong>Forthcoming publication.</strong> This page is a public holding page until the full paper and downloadable PDF are ready.
+        </aside>
+      {% endif %}
+
+      <div class="article-prose">
+        {{ content }}
+      </div>
+    </div>
   </div>
 </article>

@@ -9,7 +9,7 @@
   {% assign meta_title = site.title %}
 {% endif %}
 <meta name="description" content="{{ page_description | escape }}">
-<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f7fb">
 <link rel="canonical" href="{{ canonical_url }}">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:title" content="{{ meta_title | escape }}">
@@ -21,10 +21,3 @@
 <meta name="twitter:description" content="{{ page_description | escape }}">
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS Feed" href="{{ '/feed.xml' | absolute_url }}">
-<script>
-  (function () {
-    var key = "blog-theme-v2";
-    var stored = localStorage.getItem(key);
-    document.documentElement.dataset.theme = stored === "dark" ? "dark" : "light";
-  }());
-</script>

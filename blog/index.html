@@ -1,53 +1,51 @@
 ---
 layout: default
-title: Blog
+title: Writing
 body_class: page-blog
-is_listing: true
 ---
 {% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
 {% assign latest_articles = published_articles | slice: 0, site.latest_posts_count %}
 
-<section class="page-shell">
-  <header class="page-heading" id="blog-home">
-    <p class="page-heading__eyebrow">writing / blog</p>
-    <h1>Blog</h1>
-    <p class="page-heading__summary">Notes, diaries, technical guides, and reflections from the practical edge of working with AI, systems, infrastructure, and knowledge work.</p>
+<section class="archive-shell">
+  <header class="archive-hero">
+    <div>
+      <p class="section-kicker">Writing archive</p>
+      <h1>Essays, diaries, and technical reflections.</h1>
+      <p class="archive-hero__summary">Notes from the practical edge of working with AI, systems, infrastructure, and knowledge work, with recurring series and topic filters for the archive.</p>
+    </div>
+    <div class="archive-hero__aside">
+      <p>The archive mixes shorter essays, technical notes, and longer reflections on the systems decisions that determine whether AI becomes useful in practice.</p>
+    </div>
   </header>
 
-  <section class="browse-panel">
-    <div class="browse-panel__section" id="browse-series">
-      <h2>Browse series</h2>
-      <div class="chip-row" data-series-toolbar>
-        <button class="series-chip series-chip--button is-active" type="button" data-series-filter-reset>All series</button>
+  <section class="archive-controls">
+    <div class="archive-controls__group">
+      <p class="section-kicker">Series</p>
+      <div class="filter-row" data-series-toolbar>
+        <button class="filter-chip is-active" type="button" data-series-filter-reset>All series</button>
         {% assign sorted_series = site.series | sort: "title" %}
         {% for entry in sorted_series %}
-          <button class="series-chip series-chip--button" type="button" data-series-filter-button="{{ entry.slug | downcase }}">{{ entry.title }}</button>
+          <button class="filter-chip" type="button" data-series-filter-button="{{ entry.slug | downcase }}">{{ entry.title }}</button>
         {% endfor %}
       </div>
     </div>
-    <div class="browse-panel__section" id="filter-by-tag">
-      <h2>Filter by tag</h2>
-      <div class="chip-row" data-tag-toolbar>
-        <button class="tag-chip tag-chip--button is-active" type="button" data-filter-reset>All posts</button>
+    <div class="archive-controls__group">
+      <p class="section-kicker">Topics</p>
+      <div class="filter-row" data-tag-toolbar>
+        <button class="filter-chip is-active" type="button" data-filter-reset>All writing</button>
         {% assign all_tags = published_articles | map: "tags" | join: "|" | split: "|" | uniq | sort_natural %}
         {% for tag in all_tags %}
           {% if tag != "" %}
-            <button class="tag-chip tag-chip--button" type="button" data-tag-filter-button="{{ tag | downcase }}">{{ tag }}</button>
+            <button class="filter-chip" type="button" data-tag-filter-button="{{ tag | downcase }}">{{ tag }}</button>
           {% endif %}
         {% endfor %}
       </div>
     </div>
   </section>
 
-  <section class="listing-section" id="latest-posts">
-    <div class="section-heading">
-      <h2>Latest posts</h2>
-      <a href="{{ '/tags/' | relative_url }}">All tags</a>
-    </div>
-    <div class="post-list" data-post-list>
-      {% for post in latest_articles %}
-        {% include post-card.html post=post %}
-      {% endfor %}
-    </div>
+  <section class="archive-list" data-post-list>
+    {% for post in latest_articles %}
+      {% include post-card.html post=post %}
+    {% endfor %}
   </section>
 </section>
