@@ -72,10 +72,10 @@
       .then(function (response) { return response.json(); })
       .then(function (documents) {
         var miniSearch = new MiniSearch({
-          fields: ["title", "summary", "tags", "series", "date", "display_date"],
-          storeFields: ["title", "url", "summary", "tags", "series", "display_date", "reading_time"],
+          fields: ["title", "summary", "type", "tags", "topics", "series", "date", "display_date"],
+          storeFields: ["title", "url", "summary", "type", "tags", "topics", "series", "display_date", "reading_time"],
           searchOptions: {
-            boost: { title: 6, summary: 4, tags: 3, series: 2, date: 1 },
+            boost: { title: 6, summary: 4, tags: 3, topics: 3, series: 2, type: 2, date: 1 },
             prefix: true,
             fuzzy: 0.2
           }
@@ -96,13 +96,13 @@
           searchResults.hidden = false;
 
           if (!results.length) {
-            searchResults.innerHTML = "<p>No matching posts found.</p>";
+            searchResults.innerHTML = "<p>No matching public content found.</p>";
             return;
           }
 
           searchResults.innerHTML = '<div class="search-results__list">' + results.map(function (result) {
-            var tags = (result.tags || []).map(function (tag) {
-              return '<span class="tag-chip">' + escapeHtml(tag) + "</span>";
+            var tags = (result.tags || []).concat(result.topics || []).map(function (label) {
+              return '<span class="tag-chip">' + escapeHtml(label) + "</span>";
             }).join("");
             return (
               '<article class="search-result">' +
@@ -110,6 +110,7 @@
                   '<h2>' + escapeHtml(result.title) + '</h2>' +
                 '</a>' +
                 '<div class="search-result__meta">' +
+                  '<span>' + escapeHtml(result.type || "Post") + "</span>" +
                   '<span>' + escapeHtml(result.display_date || "") + "</span>" +
                   '<span>' + escapeHtml(String(result.reading_time || "")) + ' min read</span>' +
                   (result.series ? '<span>' + escapeHtml(result.series) + "</span>" : "") +

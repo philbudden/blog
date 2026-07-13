@@ -3,19 +3,44 @@ layout: none
 ---
 [
 {% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
+{% assign published_publications = site.publications | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
+{% assign search_index_has_items = false %}
 {% for post in published_articles %}
   {% assign words = post.content | strip_html | number_of_words %}
   {% assign reading_time = words | divided_by: 200.0 | ceil %}
+  {% if search_index_has_items %},{% endif %}
   {
     "id": {{ forloop.index0 }},
     "title": {{ post.title | jsonify }},
     "url": {{ post.url | relative_url | jsonify }},
     "summary": {{ post.summary | default: post.excerpt | strip_html | strip_newlines | jsonify }},
+    "type": "Post",
     "tags": {{ post.tags | jsonify }},
+    "topics": [],
     "series": {{ post.series | default: "" | jsonify }},
     "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
     "display_date": {{ post.date | date: "%-d %B %Y" | jsonify }},
     "reading_time": {{ reading_time | jsonify }}
-  }{% unless forloop.last %},{% endunless %}
+  }
+  {% assign search_index_has_items = true %}
+{% endfor %}
+{% for publication in published_publications %}
+  {% assign words = publication.content | strip_html | number_of_words %}
+  {% assign reading_time = words | divided_by: 200.0 | ceil %}
+  {% if search_index_has_items %},{% endif %}
+  {
+    "id": {{ forloop.index0 | plus: 10000 }},
+    "title": {{ publication.title | jsonify }},
+    "url": {{ publication.url | relative_url | jsonify }},
+    "summary": {{ publication.summary | default: publication.excerpt | strip_html | strip_newlines | jsonify }},
+    "type": {{ publication.publication_kind | default: "Publication" | jsonify }},
+    "tags": [],
+    "topics": {{ publication.topics | jsonify }},
+    "series": "",
+    "date": {{ publication.date | date: "%Y-%m-%d" | jsonify }},
+    "display_date": {{ publication.date | date: "%-d %B %Y" | jsonify }},
+    "reading_time": {{ reading_time | jsonify }}
+  }
+  {% assign search_index_has_items = true %}
 {% endfor %}
 ]
