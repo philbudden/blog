@@ -19,41 +19,42 @@ body_class: page-home
         <a class="action-link" href="{{ '/about/' | relative_url }}">About me</a>
       </div>
     </div>
-    <div class="systems-graphic" aria-hidden="true">
-      <div class="systems-graphic__field"></div>
-      <div class="systems-graphic__axis systems-graphic__axis--x"></div>
-      <div class="systems-graphic__axis systems-graphic__axis--y"></div>
-      <div class="systems-graphic__node systems-graphic__node--origin"></div>
-      <div class="systems-graphic__node systems-graphic__node--strategy"></div>
-      <div class="systems-graphic__node systems-graphic__node--systems"></div>
-      <div class="systems-graphic__node systems-graphic__node--delivery"></div>
-      <div class="systems-graphic__node systems-graphic__node--governance"></div>
-      <div class="systems-graphic__path systems-graphic__path--primary"></div>
-      <div class="systems-graphic__path systems-graphic__path--secondary"></div>
-      <div class="systems-graphic__path systems-graphic__path--vertical"></div>
-      <div class="systems-graphic__cluster systems-graphic__cluster--signals"></div>
-      <div class="systems-graphic__cluster systems-graphic__cluster--evidence"></div>
-      <div class="systems-graphic__annotation systems-graphic__annotation--strategy">
-        <span>Strategy</span>
-        <small>Direction and constraints</small>
+    <aside class="hero-framework" aria-label="Operating frame">
+      <div class="hero-framework__header">
+        <p class="section-kicker">An operating frame</p>
+        <p>The systems that earn trust tend to hold four things together at once.</p>
       </div>
-      <div class="systems-graphic__annotation systems-graphic__annotation--systems">
-        <span>Systems</span>
-        <small>Architecture and interfaces</small>
+      <div class="hero-framework__list">
+        <article class="hero-framework__item">
+          <p class="hero-framework__index">01</p>
+          <div>
+            <h2>Strategy</h2>
+            <p>Clear intent, explicit trade-offs, and decisions that survive contact with delivery.</p>
+          </div>
+        </article>
+        <article class="hero-framework__item">
+          <p class="hero-framework__index">02</p>
+          <div>
+            <h2>Data foundations</h2>
+            <p>Pipelines, context, and quality that determine whether outputs deserve confidence.</p>
+          </div>
+        </article>
+        <article class="hero-framework__item">
+          <p class="hero-framework__index">03</p>
+          <div>
+            <h2>Architecture</h2>
+            <p>Interfaces, controls, and operational boundaries that make systems observable and adaptable.</p>
+          </div>
+        </article>
+        <article class="hero-framework__item">
+          <p class="hero-framework__index">04</p>
+          <div>
+            <h2>Governance</h2>
+            <p>Accountability, review, and human judgement where the risk and ambiguity actually sit.</p>
+          </div>
+        </article>
       </div>
-      <div class="systems-graphic__annotation systems-graphic__annotation--delivery">
-        <span>Delivery</span>
-        <small>Reliable, observable, adaptable</small>
-      </div>
-      <div class="systems-graphic__annotation systems-graphic__annotation--governance">
-        <span>Governance</span>
-        <small>Guardrails and oversight</small>
-      </div>
-      <div class="systems-graphic__annotation systems-graphic__annotation--data">
-        <span>Data</span>
-        <small>Foundations and context</small>
-      </div>
-    </div>
+    </aside>
   </header>
 
   <section class="home-grid">
@@ -67,11 +68,17 @@ body_class: page-home
             <a class="action-link" href="{{ featured_publication.url | relative_url }}">Read the essay</a>
           </div>
           <div class="feature-publication__art" aria-hidden="true">
-            <div class="publication-plate">
-              <p class="publication-plate__eyebrow">{{ featured_publication.publication_kind | default: "Publication" }}</p>
-              <h3>{{ featured_publication.title }}</h3>
-              <div class="publication-plate__rule"></div>
-              <p class="publication-plate__meta">Responsible AI · strategy · architecture</p>
+            <div class="publication-sheet">
+              <div class="publication-sheet__band"></div>
+              <div class="publication-sheet__body">
+                <p class="publication-sheet__eyebrow">{{ featured_publication.publication_kind | default: "Publication" }}</p>
+                <h3>{{ featured_publication.title }}</h3>
+                <p class="publication-sheet__summary">A practical framework for moving from experimentation to responsible adoption in real organisational settings.</p>
+                <div class="publication-sheet__footer">
+                  <span>Philip Budden</span>
+                  <span>Edition 01</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
