@@ -1,0 +1,29 @@
+{% assign publication = include.publication %}
+{% assign words = publication.content | strip_html | number_of_words %}
+{% assign reading_time = words | divided_by: 200.0 | ceil %}
+<article class="publication-card{% if publication.placeholder %} publication-card--placeholder{% endif %}">
+  <p class="publication-card__eyebrow">
+    {{ publication.publication_kind | default: "Publication" }}
+    {% if publication.placeholder %} / placeholder{% endif %}
+  </p>
+  <h3><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3>
+  <div class="publication-card__meta">
+    {% if publication.date %}
+      <time datetime="{{ publication.date | date_to_xmlschema }}">{{ publication.date | date: "%-d %B %Y" }}</time>
+    {% endif %}
+    <span>{{ reading_time }} min read</span>
+    {% if publication.pdf_url %}
+      <a href="{{ publication.pdf_url | relative_url }}">Download PDF</a>
+    {% else %}
+      <span>PDF pending</span>
+    {% endif %}
+  </div>
+  <p>{{ publication.summary | default: publication.excerpt | strip_html | strip_newlines }}</p>
+  {% if publication.topics and publication.topics.size > 0 %}
+    <div class="chip-row" aria-label="Topics">
+      {% for topic in publication.topics %}
+        <span class="tag-chip">{{ topic }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+</article>

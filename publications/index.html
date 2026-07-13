@@ -1,0 +1,34 @@
+---
+layout: default
+title: Publications
+body_class: page-publications
+summary: Whitepapers, frameworks, guides, reports, and other long-form public artefacts.
+---
+{% assign published_publications = site.publications | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
+
+<section class="page-shell">
+  <header class="page-heading">
+    <p class="page-heading__eyebrow">publications</p>
+    <h1>Publications</h1>
+    <p class="page-heading__summary">Longer-form public artefacts: whitepapers, frameworks, guides, reports, and other pieces that need more structure than a blog post.</p>
+  </header>
+
+  <section class="publication-model">
+    <div>
+      <h2>Publishing model</h2>
+      <p>Markdown remains the canonical source. The website provides readable HTML, while substantial publications can also offer a downloadable PDF once the approved content and final export are ready.</p>
+    </div>
+    <p class="publication-model__note">Only explicitly public material belongs here. If a source is still private, internal, or ambiguous, it should stay out of the site until reviewed.</p>
+  </section>
+
+  <section class="listing-section">
+    <div class="section-heading">
+      <h2>Current publications</h2>
+    </div>
+    <div class="publication-list">
+      {% for publication in published_publications %}
+        {% include publication-card.html publication=publication %}
+      {% endfor %}
+    </div>
+  </section>
+</section>

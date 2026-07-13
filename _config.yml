@@ -1,5 +1,5 @@
 title: Philip Budden
-description: A Markdown-first blog on AI, systems, infrastructure, and ongoing technical work.
+description: Practical writing on responsible AI adoption, AI strategy, data engineering, and AI architecture.
 url: "https://philipbudden.co.uk"
 baseurl: ""
 timezone: Europe/London
@@ -13,6 +13,9 @@ collections:
   articles:
     output: true
     permalink: /posts/:slug/
+  publications:
+    output: true
+    permalink: /publications/:slug/
   series:
     output: true
     permalink: /series/:slug/
@@ -23,6 +26,11 @@ defaults:
       type: articles
     values:
       layout: article
+  - scope:
+      path: ""
+      type: publications
+    values:
+      layout: publication
   - scope:
       path: ""
       type: series

@@ -2,52 +2,94 @@
 layout: default
 title: Home
 body_class: page-home
-is_listing: true
 ---
 {% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
-{% assign latest_articles = published_articles | slice: 0, site.latest_posts_count %}
+{% assign latest_articles = published_articles | slice: 0, 3 %}
+{% assign published_publications = site.publications | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
+{% assign featured_publication = published_publications | first %}
 
 <section class="page-shell">
-  <header class="page-heading" id="blog-home">
-    <p class="page-heading__eyebrow">daily / blog</p>
-    <h1>Blog</h1>
-    <p class="page-heading__summary">Writing from the same system I use to think: notes, diaries, technical guides, and longer reflections on local AI, infrastructure, and knowledge work.</p>
+  <header class="home-hero">
+    <p class="page-heading__eyebrow">professional writing / practical systems</p>
+    <h1>Responsible AI adoption needs clear thinking, grounded architecture, and honest delivery.</h1>
+    <p class="home-hero__summary">I write about responsible AI adoption, AI strategy, data engineering, and AI architecture from the perspective of someone interested in how this work actually lands inside real organisations.</p>
+    <div class="home-hero__actions">
+      <a class="button-link button-link--primary" href="{{ '/publications/' | relative_url }}">Read publications</a>
+      <a class="button-link" href="{{ '/blog/' | relative_url }}">Browse the blog</a>
+    </div>
   </header>
 
-  <section class="browse-panel">
-    <div class="browse-panel__section" id="browse-series">
-      <h2>Browse series</h2>
-      <div class="chip-row" data-series-toolbar>
-        <button class="series-chip series-chip--button is-active" type="button" data-series-filter-reset>All series</button>
-        {% assign sorted_series = site.series | sort: "title" %}
-        {% for entry in sorted_series %}
-          <button class="series-chip series-chip--button" type="button" data-series-filter-button="{{ entry.slug | downcase }}">{{ entry.title }}</button>
-        {% endfor %}
-      </div>
+  <section class="home-grid" aria-label="Featured areas">
+    <article class="feature-card feature-card--accent">
+      <p class="feature-card__eyebrow">Focus</p>
+      <h2>Professional, not corporate.</h2>
+      <p>This site is becoming the public home for longer thinking, practical frameworks, and notes from the workbench. The tone should stay warm and conversational while giving substantial work a clearer place to live.</p>
+    </article>
+    <article class="feature-card">
+      <p class="feature-card__eyebrow">Areas</p>
+      <h2>AI adoption, strategy, data, and architecture.</h2>
+      <p>The common thread is responsible implementation: how to make AI useful without losing sight of judgement, governance, data foundations, and the human systems around the technology.</p>
+    </article>
+  </section>
+
+  <section class="listing-section">
+    <div class="section-heading">
+      <h2>Featured publication</h2>
+      <a href="{{ '/publications/' | relative_url }}">All publications</a>
     </div>
-    <div class="browse-panel__section" id="filter-by-tag">
-      <h2>Filter by tag</h2>
-      <div class="chip-row" data-tag-toolbar>
-        <button class="tag-chip tag-chip--button is-active" type="button" data-filter-reset>All posts</button>
-        {% assign all_tags = published_articles | map: "tags" | join: "|" | split: "|" | uniq | sort_natural %}
-        {% for tag in all_tags %}
-          {% if tag != "" %}
-            <button class="tag-chip tag-chip--button" type="button" data-tag-filter-button="{{ tag | downcase }}">{{ tag }}</button>
-          {% endif %}
-        {% endfor %}
-      </div>
+    {% if featured_publication %}
+      {% include publication-card.html publication=featured_publication %}
+    {% else %}
+      <article class="publication-card publication-card--placeholder">
+        <p class="publication-card__eyebrow">Placeholder</p>
+        <h3>Whitepapers and public artefacts will appear here</h3>
+        <p>This section is intentionally empty until publication-ready source material and downloadable PDFs are approved.</p>
+      </article>
+    {% endif %}
+  </section>
+
+  <section class="home-topics" aria-label="Topics">
+    <div class="section-heading">
+      <h2>What I write about</h2>
+    </div>
+    <div class="topic-grid">
+      <article>
+        <h3>Responsible AI adoption</h3>
+        <p>Moving beyond experiments into practices that are useful, explainable, and accountable.</p>
+      </article>
+      <article>
+        <h3>AI strategy</h3>
+        <p>Choosing where AI should help, where it should not, and what capabilities need to exist around it.</p>
+      </article>
+      <article>
+        <h3>Data engineering</h3>
+        <p>The less glamorous foundations that make better decisions and reliable AI work possible.</p>
+      </article>
+      <article>
+        <h3>AI architecture</h3>
+        <p>Patterns, constraints, and operating models for systems that include people and models.</p>
+      </article>
     </div>
   </section>
 
   <section class="listing-section" id="latest-posts">
     <div class="section-heading">
-      <h2>Latest posts</h2>
-      <a href="{{ '/tags/' | relative_url }}">All tags</a>
+      <h2>Latest writing</h2>
+      <a href="{{ '/blog/' | relative_url }}">All posts</a>
     </div>
     <div class="post-list" data-post-list>
       {% for post in latest_articles %}
         {% include post-card.html post=post %}
       {% endfor %}
     </div>
+  </section>
+
+  <section class="home-about">
+    <div>
+      <p class="page-heading__eyebrow">About</p>
+      <h2>Writing for people trying to make useful decisions about AI and data.</h2>
+      <p>I’m interested in the practical middle ground between hype and resistance: where strategy, engineering judgement, governance, and organisational reality all meet.</p>
+    </div>
+    <a class="button-link" href="{{ '/about/' | relative_url }}">Read more</a>
   </section>
 </section>
