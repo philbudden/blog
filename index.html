@@ -20,16 +20,38 @@ body_class: page-home
       </div>
     </div>
     <div class="systems-graphic" aria-hidden="true">
-      <div class="systems-graphic__grid"></div>
-      <div class="systems-graphic__layer systems-graphic__layer--top"></div>
-      <div class="systems-graphic__layer systems-graphic__layer--mid"></div>
-      <div class="systems-graphic__layer systems-graphic__layer--focus"></div>
-      <div class="systems-graphic__layer systems-graphic__layer--base"></div>
-      <div class="systems-graphic__labels">
-        <div><span>People &amp; process</span><small>Alignment, roles, and ways of working</small></div>
-        <div><span>Model &amp; application</span><small>Capabilities, evaluation, and safety</small></div>
-        <div><span>Data &amp; infrastructure</span><small>Pipelines, platforms, and governance</small></div>
-        <div><span>Foundation</span><small>Principles, risk posture, and accountability</small></div>
+      <div class="systems-graphic__field"></div>
+      <div class="systems-graphic__axis systems-graphic__axis--x"></div>
+      <div class="systems-graphic__axis systems-graphic__axis--y"></div>
+      <div class="systems-graphic__node systems-graphic__node--origin"></div>
+      <div class="systems-graphic__node systems-graphic__node--strategy"></div>
+      <div class="systems-graphic__node systems-graphic__node--systems"></div>
+      <div class="systems-graphic__node systems-graphic__node--delivery"></div>
+      <div class="systems-graphic__node systems-graphic__node--governance"></div>
+      <div class="systems-graphic__path systems-graphic__path--primary"></div>
+      <div class="systems-graphic__path systems-graphic__path--secondary"></div>
+      <div class="systems-graphic__path systems-graphic__path--vertical"></div>
+      <div class="systems-graphic__cluster systems-graphic__cluster--signals"></div>
+      <div class="systems-graphic__cluster systems-graphic__cluster--evidence"></div>
+      <div class="systems-graphic__annotation systems-graphic__annotation--strategy">
+        <span>Strategy</span>
+        <small>Direction and constraints</small>
+      </div>
+      <div class="systems-graphic__annotation systems-graphic__annotation--systems">
+        <span>Systems</span>
+        <small>Architecture and interfaces</small>
+      </div>
+      <div class="systems-graphic__annotation systems-graphic__annotation--delivery">
+        <span>Delivery</span>
+        <small>Reliable, observable, adaptable</small>
+      </div>
+      <div class="systems-graphic__annotation systems-graphic__annotation--governance">
+        <span>Governance</span>
+        <small>Guardrails and oversight</small>
+      </div>
+      <div class="systems-graphic__annotation systems-graphic__annotation--data">
+        <span>Data</span>
+        <small>Foundations and context</small>
       </div>
     </div>
   </header>
@@ -45,7 +67,12 @@ body_class: page-home
             <a class="action-link" href="{{ featured_publication.url | relative_url }}">Read the essay</a>
           </div>
           <div class="feature-publication__art" aria-hidden="true">
-            <div class="feature-publication__art-frame"></div>
+            <div class="publication-plate">
+              <p class="publication-plate__eyebrow">{{ featured_publication.publication_kind | default: "Publication" }}</p>
+              <h3>{{ featured_publication.title }}</h3>
+              <div class="publication-plate__rule"></div>
+              <p class="publication-plate__meta">Responsible AI · strategy · architecture</p>
+            </div>
           </div>
         </div>
       {% else %}
@@ -81,28 +108,28 @@ body_class: page-home
     <section class="home-panel home-panel--areas">
       <p class="section-kicker">Topics &amp; practice areas</p>
       <div class="areas-grid">
-        <article class="area-card">
-          <div class="area-card__icon area-card__icon--stack"></div>
+        <article class="area-card area-card--strategy">
+          <p class="area-card__index">01</p>
           <h3>AI Strategy</h3>
           <p>Aligning AI initiatives with business strategy, operating models, and measurable outcomes.</p>
         </article>
-        <article class="area-card">
-          <div class="area-card__icon area-card__icon--network"></div>
+        <article class="area-card area-card--architecture">
+          <p class="area-card__index">02</p>
           <h3>AI Architecture</h3>
           <p>Designing resilient, scalable systems that integrate models, tools, and data effectively.</p>
         </article>
-        <article class="area-card">
-          <div class="area-card__icon area-card__icon--data"></div>
+        <article class="area-card area-card--data">
+          <p class="area-card__index">03</p>
           <h3>Data Engineering</h3>
           <p>Building trustworthy data foundations: pipelines, platforms, quality, and governance.</p>
         </article>
-        <article class="area-card">
-          <div class="area-card__icon area-card__icon--shield"></div>
+        <article class="area-card area-card--responsible">
+          <p class="area-card__index">04</p>
           <h3>Responsible AI</h3>
           <p>Managing risk, safety, privacy, and compliance across the AI lifecycle.</p>
         </article>
-        <article class="area-card">
-          <div class="area-card__icon area-card__icon--people"></div>
+        <article class="area-card area-card--leadership">
+          <p class="area-card__index">05</p>
           <h3>Technical Leadership</h3>
           <p>Leading teams and organisations through complexity with clarity and integrity.</p>
         </article>
