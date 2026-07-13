@@ -15,8 +15,6 @@ layout: default
       <span>{{ reading_time }} min read</span>
       {% if page.pdf_url %}
         <a href="{{ page.pdf_url | relative_url }}">Download PDF</a>
-      {% else %}
-        <span>PDF pending</span>
       {% endif %}
     </div>
     {% if page.summary %}
@@ -32,8 +30,8 @@ layout: default
   </header>
 
   {% if page.placeholder %}
-    <aside class="placeholder-note" aria-label="Placeholder notice">
-      <strong>Placeholder content.</strong> This page establishes the publication workflow and local review structure. Final public copy and the downloadable PDF should replace this before the publication is released.
+    <aside class="placeholder-note" aria-label="Forthcoming publication notice">
+      <strong>Forthcoming publication.</strong> This page introduces the topic ahead of the full paper.
     </aside>
   {% endif %}
 

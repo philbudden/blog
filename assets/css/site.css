@@ -352,17 +352,17 @@ img {
 
 .home-hero {
   display: grid;
-  gap: 1.2rem;
-  padding: 2.2rem 0 0.75rem;
+  gap: 1rem;
+  padding: 1.5rem 0 0.35rem;
 }
 
 .home-hero h1 {
-  max-width: 62rem;
+  max-width: 54rem;
 }
 
 .home-hero__summary {
-  max-width: 50rem;
-  margin: 0;
+  max-width: 44rem;
+  margin: 0.2rem 0 0;
 }
 
 .home-hero__actions,

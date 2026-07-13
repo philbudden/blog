@@ -3,28 +3,27 @@ title: Responsible AI Adoption Whitepaper
 date: 2026-07-13
 publication_kind: Whitepaper
 placeholder: true
-summary: Placeholder page for the first public whitepaper. Final Markdown source and downloadable PDF will be added after the content is approved for publication.
+summary: A forthcoming whitepaper on moving from AI experimentation to responsible adoption in real organisational settings.
 topics:
   - Responsible AI adoption
   - AI strategy
   - AI architecture
 ---
 
-## Placeholder
+## Forthcoming
 
-This is intentionally placeholder content. It exists so the site can be reviewed locally with the new publication structure in place, without exposing any private draft, internal document, or organisation-specific material from the Obsidian vault.
+AI adoption is no longer just a question of whether a model can produce a useful answer. The harder question is whether an organisation can make that answer part of a responsible, reliable way of working.
 
-The final publication should replace this page with approved public Markdown, publication metadata, and a downloadable PDF export.
+This forthcoming whitepaper will explore how teams can move from isolated experiments to adoption patterns that keep judgement, governance, data quality, and accountability in view.
 
-## Planned structure
+## Expected themes
 
-- Executive summary.
-- Core argument.
-- Practical framework or model.
-- Implementation considerations.
-- Risks, trade-offs, and governance questions.
-- References or acknowledgements where appropriate.
+- Where AI is genuinely useful, and where it creates false confidence.
+- Why human judgement becomes more important as execution becomes cheaper.
+- How data foundations shape the reliability of AI-enabled work.
+- What governance needs to look like when AI is embedded in everyday processes.
+- How architecture choices affect accountability, assurance, and change.
 
-## PDF
+## Availability
 
-The PDF is not available yet. Add `pdf_url` to the publication front matter once the approved PDF has been generated and placed in the public assets directory.
+The full whitepaper is not available yet.

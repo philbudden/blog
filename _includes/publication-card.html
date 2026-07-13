@@ -4,7 +4,7 @@
 <article class="publication-card{% if publication.placeholder %} publication-card--placeholder{% endif %}">
   <p class="publication-card__eyebrow">
     {{ publication.publication_kind | default: "Publication" }}
-    {% if publication.placeholder %} / placeholder{% endif %}
+    {% if publication.placeholder %} / forthcoming{% endif %}
   </p>
   <h3><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3>
   <div class="publication-card__meta">
@@ -14,8 +14,6 @@
     <span>{{ reading_time }} min read</span>
     {% if publication.pdf_url %}
       <a href="{{ publication.pdf_url | relative_url }}">Download PDF</a>
-    {% else %}
-      <span>PDF pending</span>
     {% endif %}
   </div>
   <p>{{ publication.summary | default: publication.excerpt | strip_html | strip_newlines }}</p>
