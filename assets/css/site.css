@@ -747,28 +747,6 @@ input {
   color: var(--ink-soft);
 }
 
-.reading-sidebar__panel--graphic {
-  min-height: 10rem;
-}
-
-.sidebar-graphic {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 8rem;
-}
-
-.sidebar-graphic span {
-  position: absolute;
-  border: 1px solid var(--line-strong);
-  transform: skewY(-18deg);
-}
-
-.sidebar-graphic span:nth-child(1) { inset: 0.6rem 2rem auto 1.6rem; height: 1.5rem; }
-.sidebar-graphic span:nth-child(2) { inset: 2.2rem 1.4rem auto 2rem; height: 1.5rem; }
-.sidebar-graphic span:nth-child(3) { inset: 3.8rem 1.7rem auto 1.3rem; height: 1.5rem; border-color: rgba(36, 81, 209, 0.45); }
-.sidebar-graphic span:nth-child(4) { inset: 5.4rem 1rem auto 1.9rem; height: 1.5rem; }
-
 .notice-panel {
   padding: 1rem 1.2rem;
   background: rgba(36, 81, 209, 0.06);
