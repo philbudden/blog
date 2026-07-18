@@ -1,0 +1,69 @@
+---
+layout: default
+---
+{% assign words = page.content | strip_html | number_of_words %}
+{% assign reading_time = words | divided_by: 200.0 | ceil %}
+
+<article class="reading-shell reading-shell--publication">
+  <header class="reading-hero">
+    <p class="section-kicker">{{ page.publication_kind | default: "Publication" }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}
+      <p class="reading-hero__summary">{{ page.summary }}</p>
+    {% endif %}
+  </header>
+
+  <div class="reading-layout">
+    <aside class="reading-sidebar">
+      {% if page.date %}
+        <div class="reading-sidebar__panel">
+          <p class="reading-sidebar__label">Published</p>
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+        </div>
+      {% endif %}
+      <div class="reading-sidebar__panel">
+        <p class="reading-sidebar__label">Reading time</p>
+        <p>{{ reading_time }} min</p>
+      </div>
+      <div class="reading-sidebar__panel">
+        <p class="reading-sidebar__label">Format</p>
+        <p>{{ page.publication_kind | default: "Publication" }}</p>
+      </div>
+      <div class="reading-sidebar__panel">
+        <p class="reading-sidebar__label">PDF</p>
+        {% if page.pdf_url %}
+          <a href="{{ page.pdf_url | relative_url }}">Download PDF</a>
+        {% else %}
+          <p>PDF forthcoming</p>
+        {% endif %}
+      </div>
+      {% if page.topics and page.topics.size > 0 %}
+        <div class="reading-sidebar__panel">
+          <p class="reading-sidebar__label">Topics</p>
+          <div class="reading-sidebar__tags">
+            {% for topic in page.topics %}
+              <span class="tag-chip">{{ topic }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </aside>
+
+    <div class="reading-main">
+      {% if page.placeholder %}
+        <aside class="notice-panel" aria-label="Forthcoming publication notice">
+          <strong>Forthcoming publication.</strong> I will update this page when the full paper and downloadable PDF are ready.
+        </aside>
+      {% endif %}
+      {% if page.review_status == "draft-peer-review" %}
+        <aside class="notice-panel" aria-label="Draft review notice">
+          <strong>Draft under peer review.</strong> {{ page.review_note | default: "This publication is available as a draft while peer review is in progress." }}
+        </aside>
+      {% endif %}
+
+      <div class="article-prose">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</article>

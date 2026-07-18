@@ -1,0 +1,22 @@
+<form
+  class="newsletter-form"
+  action="https://buttondown.com/api/emails/embed-subscribe/philipbudden"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.com/philipbudden', 'popupwindow')"
+>
+  <label class="newsletter-form__label" for="{{ include.id | default: 'newsletter-email' }}">Email address</label>
+  <div class="newsletter-form__row">
+    <input
+      class="newsletter-form__input"
+      id="{{ include.id | default: 'newsletter-email' }}"
+      type="email"
+      name="email"
+      placeholder="you@example.com"
+      autocomplete="email"
+      required
+    >
+    <button class="newsletter-form__button" type="submit">Subscribe</button>
+  </div>
+  <p class="newsletter-form__meta">No spam. Unsubscribe any time. Powered by <a href="https://buttondown.com/refer/philipbudden" target="_blank" rel="noopener">Buttondown</a>.</p>
+</form>

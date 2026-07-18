@@ -2,52 +2,134 @@
 layout: default
 title: Home
 body_class: page-home
-is_listing: true
 ---
 {% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
-{% assign latest_articles = published_articles | slice: 0, site.latest_posts_count %}
+{% assign latest_articles = published_articles | slice: 0, 4 %}
+{% assign published_publications = site.publications | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
+{% assign featured_publication = published_publications | first %}
 
-<section class="page-shell">
-  <header class="page-heading" id="blog-home">
-    <p class="page-heading__eyebrow">daily / blog</p>
-    <h1>Blog</h1>
-    <p class="page-heading__summary">Writing from the same system I use to think: notes, diaries, technical guides, and longer reflections on local AI, infrastructure, and knowledge work.</p>
+<section class="home-shell">
+  <header class="home-hero">
+    <div class="home-hero__copy">
+      <p class="section-kicker">AI strategy. Systems. Judgement.</p>
+      <h1>Writing about the work needed to make AI useful, reliable, and accountable.</h1>
+      <p class="home-hero__summary">I write about responsible AI, data engineering, architecture, and technical leadership from the practical edge of delivery: where ambition meets messy systems, unclear ownership, and decisions that still need human judgement.</p>
+      <div class="home-hero__actions">
+        <a class="action-link action-link--primary" href="{{ '/blog/' | relative_url }}">Explore my writing</a>
+        <a class="action-link" href="{{ '/newsletter/' | relative_url }}">Get the newsletter</a>
+        <a class="action-link" href="{{ '/about/' | relative_url }}">About me</a>
+      </div>
+    </div>
+    <figure class="hero-art">
+      <img src="{{ "/assets/images/hero-systems-lighthouse.jpg" | relative_url }}" alt="An architectural lighthouse composition labelled with strategy, governance, architecture, systems, and data." loading="eager" decoding="async">
+    </figure>
   </header>
 
-  <section class="browse-panel">
-    <div class="browse-panel__section" id="browse-series">
-      <h2>Browse series</h2>
-      <div class="chip-row" data-series-toolbar>
-        <button class="series-chip series-chip--button is-active" type="button" data-series-filter-reset>All series</button>
-        {% assign sorted_series = site.series | sort: "title" %}
-        {% for entry in sorted_series %}
-          <button class="series-chip series-chip--button" type="button" data-series-filter-button="{{ entry.slug | downcase }}">{{ entry.title }}</button>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="browse-panel__section" id="filter-by-tag">
-      <h2>Filter by tag</h2>
-      <div class="chip-row" data-tag-toolbar>
-        <button class="tag-chip tag-chip--button is-active" type="button" data-filter-reset>All posts</button>
-        {% assign all_tags = published_articles | map: "tags" | join: "|" | split: "|" | uniq | sort_natural %}
-        {% for tag in all_tags %}
-          {% if tag != "" %}
-            <button class="tag-chip tag-chip--button" type="button" data-tag-filter-button="{{ tag | downcase }}">{{ tag }}</button>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
-  </section>
+  <section class="home-grid">
+    <section class="home-panel home-panel--publication">
+      {% if featured_publication %}
+        <div class="feature-publication">
+          <div class="feature-publication__copy">
+            <p class="section-kicker">Featured working paper</p>
+            <h2>{{ featured_publication.title }}</h2>
+            <p>{{ featured_publication.summary }}</p>
+            <div class="feature-publication__actions">
+              <a class="action-link" href="{{ featured_publication.url | relative_url }}">Read online</a>
+              {% if featured_publication.pdf_url %}
+                <a class="action-link" href="{{ featured_publication.pdf_url | relative_url }}">Download PDF</a>
+              {% endif %}
+            </div>
+          </div>
+          <dl class="feature-publication__meta" aria-label="Publication details">
+            {% if featured_publication.review_status == "draft-peer-review" %}
+              <div>
+                <dt>Status</dt>
+                <dd>Draft under peer review</dd>
+              </div>
+            {% endif %}
+            <div>
+              <dt>Structure</dt>
+              <dd>15 sections</dd>
+            </div>
+            <div>
+              <dt>Includes</dt>
+              <dd>Worked examples</dd>
+            </div>
+            {% if featured_publication.pdf_url %}
+              <div>
+                <dt>Format</dt>
+                <dd>PDF available</dd>
+              </div>
+            {% endif %}
+          </dl>
+          </div>
+      {% else %}
+        <div class="feature-publication">
+          <div class="feature-publication__copy">
+            <p class="section-kicker">Featured working paper</p>
+            <h2>Longer pieces will appear here</h2>
+            <p>Some arguments need more room than a blog post can sensibly give them. This is where I will put the work that benefits from that space.</p>
+          </div>
+        </div>
+      {% endif %}
+    </section>
 
-  <section class="listing-section" id="latest-posts">
-    <div class="section-heading">
-      <h2>Latest posts</h2>
-      <a href="{{ '/tags/' | relative_url }}">All tags</a>
-    </div>
-    <div class="post-list" data-post-list>
-      {% for post in latest_articles %}
-        {% include post-card.html post=post %}
-      {% endfor %}
-    </div>
+    <section class="home-panel home-panel--writing">
+      <div class="home-panel__heading">
+        <p class="section-kicker">Recent writing</p>
+        <a href="{{ '/blog/' | relative_url }}">View all</a>
+      </div>
+      <div class="writing-list">
+        {% for post in latest_articles %}
+          <article class="writing-list__item">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <div>
+              <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+              {% if post.tags and post.tags.size > 0 %}
+                <p>{{ post.tags | first }}</p>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="home-panel home-panel--newsletter">
+      <p class="section-kicker">Newsletter</p>
+      <h2>A quieter weekly note.</h2>
+      <p>The newsletter is where I write a little closer to the work itself: what I am trying to understand, what changed my mind, and what is worth carrying into the next week.</p>
+      {% include newsletter-form.html id="newsletter-home-email" %}
+    </section>
+
+    <section class="home-panel home-panel--areas">
+      <p class="section-kicker">Topics &amp; practice areas</p>
+      <div class="areas-grid">
+        <article class="area-card area-card--strategy">
+          <p class="area-card__index">01</p>
+          <h3>AI Strategy</h3>
+          <p>Starting with the problem that actually needs to change, not the tool that happens to be fashionable this month.</p>
+        </article>
+        <article class="area-card area-card--architecture">
+          <p class="area-card__index">02</p>
+          <h3>AI Architecture</h3>
+          <p>Thinking through how models, data, tools, and people fit together when the system has to keep working after the demo.</p>
+        </article>
+        <article class="area-card area-card--data">
+          <p class="area-card__index">03</p>
+          <h3>Data Engineering</h3>
+          <p>Building the foundations that make better decisions possible: quality, lineage, governance, and data people can actually trust.</p>
+        </article>
+        <article class="area-card area-card--responsible">
+          <p class="area-card__index">04</p>
+          <h3>Responsible AI</h3>
+          <p>Keeping accountability, safety, privacy, and governance visible as AI moves from experiment into everyday work.</p>
+        </article>
+        <article class="area-card area-card--leadership">
+          <p class="area-card__index">05</p>
+          <h3>Technical Leadership</h3>
+          <p>Helping teams make clear decisions when the technical answer is only part of the real problem.</p>
+        </article>
+      </div>
+    </section>
   </section>
 </section>

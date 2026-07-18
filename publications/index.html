@@ -1,0 +1,26 @@
+---
+layout: default
+title: Publications
+body_class: page-publications
+summary: Longer pieces on responsible AI, data, systems, and delivery.
+---
+{% assign published_publications = site.publications | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
+
+<section class="archive-shell archive-shell--publications">
+  <header class="archive-hero">
+    <div>
+      <p class="section-kicker">Publications</p>
+      <h1>Longer pieces with more room to think.</h1>
+      <p class="archive-hero__summary">Some questions need more than a short essay. This is where I develop the arguments that need structure, examples, and enough space to test the trade-offs properly.</p>
+    </div>
+    <div class="archive-hero__aside">
+      <p>The aim is to make the thinking useful beyond the day it is published: something you can read, challenge, return to, and use as a starting point for your own work.</p>
+    </div>
+  </header>
+
+  <section class="archive-list archive-list--publications">
+    {% for publication in published_publications %}
+      {% include publication-card.html publication=publication %}
+    {% endfor %}
+  </section>
+</section>

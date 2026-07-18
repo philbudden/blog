@@ -1,6 +1,5 @@
 ---
 layout: default
-is_listing: true
 body_class: page-series
 ---
 {% assign published_articles = site.articles | where_exp: "item", "item.draft != true" %}
@@ -11,22 +10,24 @@ body_class: page-series
   {% assign ordered_series_posts = ordered_series_posts | reverse %}
 {% endif %}
 
-<section class="page-shell">
-  <header class="page-heading">
-    <p class="page-heading__eyebrow">published / series</p>
-    <h1>{{ page.title }}</h1>
-    {% if page.summary %}
-      <p class="page-heading__summary">{{ page.summary }}</p>
-    {% endif %}
+<section class="archive-shell">
+  <header class="archive-hero">
+    <div>
+      <p class="section-kicker">Series</p>
+      <h1>{{ page.title }}</h1>
+      {% if page.summary %}
+        <p class="archive-hero__summary">{{ page.summary }}</p>
+      {% endif %}
+    </div>
   </header>
 
-  <section class="series-listing">
+  <section class="archive-stack">
     {% if page.content != blank %}
-      <div class="page-copy article-prose">{{ content }}</div>
+      <div class="article-prose archive-prose">{{ content }}</div>
     {% endif %}
 
     {% if ordered_series_posts.size > 0 %}
-      <div class="post-list" data-post-list>
+      <div class="archive-list">
         {% for post in ordered_series_posts %}
           {% include post-card.html post=post %}
         {% endfor %}

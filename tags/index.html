@@ -2,42 +2,44 @@
 layout: default
 title: Tags
 body_class: page-tags
-is_listing: true
 ---
 {% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
 {% assign all_tags = published_articles | map: "tags" | join: "|" | split: "|" | uniq | sort_natural %}
 
-<section class="page-shell">
-  <header class="page-heading">
-    <p class="page-heading__eyebrow">published / tags</p>
-    <h1>Browse by tag</h1>
-    <p class="page-heading__summary">Use the tag bar to filter the newest posts, or jump to the grouped archive below.</p>
+<section class="archive-shell">
+  <header class="archive-hero">
+    <div>
+      <p class="section-kicker">Topics</p>
+      <h1>Follow a thread through the writing.</h1>
+      <p class="archive-hero__summary">Use the topics here when you want to stay with a particular question, whether that is responsible AI, data engineering, architecture, or the changing shape of knowledge work.</p>
+    </div>
+    <div class="archive-hero__aside">
+      <p>The same ideas tend to reappear from different angles. Tags are a simple way to trace those connections without reading everything in date order.</p>
+    </div>
   </header>
 
-  <div class="chip-row" data-tag-toolbar>
-    <button class="tag-chip tag-chip--button is-active" type="button" data-filter-reset>All posts</button>
+  <div class="filter-row archive-controls archive-controls--flat" data-tag-toolbar>
+    <button class="filter-chip is-active" type="button" data-filter-reset>All writing</button>
     {% for tag in all_tags %}
       {% if tag != "" %}
-        <button class="tag-chip tag-chip--button" id="{{ tag | slugify }}" type="button" data-tag-filter-button="{{ tag | downcase }}">{{ tag }}</button>
+        <button class="filter-chip" id="{{ tag | slugify }}" type="button" data-tag-filter-button="{{ tag | downcase }}">{{ tag }}</button>
       {% endif %}
     {% endfor %}
   </div>
 
-  <section class="listing-section">
-    <div class="post-list" data-post-list>
-      {% for post in published_articles %}
-        {% include post-card.html post=post %}
-      {% endfor %}
-    </div>
+  <section class="archive-list" data-post-list>
+    {% for post in published_articles %}
+      {% include post-card.html post=post %}
+    {% endfor %}
   </section>
 
-  <section class="tag-groups no-js-fallback">
+  <section class="tag-groups">
     {% for tag in all_tags %}
       {% if tag != "" %}
         {% assign tag_posts = published_articles | where_exp: "item", "item.tags contains tag" %}
         <section class="tag-group">
           <h2>{{ tag }}</h2>
-          <div class="post-list">
+          <div class="archive-list">
             {% for post in tag_posts %}
               {% include post-card.html post=post %}
             {% endfor %}

@@ -1,8 +1,9 @@
-# Jekyll Blog
+# Philip Budden Website
 
-This is a self-contained Jekyll blog designed for GitHub Pages deployment. It
-is Markdown-first, responsive, accessible by default, and progressively
-enhances article navigation with a modal overlay when JavaScript is available.
+This is a self-contained Jekyll site designed for GitHub Pages deployment. It
+is Markdown-first, responsive, accessible by default, and structured as the
+canonical public home for blog posts, long-form publications, and professional
+context.
 
 ## Recommended architecture
 
@@ -15,11 +16,15 @@ Key choices:
 - `Jekyll` for static generation and GitHub Pages compatibility.
 - `_articles/` as a collection instead of the default `_posts/`, so filenames
   can stay human-readable rather than using date-prefixed post filenames.
+- `_publications/` as a collection for whitepapers, frameworks, guides, reports,
+  and other long-form public artefacts.
 - `_series/` as a collection for series metadata and standalone series pages.
 - Canonical article pages with modal-overlay progressive enhancement on listing
   pages. This preserves accessibility, no-JS fallback, and deep links.
 - `MiniSearch` vendored locally for fuzzy client-side search without a Node
   build pipeline.
+- Placeholder publication pages are allowed for local review, but must be
+  clearly labelled and replaced before public release.
 
 Trade-offs:
 
@@ -35,8 +40,9 @@ Trade-offs:
 ## Folder structure
 
 ```text
-work/blog-site/
+philbudden-blog/
 ├── _articles/              # Markdown blog posts
+├── _publications/          # Long-form public artefacts
 ├── _series/                # One Markdown file per series
 ├── _includes/              # Reusable template fragments
 ├── _layouts/               # Page and article layouts
@@ -44,6 +50,9 @@ work/blog-site/
 │   ├── css/                # Site styling and design tokens
 │   ├── js/                 # Theme, modal, tag filtering, callout, and search JS
 │   └── vendor/             # Vendored third-party browser assets
+├── about/index.md          # Professional about page
+├── blog/index.html         # Blog archive and filters
+├── publications/index.html # Publication index
 ├── series/index.html       # Series index page
 ├── tags/index.html         # Tag browser and filter page
 ├── index.html              # Home page
@@ -79,6 +88,39 @@ Notes:
 - `series` is optional.
 - `draft` is optional. Set it to `true` if you want the post hidden from site
   navigation and search while still keeping the file in place.
+
+## How to create a new publication
+
+Only add material to `_publications/` when it is explicitly approved for public
+release. Do not import private notes, drafts, organisation-specific material, or
+ambiguous Obsidian documents into this site.
+
+1. Add a new Markdown file to `_publications/`.
+2. Use front matter like this:
+
+```yaml
+---
+title: "My Public Whitepaper"
+date: 2026-07-13
+publication_kind: Whitepaper
+summary: "One or two sentences for listings and search results."
+pdf_url: /assets/publications/my-public-whitepaper.pdf
+topics:
+  - Responsible AI adoption
+  - AI strategy
+draft: false
+---
+```
+
+3. Write the publication body in Markdown.
+4. Add the PDF to a public asset location and point `pdf_url` at it.
+
+Notes:
+
+- Leave `pdf_url` out until the PDF has been generated and approved.
+- Use `placeholder: true` only for local review scaffolding. Placeholder pages
+  should be replaced before publication.
+- Blog posts do not need downloadable PDFs.
 
 ## How to create a new series
 
@@ -120,12 +162,14 @@ Series ordering:
 
 ## How search works
 
-- The build emits `search.json` from the published article collection.
+- The build emits `search.json` from published articles and publications.
 - The browser loads that JSON and builds a `MiniSearch` index locally.
 - Search covers:
   - title
   - summary
+  - content type
   - tags
+  - topics
   - series
   - date
 - Matching uses prefix search plus fuzzy matching to make partial or slightly
@@ -154,16 +198,10 @@ Useful places to change:
   - `--content-width`
   - `--prose-width`
 
-The palette and layout choices are intentionally based on the current Obsidian
-setup:
-
-- Theme: `AnuPpuccin`
-- Light flavour: `Rosé Pine`
-- Dark flavour: `Frappe`
-- Accent: `teal`
-- Reading font: `New York`
-- Rounded card-style surfaces
-- Sleek callout treatment
+The current visual direction is editorial rather than corporate: warm paper-like
+surfaces, strong readable typography, compact card radii, and a teal accent.
+The site should feel credible and polished without adopting generic marketing
+language or a heavy corporate visual system.
 
 ## Deployment
 
@@ -213,17 +251,20 @@ Notes:
 
 ## Assumptions
 
-- The site lives as a self-contained repo snapshot under `work/blog-site/`.
 - Current ready posts were imported as the initial public article corpus.
 - No Node-based build pipeline is required or assumed.
 - The modal overlay is intentionally progressive enhancement rather than the
   canonical article experience.
+- Obsidian remains a mixed private/public workspace. This repository should
+  expose only content that has been explicitly approved for public release.
 
 ## Future enhancements
 
 - sitemap and robots.txt tuning
 - SEO metadata and social cards
 - pagination for larger archives
+- publication PDF generation pipeline
+- dedicated asset folders for publication downloads and social images
 - syntax-theme refinement or code-copy buttons
 - related-post suggestions
 - richer series metadata such as cover text or artwork

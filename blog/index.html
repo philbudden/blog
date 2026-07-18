@@ -1,0 +1,39 @@
+---
+layout: default
+title: Writing
+body_class: page-blog
+---
+{% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
+{% assign latest_articles = published_articles | slice: 0, site.latest_posts_count %}
+
+<section class="archive-shell">
+  <header class="archive-hero">
+    <div>
+      <p class="section-kicker">Writing</p>
+      <h1>Essays from the practical edge of AI and systems work.</h1>
+      <p class="archive-hero__summary">I write about AI, data, infrastructure, and knowledge work where the interesting question is not just what the technology can do, but what it takes to use it well.</p>
+    </div>
+    <div class="archive-hero__aside">
+      <p>Most pieces here start from a practical tension: a tool that promises speed but creates review work, a strategy conversation that starts too late, or a system that looks simple until accountability enters the room.</p>
+    </div>
+  </header>
+
+  <section class="archive-controls">
+    <div class="archive-controls__group">
+      <p class="section-kicker">Series</p>
+      <div class="filter-row" data-series-toolbar>
+        <button class="filter-chip is-active" type="button" data-series-filter-reset>All series</button>
+        {% assign sorted_series = site.series | sort: "title" %}
+        {% for entry in sorted_series %}
+          <button class="filter-chip" type="button" data-series-filter-button="{{ entry.slug | downcase }}">{{ entry.title }}</button>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="archive-list" data-post-list>
+    {% for post in latest_articles %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </section>
+</section>

@@ -3,7 +3,7 @@
   <head>
     {% include head.html %}
   </head>
-  <body class="{{ page.body_class }}" data-baseurl="{{ site.baseurl }}" {% if page.is_listing %}data-listing-page="true"{% endif %}>
+  <body class="{{ page.body_class }}" data-baseurl="{{ site.baseurl }}">
     <a class="skip-link" href="#main-content">Skip to content</a>
     {% include site-header.html %}
 
@@ -12,10 +12,9 @@
     </main>
 
     {% include site-footer.html %}
-    {% if page.is_listing %}
-      {% include modal-shell.html %}
+    {% if content contains "language-mermaid" %}
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     {% endif %}
-
     <script src="{{ '/assets/vendor/minisearch.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
   </body>
