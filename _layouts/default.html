@@ -12,6 +12,9 @@
     </main>
 
     {% include site-footer.html %}
+    {% if content contains "language-mermaid" %}
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    {% endif %}
     <script src="{{ '/assets/vendor/minisearch.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
   </body>

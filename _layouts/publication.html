@@ -55,6 +55,11 @@ layout: default
           <strong>Forthcoming publication.</strong> I will update this page when the full paper and downloadable PDF are ready.
         </aside>
       {% endif %}
+      {% if page.review_status == "draft-peer-review" %}
+        <aside class="notice-panel" aria-label="Draft review notice">
+          <strong>Draft under peer review.</strong> {{ page.review_note | default: "This publication is available as a draft while peer review is in progress." }}
+        </aside>
+      {% endif %}
 
       <div class="article-prose">
         {{ content }}

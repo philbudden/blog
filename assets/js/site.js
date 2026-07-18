@@ -46,6 +46,19 @@
 
   transformCallouts(document);
 
+  if (window.mermaid) {
+    document.querySelectorAll("code.language-mermaid").forEach(function (code) {
+      var diagram = document.createElement("pre");
+      diagram.className = "mermaid";
+      diagram.textContent = code.textContent;
+      var wrapper = code.closest("pre");
+      if (wrapper) {
+        wrapper.replaceWith(diagram);
+      }
+    });
+    window.mermaid.initialize({ startOnLoad: true });
+  }
+
   var searchInput = document.querySelector("[data-search-input]");
   var searchResults = document.querySelector("[data-search-results]");
   var searchForm = document.querySelector("[data-search-form]");
