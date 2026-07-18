@@ -27,18 +27,46 @@ body_class: page-home
 
   <section class="home-grid">
     <section class="home-panel home-panel--publication">
-      <p class="section-kicker">Featured publication</p>
       {% if featured_publication %}
         <div class="feature-publication">
           <div class="feature-publication__copy">
+            <p class="section-kicker">Featured working paper</p>
             <h2>{{ featured_publication.title }}</h2>
             <p>{{ featured_publication.summary }}</p>
-            <a class="action-link" href="{{ featured_publication.url | relative_url }}">Read more</a>
+            <div class="feature-publication__actions">
+              <a class="action-link" href="{{ featured_publication.url | relative_url }}">Read online</a>
+              {% if featured_publication.pdf_url %}
+                <a class="action-link" href="{{ featured_publication.pdf_url | relative_url }}">Download PDF</a>
+              {% endif %}
+            </div>
           </div>
-        </div>
+          <dl class="feature-publication__meta" aria-label="Publication details">
+            {% if featured_publication.review_status == "draft-peer-review" %}
+              <div>
+                <dt>Status</dt>
+                <dd>Draft under peer review</dd>
+              </div>
+            {% endif %}
+            <div>
+              <dt>Structure</dt>
+              <dd>15 sections</dd>
+            </div>
+            <div>
+              <dt>Includes</dt>
+              <dd>Worked examples</dd>
+            </div>
+            {% if featured_publication.pdf_url %}
+              <div>
+                <dt>Format</dt>
+                <dd>PDF available</dd>
+              </div>
+            {% endif %}
+          </dl>
+          </div>
       {% else %}
         <div class="feature-publication">
           <div class="feature-publication__copy">
+            <p class="section-kicker">Featured working paper</p>
             <h2>Longer pieces will appear here</h2>
             <p>Some arguments need more room than a blog post can sensibly give them. This is where I will put the work that benefits from that space.</p>
           </div>

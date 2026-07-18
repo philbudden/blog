@@ -400,6 +400,10 @@ input {
   border-bottom: 1px solid var(--line);
 }
 
+.home-panel--publication {
+  display: grid;
+}
+
 .home-panel--areas {
   grid-column: 1 / -1;
 }
@@ -432,9 +436,10 @@ input {
 }
 
 .feature-publication {
+  min-height: 100%;
   grid-template-columns: minmax(0, 1fr);
-  align-items: start;
-  max-width: 38rem;
+  align-content: start;
+  gap: 2.4rem;
 }
 
 .feature-publication__copy h2 {
@@ -448,6 +453,44 @@ input {
 .feature-publication__copy p {
   max-width: 34rem;
   color: var(--ink-soft);
+}
+
+.feature-publication__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.4rem;
+  margin-top: 1.4rem;
+}
+
+.feature-publication__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  max-width: 42rem;
+}
+
+.feature-publication__meta div {
+  min-width: 0;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.46);
+}
+
+.feature-publication__meta dt {
+  margin: 0 0 0.35rem;
+  color: var(--ink-faint);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.feature-publication__meta dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.94rem;
+  line-height: 1.25;
 }
 
 .writing-list {
@@ -925,6 +968,10 @@ input {
   }
 
   .areas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-publication__meta {
     grid-template-columns: 1fr;
   }
 
