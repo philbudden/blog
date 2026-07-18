@@ -37,7 +37,7 @@ summary: About Philip Budden and the themes behind this site.
 
     <div class="about-card about-card--wide">
       <h2>What you will find here</h2>
-      <p>The writing archive holds essays, diaries, technical notes, and shorter reflections. Publications are used for longer-form public artefacts such as whitepapers, frameworks, reports, and guides.</p>
+      <p>The writing archive holds essays, technical notes, and shorter reflections. Publications are used for longer-form public artefacts such as whitepapers, frameworks, reports, and guides. Weekly diary notes now sit in the newsletter rather than the public article archive.</p>
       <p>The emphasis throughout is practical clarity: what makes a system trustworthy, what makes a decision defensible, and what helps technical work survive the pressures of real delivery.</p>
     </div>
   </section>

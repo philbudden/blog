@@ -1,14 +1,16 @@
 <footer class="site-footer">
   <div class="site-footer__intro">
-    <p class="site-footer__eyebrow">Stay in the loop</p>
-    <p class="site-footer__title">Practical thinking on AI, data, and systems.</p>
-    <p class="site-footer__summary">Essays, frameworks, and notes on building AI systems that are useful, reliable, and accountable.</p>
+    <p class="site-footer__eyebrow">Newsletter</p>
+    <p class="site-footer__title">A weekly working diary on AI, data, and systems.</p>
+    <p class="site-footer__summary">A reflective note on what I have been working through, one idea in more depth, and a link to the week's public article.</p>
+    {% include newsletter-form.html id="newsletter-footer-email" %}
   </div>
   <div class="site-footer__links">
     <a href="{{ '/about/' | relative_url }}">About</a>
     <a href="{{ '/blog/' | relative_url }}">Writing</a>
     <a href="{{ '/publications/' | relative_url }}">Publications</a>
     <a href="{{ '/tags/' | relative_url }}">Topics</a>
+    <a href="{{ '/newsletter/' | relative_url }}">Newsletter</a>
     <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
   </div>
 </footer>

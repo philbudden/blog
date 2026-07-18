@@ -16,6 +16,7 @@ body_class: page-home
       <p class="home-hero__summary">I write about responsible AI adoption, strategy, architecture, and leadership with a focus on systems that are reliable, observable, and built to scale with integrity.</p>
       <div class="home-hero__actions">
         <a class="action-link action-link--primary" href="{{ '/blog/' | relative_url }}">Explore my writing</a>
+        <a class="action-link" href="{{ '/newsletter/' | relative_url }}">Get the newsletter</a>
         <a class="action-link" href="{{ '/about/' | relative_url }}">About me</a>
       </div>
     </div>
@@ -63,6 +64,13 @@ body_class: page-home
           </article>
         {% endfor %}
       </div>
+    </section>
+
+    <section class="home-panel home-panel--newsletter">
+      <p class="section-kicker">Newsletter</p>
+      <h2>A weekly working diary.</h2>
+      <p>What I have been working through that week, one idea in more depth, and a link to the week's public article.</p>
+      {% include newsletter-form.html id="newsletter-home-email" %}
     </section>
 
     <section class="home-panel home-panel--areas">
