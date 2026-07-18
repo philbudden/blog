@@ -40,5 +40,10 @@ summary: About Philip Budden and the questions behind the writing.
       <p>This site is where I work through questions I do not think are well served by either hype or blanket scepticism. When is AI genuinely useful? What does responsible adoption look like once it touches real workflows? How do you design systems that are powerful enough to help, but still understandable enough to trust?</p>
       <p>The shorter pieces tend to follow one idea at a time. The longer ones give me room to connect the technical, organisational, and governance parts of the problem. The thread running through both is practical clarity: what makes a system trustworthy, what makes a decision defensible, and what helps technical work survive contact with real delivery.</p>
     </div>
+
+    <div class="about-card">
+      <h2>Elsewhere</h2>
+      <p>You can also find me on <a href="https://www.linkedin.com/in/pbudden/" rel="me noopener">LinkedIn</a> and <a href="https://github.com/philbudden" rel="me noopener">GitHub</a>.</p>
+    </div>
   </section>
 </section>
