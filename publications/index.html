@@ -2,7 +2,7 @@
 layout: default
 title: Publications
 body_class: page-publications
-summary: Whitepapers, frameworks, guides, reports, and other long-form public artefacts.
+summary: Longer pieces on responsible AI, data, systems, and delivery.
 ---
 {% assign published_publications = site.publications | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
 
@@ -10,11 +10,11 @@ summary: Whitepapers, frameworks, guides, reports, and other long-form public ar
   <header class="archive-hero">
     <div>
       <p class="section-kicker">Publications</p>
-      <h1>Long-form work with more room to think.</h1>
-      <p class="archive-hero__summary">Whitepapers, frameworks, and longer arguments for readers who want more than a short post.</p>
+      <h1>Longer pieces with more room to think.</h1>
+      <p class="archive-hero__summary">Some questions need more than a short essay. This is where I develop the arguments that need structure, examples, and enough space to test the trade-offs properly.</p>
     </div>
     <div class="archive-hero__aside">
-      <p>These pieces are intended to be durable: structured, referenceable, and eventually paired with downloadable PDFs where appropriate.</p>
+      <p>The aim is to make the thinking useful beyond the day it is published: something you can read, challenge, return to, and use as a starting point for your own work.</p>
     </div>
   </header>
 

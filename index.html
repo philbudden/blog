@@ -11,9 +11,9 @@ body_class: page-home
 <section class="home-shell">
   <header class="home-hero">
     <div class="home-hero__copy">
-      <p class="section-kicker">AI strategy. Responsible by design.</p>
-      <h1>Building AI systems that earn trust and deliver compounding value.</h1>
-      <p class="home-hero__summary">I write about responsible AI adoption, strategy, architecture, and leadership with a focus on systems that are reliable, observable, and built to scale with integrity.</p>
+      <p class="section-kicker">AI strategy. Systems. Judgement.</p>
+      <h1>Writing about the work needed to make AI useful, reliable, and accountable.</h1>
+      <p class="home-hero__summary">I write about responsible AI, data engineering, architecture, and technical leadership from the practical edge of delivery: where ambition meets messy systems, unclear ownership, and decisions that still need human judgement.</p>
       <div class="home-hero__actions">
         <a class="action-link action-link--primary" href="{{ '/blog/' | relative_url }}">Explore my writing</a>
         <a class="action-link" href="{{ '/newsletter/' | relative_url }}">Get the newsletter</a>
@@ -33,14 +33,14 @@ body_class: page-home
           <div class="feature-publication__copy">
             <h2>{{ featured_publication.title }}</h2>
             <p>{{ featured_publication.summary }}</p>
-            <a class="action-link" href="{{ featured_publication.url | relative_url }}">Read the essay</a>
+            <a class="action-link" href="{{ featured_publication.url | relative_url }}">Read more</a>
           </div>
         </div>
       {% else %}
         <div class="feature-publication">
           <div class="feature-publication__copy">
-            <h2>Long-form work will appear here</h2>
-            <p>Whitepapers, frameworks, and guides will sit alongside the blog when a short post is not enough.</p>
+            <h2>Longer pieces will appear here</h2>
+            <p>Some arguments need more room than a blog post can sensibly give them. This is where I will put the work that benefits from that space.</p>
           </div>
         </div>
       {% endif %}
@@ -68,8 +68,8 @@ body_class: page-home
 
     <section class="home-panel home-panel--newsletter">
       <p class="section-kicker">Newsletter</p>
-      <h2>A weekly working diary.</h2>
-      <p>What I have been working through that week, one idea in more depth, and a link to the week's public article.</p>
+      <h2>A quieter weekly note.</h2>
+      <p>The newsletter is where I write a little closer to the work itself: what I am trying to understand, what changed my mind, and what is worth carrying into the next week.</p>
       {% include newsletter-form.html id="newsletter-home-email" %}
     </section>
 
@@ -79,27 +79,27 @@ body_class: page-home
         <article class="area-card area-card--strategy">
           <p class="area-card__index">01</p>
           <h3>AI Strategy</h3>
-          <p>Aligning AI initiatives with business strategy, operating models, and measurable outcomes.</p>
+          <p>Starting with the problem that actually needs to change, not the tool that happens to be fashionable this month.</p>
         </article>
         <article class="area-card area-card--architecture">
           <p class="area-card__index">02</p>
           <h3>AI Architecture</h3>
-          <p>Designing resilient, scalable systems that integrate models, tools, and data effectively.</p>
+          <p>Thinking through how models, data, tools, and people fit together when the system has to keep working after the demo.</p>
         </article>
         <article class="area-card area-card--data">
           <p class="area-card__index">03</p>
           <h3>Data Engineering</h3>
-          <p>Building trustworthy data foundations: pipelines, platforms, quality, and governance.</p>
+          <p>Building the foundations that make better decisions possible: quality, lineage, governance, and data people can actually trust.</p>
         </article>
         <article class="area-card area-card--responsible">
           <p class="area-card__index">04</p>
           <h3>Responsible AI</h3>
-          <p>Managing risk, safety, privacy, and compliance across the AI lifecycle.</p>
+          <p>Keeping accountability, safety, privacy, and governance visible as AI moves from experiment into everyday work.</p>
         </article>
         <article class="area-card area-card--leadership">
           <p class="area-card__index">05</p>
           <h3>Technical Leadership</h3>
-          <p>Leading teams and organisations through complexity with clarity and integrity.</p>
+          <p>Helping teams make clear decisions when the technical answer is only part of the real problem.</p>
         </article>
       </div>
     </section>

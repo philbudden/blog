@@ -79,7 +79,7 @@
           searchResults.hidden = false;
 
           if (!results.length) {
-            searchResults.innerHTML = '<p class="search-results__empty">No matching public content found.</p>';
+            searchResults.innerHTML = '<p class="search-results__empty">No matching pieces found.</p>';
             return;
           }
 
