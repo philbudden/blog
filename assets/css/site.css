@@ -428,7 +428,6 @@ input {
   grid-column: 1 / -1;
 }
 
-.home-panel--newsletter h2,
 .newsletter-panel h2 {
   margin: 0;
   font-family: var(--font-display);
@@ -437,7 +436,6 @@ input {
   line-height: 1;
 }
 
-.home-panel--newsletter p:not(.section-kicker):not(.newsletter-form__meta),
 .newsletter-panel p:not(.section-kicker):not(.newsletter-form__meta) {
   max-width: 34rem;
   color: var(--ink-soft);
