@@ -260,6 +260,10 @@ input {
   font-size: 0.72rem;
 }
 
+.support-note__link {
+  white-space: nowrap;
+}
+
 .site-search__help {
   margin: 0.6rem 0 0;
   color: var(--ink-soft);
