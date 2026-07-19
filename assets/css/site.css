@@ -240,6 +240,26 @@ input {
   font-size: 0.86rem;
 }
 
+.support-note {
+  max-width: 42rem;
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+}
+
+.support-note p {
+  margin: 0.45rem 0 0;
+}
+
+.support-note__eyebrow {
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+}
+
 .site-search__help {
   margin: 0.6rem 0 0;
   color: var(--ink-soft);
