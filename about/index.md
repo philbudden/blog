@@ -41,6 +41,12 @@ summary: About Philip Budden and the questions behind the writing.
       <p>The shorter pieces tend to follow one idea at a time. The longer ones give me room to connect the technical, organisational, and governance parts of the problem. The thread running through both is practical clarity: what makes a system trustworthy, what makes a decision defensible, and what helps technical work survive contact with real delivery.</p>
     </div>
 
+    <div class="about-card about-card--wide">
+      <h2>Open work</h2>
+      <p>Some of the ideas here also have a working system behind them. <a href="https://github.com/philbudden/secondbrain-framework" rel="noopener">SecondBrain Framework</a> is the public, sanitised version of the Obsidian-native knowledge and operational system I use for source ingestion, wiki synthesis, Daily Notes, projects, writing, documents, and publication automation.</p>
+      <p>The private vault is not published. The framework repository contains the reusable structure, tools, templates, and operating contracts that sit behind the SecondBrain work.</p>
+    </div>
+
     <div class="about-card">
       <h2>Elsewhere</h2>
       <p>You can also find me on <a href="https://www.linkedin.com/in/pbudden/" rel="me noopener">LinkedIn</a> and <a href="https://github.com/philbudden" rel="me noopener">GitHub</a>.</p>
