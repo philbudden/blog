@@ -1,11 +1,13 @@
 <footer class="site-footer">
-  <div class="site-footer__intro">
-    <p class="site-footer__eyebrow">Newsletter</p>
-    <p class="site-footer__title">A weekly working diary on AI, data, and systems.</p>
-    <p class="site-footer__summary">A quieter note on what the week clarified, what I am still working out, and any new writing worth sending your way.</p>
-    {% include newsletter-form.html id="newsletter-footer-email" %}
-    {% include support-note.html %}
-  </div>
+  {% unless page.body_class == "page-newsletter" %}
+    <div class="site-footer__intro">
+      <p class="site-footer__eyebrow">Newsletter</p>
+      <p class="site-footer__title">A weekly working diary on AI, data, and systems.</p>
+      <p class="site-footer__summary">A quieter note on what the week clarified, what I am still working out, and any new writing worth sending your way.</p>
+      {% include newsletter-form.html id="newsletter-footer-email" %}
+      {% include support-note.html %}
+    </div>
+  {% endunless %}
   <div class="site-footer__links">
     <a href="{{ '/about/' | relative_url }}">About</a>
     <a href="{{ '/blog/' | relative_url }}">Writing</a>

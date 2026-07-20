@@ -10,10 +10,10 @@ summary: A weekly working diary on responsible AI, data engineering, technical l
     <div>
       <p class="section-kicker">Newsletter</p>
       <h1>A weekly note from the workbench.</h1>
-      <p class="archive-hero__summary">Reflections on what I’m building, learning, and publishing..</p>
+      <p class="archive-hero__summary">Reflections on what I’m building, learning, and publishing.</p>
     </div>
     <div class="archive-hero__aside">
-      <p>Each issue shares the shape of the week, ideas that moved, systems I worked on and my latest public writing.</p>
+      <p>A quieter note on what the week clarified, what I am still working out, and any new writing worth sending your way.</p>
     </div>
   </header>
 
@@ -21,7 +21,7 @@ summary: A weekly working diary on responsible AI, data engineering, technical l
     <div class="newsletter-panel__copy">
       <p class="section-kicker">Subscribe</p>
       <h2>Practical thinking, once a week.</h2>
-      <p>Expect a reflective note on what the week clarified, one idea worth spending a little more time with, and a link to anything new I have published.</p>
+      <p>Sign up to get the next issue by email.</p>
     </div>
     {% include newsletter-form.html id="newsletter-page-email" %}
   </section>
