@@ -10,10 +10,10 @@ summary: A weekly working diary on responsible AI, data engineering, technical l
     <div>
       <p class="section-kicker">Newsletter</p>
       <h1>A weekly note from the workbench.</h1>
-      <p class="archive-hero__summary">The newsletter is where I write more directly about what I am learning while working with AI, data, systems, and technical judgement. It is less polished than an essay, but often closer to the moment where an idea becomes useful.</p>
+      <p class="archive-hero__summary">Reflections on what I’m building, learning, and publishing..</p>
     </div>
     <div class="archive-hero__aside">
-      <p>If the site is where the finished arguments live, the newsletter is where I let you see more of the thinking around them: the trade-offs, false starts, useful distinctions, and one thing from the week that feels worth sharing.</p>
+      <p>Each issue shares the shape of the week, ideas that moved, systems I worked on and my latest public writing.</p>
     </div>
   </header>
 
