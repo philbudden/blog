@@ -4,7 +4,7 @@ title: Writing
 body_class: page-blog
 ---
 {% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
-{% assign latest_articles = published_articles | slice: 0, site.latest_posts_count %}
+{% assign all_tags = published_articles | map: "tags" | join: "|" | split: "|" | uniq | sort_natural %}
 
 <section class="archive-shell">
   <header class="archive-hero">
@@ -29,10 +29,21 @@ body_class: page-blog
         {% endfor %}
       </div>
     </div>
+    <div class="archive-controls__group">
+      <p class="section-kicker">Topics</p>
+      <div class="filter-row" data-tag-toolbar>
+        <button class="filter-chip is-active" type="button" data-filter-reset>All topics</button>
+        {% for tag in all_tags %}
+          {% if tag != "" %}
+            <button class="filter-chip" id="{{ tag | slugify }}" type="button" data-tag-filter-button="{{ tag | downcase }}">{{ tag }}</button>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
   </section>
 
   <section class="archive-list" data-post-list>
-    {% for post in latest_articles %}
+    {% for post in published_articles %}
       {% include post-card.html post=post %}
     {% endfor %}
   </section>

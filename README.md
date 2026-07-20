@@ -54,7 +54,7 @@ philbudden-blog/
 ├── blog/index.html         # Blog archive and filters
 ├── publications/index.html # Publication index
 ├── series/index.html       # Series index page
-├── tags/index.html         # Tag browser and filter page
+├── tags/index.html         # Legacy redirect to the Writing page topic filters
 ├── index.html              # Home page
 ├── search.json             # Search document feed for MiniSearch
 └── .github/workflows/      # GitHub Pages deployment workflow
@@ -153,12 +153,11 @@ Series ordering:
 ## How tags work
 
 - Tags live in each article's front matter under `tags`.
-- The home page exposes quick tag filters for the latest posts.
-- `/tags/` provides a dedicated tag browser.
-- With JavaScript enabled, selecting a tag filters the newest post list in
-  place.
-- Without JavaScript, the tags page still exposes grouped tag sections so the
-  site remains navigable.
+- The Writing page exposes topic filters alongside series filters.
+- Article tag chips link back to the Writing page with the matching topic
+  selected.
+- `/tags/` remains only as a legacy forwarding page for old links.
+- With JavaScript enabled, selecting a topic filters the writing list in place.
 
 ## How search works
 

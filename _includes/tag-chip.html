@@ -1,1 +1,2 @@
-<a class="tag-chip" href="{{ '/tags/#' | append: include.tag | slugify | relative_url }}" data-tag-filter="{{ include.tag | downcase }}" data-tag-slug="{{ include.tag | slugify }}">{{ include.tag }}</a>
+{% assign tag_slug = include.tag | slugify %}
+<a class="tag-chip" href="{{ '/blog/#' | append: tag_slug | relative_url }}" data-tag-filter="{{ include.tag | downcase }}" data-tag-slug="{{ tag_slug }}">{{ include.tag }}</a>
