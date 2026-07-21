@@ -8,6 +8,7 @@ tags:
   - governance
   - analytics
   - data-strategy
+series: data-foundations
 draft: false
 layout: article
 ---
