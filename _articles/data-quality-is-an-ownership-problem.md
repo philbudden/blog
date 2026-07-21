@@ -1,5 +1,5 @@
 ---
-title: "Data Quality Is an Ownership Problem"
+title: "Data Quality is an Ownership Problem"
 date: 2026-07-21
 summary: "A systems essay arguing that data quality only improves when visible defects have a route to ownership, decision authority, and operational follow-through."
 tags:
@@ -12,7 +12,7 @@ draft: false
 layout: article
 ---
 
-# Data Quality Is an Ownership Problem
+# Data Quality is an Ownership Problem
 
 Most organisations do not have a data quality problem because nobody can see the defects. They have a data quality problem because seeing the defects does not automatically make anyone responsible for fixing them.
 
