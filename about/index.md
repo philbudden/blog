@@ -9,19 +9,15 @@ summary: About Philip Budden and the questions behind the writing.
   <header class="archive-hero">
     <div>
       <p class="section-kicker">About</p>
-      <h1>Systems-minded writing about AI, data, and the reality of delivery.</h1>
-      <p class="archive-hero__summary">I am interested in what happens after the confident AI strategy slide: the data that is not ready, the ownership that is unclear, the workflow that does not quite fit, and the judgement needed to make useful systems responsibly.</p>
-    </div>
-    <div class="archive-hero__aside">
-      <p>The most interesting problems are rarely just technical. They sit where architecture, governance, delivery, and organisational reality start pulling on each other.</p>
+      <h1>Helping organisations turn data and AI into responsible action</h1>
+      <p class="archive-hero__summary">I build trusted data and AI foundations that help organisations move from reporting what happened to acting earlier, responsibly, and with better judgment.</p>
     </div>
   </header>
 
   <section class="about-grid">
     <div class="about-card">
-      <h2>How I tend to think</h2>
-      <p>I am drawn to the practical side of technology: the point where AI capability, data quality, system design, governance, and human judgement all have to work in the same room.</p>
-      <p>Most of the useful work happens between hype and refusal. That is where organisations have to decide what should be built, what should be automated, what has to remain legible, and who stays accountable when the system is wrong.</p>
+      <h2>Elevator Pitch</h2>
+      <p>I work at the intersection of data engineering, AI strategy, and organisational change, with a particular focus on turning trusted data foundations into better decisions and more responsible services. My work is grounded in implementation: pipelines, platforms, governance, lineage, ownership, and the operating models that make technology useful in real organisations. I believe AI adoption should start with purpose, constraints, data quality, and human judgment rather than tool selection or hype. The opportunity is not simply to automate more work, but to build systems where people can act earlier, verify more confidently, and carry accountability clearly. My distinctive perspective is that responsible AI and strategic data platforms are the same kind of problem: they only create value when technical capability is connected to trust, ownership, and practical intervention.</p>
     </div>
 
     <div class="about-card">
