@@ -2,7 +2,7 @@
 title: Delegating Work to AI
 date: 2026-07-18
 publication_kind: Draft working paper
-summary: A practical framework for deciding where AI can execute, where humans should lead, and how accountability should be retained.
+summary: A practical framework for senior leaders deciding where AI can execute, where humans should lead, and how accountability should be retained.
 pdf_url: /assets/publications/delegating-work-to-ai.pdf
 review_status: draft-peer-review
 review_note: This working paper is published as a draft while peer review is in progress. The argument is ready to read, but I may revise it in response to feedback.
@@ -17,11 +17,46 @@ topics:
 
 ## Summary
 
-This paper presents a practical framework for deciding what work to delegate to AI, what work should remain human-led, and what accountability remains after AI has contributed to the result. It is designed to improve day-to-day delegation decisions for both practitioners doing the work and leaders shaping the conditions around it by forcing attention onto outcome clarity, verification, retained human judgment, and the ownership of residual uncertainty. The paper also sets out delegation modes, accountability controls, multi-actor workflow considerations, organisational failure patterns, and worked examples that show how the framework can be applied in practice.
+This paper presents the Practical Delegation Test, a workplace decision tool for deciding what work to delegate to AI, what work should remain human-led, and what accountability remains after AI has contributed to the result.
+
+The central problem is that AI can often generate plausible work faster than organisations can specify, review, integrate, and stand behind it. The result can look like productivity while quietly creating review debt, hidden uncertainty, or weak handoffs. The Practical Delegation Test is designed to make those costs visible before work is delegated.
+
+The test asks four questions:
+
+1. Can I describe the outcome clearly?
+2. Can I verify the result cheaply enough?
+3. What judgment must remain human?
+4. Where does the uncertainty go?
+
+Those questions help teams choose between direct delegation, checkpointed delegation, human-led work with AI support, and a decision not to delegate. They are not a scoring model and they do not replace formal governance, legal obligations, sector-specific controls, or professional standards. They are a practical way to improve everyday delegation judgment inside those wider controls.
+
+The paper is written primarily for senior leaders, sponsors, and accountable owners who need to shape how AI-assisted work is adopted in practice. It uses operational examples because leaders cannot govern AI-assisted work only through policy statements or tool approvals; they need to understand what disciplined delegation looks like close to the work, where review debt, hidden uncertainty, and weak accountability usually appear.
+
+## What This Paper Is
+
+This is a practical workplace white paper, not an academic paper and not a complete AI governance framework. It offers a named heuristic, supporting concepts, worked examples, and adoption guidance for ordinary organisational use.
+
+| This paper is | This paper is not |
+| --- | --- |
+| A practical decision aid for AI delegation | A substitute for legal, regulatory, or professional advice |
+| A way to make review burden and accountability visible | A claim that every AI task can be reduced to four questions |
+| A tool for leadership discussion, accountability design, and workflow governance | A formal assurance framework for high-risk AI systems |
+| A practitioner synthesis grounded in adjacent research and operational experience | An empirical study proving universal productivity outcomes |
+
+## The Test at a Glance
+
+| Question | What it checks | If the answer is weak |
+| --- | --- | --- |
+| Can I describe the outcome clearly? | Whether the task is defined well enough for meaningful delegation | Use AI for exploration or clarification rather than execution |
+| Can I verify the result cheaply enough? | Whether checking the output is proportionate and realistic | Reduce the delegation level, add checks, or redesign the workflow |
+| What judgment must remain human? | Which trade-offs, commitments, risks, or decisions cannot be handed off | Keep authority and acceptance visibly human |
+| Where does the uncertainty go? | Whether residual risk is absorbed responsibly or pushed downstream | Stop, name the uncertainty, and redesign the handoff |
+
+In short, the aim is not to delegate as much work as possible. The aim is to delegate only where the human-and-AI system can produce a dependable result with clear ownership of the remaining judgment.
 
 ## 1. Purpose
 
-AI has changed the constraint in knowledge work. In many current workflows, systems can generate plausible work faster than organisations can specify, review, absorb, and stand behind it.[^9] That creates a practical decision problem for both the people using the tools directly and the leaders accountable for how those tools change work. The question is no longer only whether a model can produce an output. The question is whether delegating the work produces a dependable result with less total human burden once clarification, review, integration, and accountability are counted properly.
+AI has changed the constraint in knowledge work. In many current workflows, systems can generate plausible work faster than organisations can specify, review, absorb, and stand behind it.[^9] That creates a practical decision problem for the leaders accountable for how AI-assisted work is delegated, reviewed, and governed. Those leaders do not need to make every task-level decision themselves, but they do need to understand the conditions under which delegation becomes dependable, because the practical risks usually show up in ordinary workflows before they show up in formal governance reports. The question is no longer only whether a model can produce an output. The question is whether delegating the work produces a dependable result with less total human burden once clarification, review, integration, and accountability are counted properly.
 
 The Practical Delegation Test is a practical operating heuristic for that problem. It helps teams decide where AI can execute usefully, where AI should be constrained behind checkpoints, where AI should remain a support tool rather than a delegate, and where the task should remain human-led.
 
@@ -82,13 +117,33 @@ The framework consists of four questions:
 3. What judgment must remain human?
 4. Where does the uncertainty go?
 
+```mermaid
+flowchart TB
+    A["Proposed AI-assisted task"] --> B["Outcome clarity"]
+    A --> C["Verification cost"]
+    A --> D["Retained human judgment"]
+    A --> E["Uncertainty ownership"]
+    B --> F["Delegation decision"]
+    C --> F
+    D --> F
+    E --> F
+    F --> G["Direct delegation"]
+    F --> H["Checkpointed delegation"]
+    F --> I["Human-led with AI support"]
+    F --> J["Do not delegate"]
+    G --> K["Human accountability remains visible"]
+    H --> K
+    I --> K
+    J --> K
+```
+
 Taken together, those questions support three decisions:
 
 - whether the task is appropriate for AI delegation at all;
 - what level of delegation is appropriate;
 - and what human accountability remains after AI has contributed.
 
-The framework is intentionally qualitative. It uses structured questions and recognizable answer patterns, but it avoids false precision, single-number outputs, and the impression that a tidy score can remove the need for judgment. Its purpose is to force the right discussion before low-cost generation produces high-cost ambiguity.
+The framework is intentionally qualitative. It uses structured questions and recognisable answer patterns, but it avoids false precision, single-number outputs, and the impression that a tidy score can remove the need for judgment. Its purpose is to force the right discussion before low-cost generation produces high-cost ambiguity.
 
 The four questions are not statistically independent. In practice they often covary, especially in contested or consequential work. They still earn separate treatment because teams usually disagree for different reasons. One disagreement may be about whether the outcome is really clear, another about whether subtle failures are detectable, and another about where legitimate judgment still sits. Keeping the questions separate makes those disagreements easier to surface and challenge.
 
@@ -330,7 +385,7 @@ The same logic can run in reverse. Delegation can become less safe over time if 
 
 ## 11. Worked Examples
 
-The examples below are intended to show the framework under both comfortable and uncomfortable conditions. Some are easy cases. Others are deliberately borderline.
+The examples below are deliberately task-level, so the leadership implications remain grounded in ordinary workflows. Some examples are easy cases. Others are deliberately borderline.
 
 ### Example 1: Meeting Summary from a Recorded Internal Call
 
@@ -478,25 +533,43 @@ The examples below are intended to show the framework under both comfortable and
 
 ## 12. Practical Adoption Guidance
 
-Teams usually get more value from the framework when they introduce it as a working method rather than as a policy slogan.
+Leaders usually get more value from the framework when they introduce it as a working method rather than as a policy slogan, especially for higher-risk or ambiguous delegation decisions where review, judgment, and accountability need to be explicit.
 
 ### 12.1 A Lightweight Team Worksheet
 
 The framework can be applied in a short planning or review discussion using the following structure:
 
-1. Name the task.
-2. State the intended output and audience.
-3. Explain the verification path.
-4. State what judgment must remain explicitly human.
-5. State where residual uncertainty will be absorbed.
-6. Choose a delegation level.
-7. State the required accountability controls.
+| Step | Prompt | What good looks like |
+| --- | --- | --- |
+| 1 | Name the task | The task is bounded enough that people know what work is being discussed |
+| 2 | State the intended output and audience | The team knows who will use the output and what would make it acceptable or unusable |
+| 3 | Explain the verification path | There is a realistic way to check the result before it is relied on |
+| 4 | State what judgment remains human | The human decision, trade-off, or risk acceptance is named rather than implied |
+| 5 | State where residual uncertainty will be absorbed | Remaining uncertainty is visible and owned, not quietly passed downstream |
+| 6 | Choose a delegation level | The team selects direct delegation, checkpointed delegation, human-led work with AI support, or do not delegate |
+| 7 | State the required accountability controls | Approval, review, evidence, traceability, or escalation expectations are clear enough to act on |
 
 That is enough to expose many weak delegation decisions before they become workflow problems.
 
 The full worksheet is usually worth running when the task is consequential enough that a wrong delegation decision would create meaningful review debt, rework, escalation risk, or downstream ambiguity. It is usually not worth running for trivial, reversible, low-stakes tasks where the outcome is already clear and the verification path is genuinely cheap. In those cases the better move is often to rely on an already-agreed team default rather than create ceremony.
 
-### 12.2 Good Uses Inside Team Practice
+In practice, the worksheet should fit on a single screen or meeting note. If it takes longer to complete than the task deserves, that is usually a sign that the task should either be handled through a simpler team default or split into a more consequential part that needs explicit review and a lower-risk part that does not.
+
+### 12.2 Example Worksheet Entry
+
+| Step | Example answer |
+| --- | --- |
+| Task | Draft unit tests for a postcode-normalisation function |
+| Output and audience | A small test file for the developer and reviewer, covering expected formats and common edge cases |
+| Verification path | Run the tests, inspect the generated cases, and compare them with known input and output examples |
+| Human judgment | The developer decides whether the test set covers the behaviour that matters and whether important edge cases are missing |
+| Uncertainty ownership | The developer absorbs the uncertainty before commit rather than leaving the reviewer to discover shallow or misleading tests |
+| Delegation level | Direct delegation with quick human review |
+| Accountability controls | Developer review before commit, normal peer review, and no merge unless the tests pass |
+
+This is deliberately ordinary. The point of the worksheet is not to make every task feel high-risk, but to create a habit of naming the checks, judgment, and ownership that already matter when AI is used at work.
+
+### 12.3 Good Uses Inside Team Practice
 
 The framework is especially useful in:
 
@@ -507,11 +580,11 @@ The framework is especially useful in:
 - calibration sessions where teams compare how different people judge the same task;
 - and leadership discussions about where stronger controls or clearer delegation norms are needed.
 
-### 12.3 What Consistency Should Mean
+### 12.4 What Consistency Should Mean
 
 The objective is not that every reasonable person reaches the identical answer in every case. Some tasks are genuinely debatable. The objective is that teams can explain their answer in a way that makes the trade-offs visible and challengeable.
 
-### 12.4 Team Calibration Over Time
+### 12.5 Team Calibration Over Time
 
 Teams should expect some divergence, especially on borderline tasks. The right response is not to force artificial unanimity. It is to build a shared local library of examples and revisit it periodically.
 
@@ -524,7 +597,7 @@ A practical calibration cycle is:
 
 Consistency in this framework therefore means consistency of reasoning discipline, not identical conclusions in every case.
 
-### 12.5 What Successful Use Should Look Like
+### 12.6 What Successful Use Should Look Like
 
 If the framework is helping in practice, teams should expect to see at least some of the following signals over time:
 
@@ -558,7 +631,7 @@ A simple way to read the relationship to NIST is:
 | What judgment must remain human? | `Govern` roles, authority, and accountable oversight |
 | Where does the uncertainty go? | `Manage` residual risk, handoffs, and downstream controls |
 
-The paper offers a compact task-level heuristic that practitioners can use inside ordinary working decisions while remaining compatible with those wider bodies of thought.
+The paper offers a compact task-level heuristic that leaders can use to shape ordinary working decisions while remaining compatible with those wider bodies of thought.
 
 ## 14. When Human Judgment Is the Problem, Not the Safeguard
 
