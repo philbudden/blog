@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Uncertainty Transfer in AI-Assisted Work</title>
+  <desc id="desc">A workflow diagram contrasting early uncertainty absorption through originator review with hidden uncertainty transferred downstream after weak validation.</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font: 700 30px Arial, sans-serif; fill: #1f2933; }
+      .section { font: 700 16px Arial, sans-serif; fill: #405466; text-transform: uppercase; letter-spacing: .5px; }
+      .label { font: 700 20px Arial, sans-serif; fill: #1f2933; }
+      .small { font: 500 15px Arial, sans-serif; fill: #405466; }
+      .box { fill: #f8fafc; stroke: #9aa8b5; stroke-width: 1.5; rx: 14; }
+      .ai { fill: #eef4f8; stroke: #55738b; stroke-width: 2; rx: 14; }
+      .good { fill: #eef7f0; stroke: #5d8c64; stroke-width: 2; rx: 14; }
+      .risk { fill: #f8f1f1; stroke: #a86767; stroke-width: 2; rx: 14; }
+      .line { stroke: #6b7c8b; stroke-width: 2; fill: none; }
+      .goodLine { stroke: #5d8c64; stroke-width: 2.5; fill: none; }
+      .riskLine { stroke: #a86767; stroke-width: 2.5; fill: none; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="680"/>
+  <text x="600" y="56" text-anchor="middle" class="title">Where the Uncertainty Goes</text>
+  <text x="600" y="94" text-anchor="middle" class="small">AI output is not dependable until residual uncertainty has been made visible and owned.</text>
+
+  <rect x="90" y="150" width="230" height="90" class="box"/>
+  <text x="205" y="178" text-anchor="middle" class="label">Task and context</text>
+  <text x="205" y="204" text-anchor="middle" class="small">Need, constraints, audience,</text>
+  <text x="205" y="224" text-anchor="middle" class="small">and acceptance conditions</text>
+
+  <rect x="410" y="150" width="250" height="90" class="ai"/>
+  <text x="535" y="178" text-anchor="middle" class="label">AI-generated output</text>
+  <text x="535" y="204" text-anchor="middle" class="small">Fast, plausible candidate</text>
+  <text x="535" y="224" text-anchor="middle" class="small">work product</text>
+
+  <rect x="760" y="150" width="250" height="90" class="box"/>
+  <text x="885" y="178" text-anchor="middle" class="label">Originator review</text>
+  <text x="885" y="204" text-anchor="middle" class="small">Checks, context, judgment,</text>
+  <text x="885" y="224" text-anchor="middle" class="small">and named uncertainty</text>
+
+  <line x1="320" y1="195" x2="410" y2="195" class="line"/>
+  <line x1="660" y1="195" x2="760" y2="195" class="line"/>
+
+  <rect x="220" y="360" width="330" height="132" class="risk"/>
+  <text x="385" y="394" text-anchor="middle" class="section">Risk path</text>
+  <text x="385" y="424" text-anchor="middle" class="label">Hidden uncertainty transferred</text>
+  <text x="385" y="452" text-anchor="middle" class="small">Weak validation passes burden to a reviewer,</text>
+  <text x="385" y="472" text-anchor="middle" class="small">approver, colleague, customer, or service.</text>
+
+  <rect x="650" y="360" width="330" height="132" class="good"/>
+  <text x="815" y="394" text-anchor="middle" class="section">Healthy path</text>
+  <text x="815" y="424" text-anchor="middle" class="label">Uncertainty absorbed early</text>
+  <text x="815" y="452" text-anchor="middle" class="small">The originator checks, corrects, labels,</text>
+  <text x="815" y="472" text-anchor="middle" class="small">or escalates before relying on the output.</text>
+
+  <path d="M535 240 C535 300, 385 300, 385 360" class="riskLine"/>
+  <path d="M885 240 C885 300, 815 300, 815 360" class="goodLine"/>
+
+  <rect x="320" y="555" width="560" height="58" class="box"/>
+  <text x="600" y="590" text-anchor="middle" class="label">Delegation is only sound when the handoff is explicit</text>
+</svg>

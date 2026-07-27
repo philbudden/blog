@@ -1,11 +1,10 @@
 ---
 title: Delegating Work to AI
 date: 2026-07-18
-publication_kind: Draft working paper
+publication_kind: Whitepaper
 summary: A practical framework for senior leaders deciding where AI can execute, where humans should lead, and how accountability should be retained.
 pdf_url: /assets/publications/delegating-work-to-ai.pdf
-review_status: draft-peer-review
-review_note: This working paper is published as a draft while peer review is in progress. The argument is ready to read, but I may revise it in response to feedback.
+draft: false
 topics:
   - Responsible AI adoption
   - AI strategy
@@ -56,11 +55,11 @@ In short, the aim is not to delegate as much work as possible. The aim is to del
 
 ## 1. Purpose
 
-AI has changed the constraint in knowledge work. In many current workflows, systems can generate plausible work faster than organisations can specify, review, absorb, and stand behind it.[^9] That creates a practical decision problem for the leaders accountable for how AI-assisted work is delegated, reviewed, and governed. Those leaders do not need to make every task-level decision themselves, but they do need to understand the conditions under which delegation becomes dependable, because the practical risks usually show up in ordinary workflows before they show up in formal governance reports. The question is no longer only whether a model can produce an output. The question is whether delegating the work produces a dependable result with less total human burden once clarification, review, integration, and accountability are counted properly.
+AI has changed the constraint in knowledge work. In many current workflows, systems can generate plausible work faster than organisations can specify, review, absorb, and stand behind it.<a href="#references">[9]</a> That creates a practical decision problem for the leaders accountable for how AI-assisted work is delegated, reviewed, and governed. Those leaders do not need to make every task-level decision themselves, but they do need to understand the conditions under which delegation becomes dependable, because the practical risks usually show up in ordinary workflows before they show up in formal governance reports. The question is no longer only whether a model can produce an output. The question is whether delegating the work produces a dependable result with less total human burden once clarification, review, integration, and accountability are counted properly.
 
 The Practical Delegation Test is a practical operating heuristic for that problem. It helps teams decide where AI can execute usefully, where AI should be constrained behind checkpoints, where AI should remain a support tool rather than a delegate, and where the task should remain human-led.
 
-This paper does not replace formal risk management, professional standards, legal review, or sector-specific controls. It offers a practical framework that can be used in ordinary working environments to improve delegation judgment before work is handed to a tool, a colleague, a reviewer, or a downstream operational process. This framing is consistent with the broader risk-management view that AI risk is socio-technical, lifecycle-spanning, and shaped by both technical properties and deployment context.[^1][^2]
+This paper does not replace formal risk management, professional standards, legal review, or sector-specific controls. It offers a practical framework that can be used in ordinary working environments to improve delegation judgment before work is handed to a tool, a colleague, a reviewer, or a downstream operational process. This framing is consistent with the broader risk-management view that AI risk is socio-technical, lifecycle-spanning, and shaped by both technical properties and deployment context.<a href="#references">[1]</a><a href="#references">[2]</a>
 
 ## 2. The Practical Problem of AI Delegation
 
@@ -68,13 +67,13 @@ Many current narratives about AI adoption still frame the question too narrowly.
 
 Professional tasks usually involve at least five different forms of effort: defining the outcome, supplying sufficient context, generating a candidate result, verifying that result against the real need, and accepting responsibility for its consequences. AI frequently compresses only one of those stages. In some workflows that is enough to create a real gain. In others it simply shifts the remaining burden elsewhere.
 
-That distinction matters because AI often improves local speed while degrading system performance. A large code change may be fast to generate but expensive to review. A plausible draft response may be fast to produce but still carry legal, reputational, or interpersonal risk that must be absorbed by a human. A summary may look complete while hiding omissions that become someone else's problem later. The practical failure in those cases is not that the model generated something. The failure is that the delegation decision was made on a narrower cost model than the real work required. This interpretation is consistent with long-standing human-automation research showing that automation can reduce some forms of workload while creating new monitoring, verification, and handoff problems, and with more recent generative-AI work that describes a shift from production toward evaluation and workflow restructuring.[^3][^4][^9]
+That distinction matters because AI often improves local speed while degrading system performance. A large code change may be fast to generate but expensive to review. A plausible draft response may be fast to produce but still carry legal, reputational, or interpersonal risk that must be absorbed by a human. A summary may look complete while hiding omissions that become someone else's problem later. The practical failure in those cases is not that the model generated something. The failure is that the delegation decision was made on a narrower cost model than the real work required. This interpretation is consistent with long-standing human-automation research showing that automation can reduce some forms of workload while creating new monitoring, verification, and handoff problems, and with more recent generative-AI work that describes a shift from production toward evaluation and workflow restructuring.<a href="#references">[3]</a><a href="#references">[4]</a><a href="#references">[9]</a>
 
-In this paper, productivity is treated less as time-to-output and more as the quality of outcome achieved per unit of total workflow burden. The main emphasis is human attention, because that is where many organisations are currently undercounting cost. Where model cost, latency, tool-call spend, or infrastructure overhead are material, those should be counted explicitly as well. This is a practical operating lens for environments where generation is cheap relative to review, and where accountability remains human even when execution is partly machine-assisted.[^9]
+In this paper, productivity is treated less as time-to-output and more as the quality of outcome achieved per unit of total workflow burden. The main emphasis is human attention, because that is where many organisations are currently undercounting cost. Where model cost, latency, tool-call spend, or infrastructure overhead are material, those should be counted explicitly as well. This is a practical operating lens for environments where generation is cheap relative to review, and where accountability remains human even when execution is partly machine-assisted.<a href="#references">[9]</a>
 
 ## 3. Scope and Limits
 
-The Practical Delegation Test is a first-order delegation heuristic. It is designed to improve task allocation, review design, and accountability discipline in everyday work. It is not sufficient on its own for high-assurance or tightly regulated domains, and it should not be read as one.[^1][^2]
+The Practical Delegation Test is a first-order delegation heuristic. It is designed to improve task allocation, review design, and accountability discipline in everyday work. It is not sufficient on its own for high-assurance or tightly regulated domains, and it should not be read as one.<a href="#references">[1]</a><a href="#references">[2]</a>
 
 The framework is most useful in settings such as:
 
@@ -97,14 +96,7 @@ The framework is also intended mainly for bounded task handoffs or clearly ident
 
 The same boundary matters for agentic or multi-step workflows. Where one AI system is orchestrating tools, calling other models, or decomposing work into sub-tasks, the framework should be applied at the workflow or sub-workflow boundary rather than only at the final visible output. In those settings, uncertainty can compound across steps, and apparently cheap final review may hide a more complex chain of delegated decisions.
 
-```mermaid
-flowchart TB
-    A["Law, regulation, and professional obligations"] --> B["Organisational policy and risk controls"]
-    B --> C["Domain-specific governance and assurance"]
-    C --> D["Workflow design, approvals, and review controls"]
-    D --> E["Practical Delegation Test"]
-    E --> F["Task-level AI use decision"]
-```
+![Where the Practical Delegation Test sits inside wider controls](/assets/publications/delegating-work-to-ai/control-stack.svg)
 
 The practical implication is simple. If the wider control environment says a task requires formal sign-off, traceability, separation of duties, human review, or explicit evidence retention, this heuristic does not override those requirements. It helps structure the task-level judgment inside them.
 
@@ -117,25 +109,7 @@ The framework consists of four questions:
 3. What judgment must remain human?
 4. Where does the uncertainty go?
 
-```mermaid
-flowchart TB
-    A["Proposed AI-assisted task"] --> B["Outcome clarity"]
-    A --> C["Verification cost"]
-    A --> D["Retained human judgment"]
-    A --> E["Uncertainty ownership"]
-    B --> F["Delegation decision"]
-    C --> F
-    D --> F
-    E --> F
-    F --> G["Direct delegation"]
-    F --> H["Checkpointed delegation"]
-    F --> I["Human-led with AI support"]
-    F --> J["Do not delegate"]
-    G --> K["Human accountability remains visible"]
-    H --> K
-    I --> K
-    J --> K
-```
+![The Practical Delegation Test as a leadership canvas](/assets/publications/delegating-work-to-ai/practical-delegation-test.svg)
 
 Taken together, those questions support three decisions:
 
@@ -169,7 +143,7 @@ Poor clarity does not always mean AI should not be used. It often means the task
 
 The second question is whether the result can be verified cheaply enough for delegation to remain worthwhile. This is the most commonly undercounted part of the decision.
 
-In this paper, cheap verification does not mean trivial verification or automated verification only. It means that the checking burden is proportionate to the value of the task and realistic within the actual workflow. A task can still be worth delegating even if review is non-trivial, but only if that review cost is an explicit part of the decision rather than hidden overhead. Where the workflow also carries material model cost, latency, or execution overhead, those should be counted alongside the human review cost rather than after it. That emphasis is consistent with research showing that verification complexity is an important mediator of automation bias and that plausible automated assistance can still create decision risk when meaningful checking is hard.[^5][^6]
+In this paper, cheap verification does not mean trivial verification or automated verification only. It means that the checking burden is proportionate to the value of the task and realistic within the actual workflow. A task can still be worth delegating even if review is non-trivial, but only if that review cost is an explicit part of the decision rather than hidden overhead. Where the workflow also carries material model cost, latency, or execution overhead, those should be counted alongside the human review cost rather than after it. That emphasis is consistent with research showing that verification complexity is an important mediator of automation bias and that plausible automated assistance can still create decision risk when meaningful checking is hard.<a href="#references">[5]</a><a href="#references">[6]</a>
 
 Verification cost has at least five dimensions:
 
@@ -203,7 +177,7 @@ For the purposes of this paper, five related terms need to be kept separate:
 
 One person may hold all five, but often they do not. A subject matter expert may exercise judgment without final accountability. A manager may be accountable without doing the detailed work. A regulated process may impose liability even where authority is delegated.
 
-The question in the Practical Delegation Test is therefore not whether humans remain "in the loop" in a vague sense. It is what part of the real judgment load must remain explicitly human if the work is still to be accepted legitimately. This is close to the distinction made in trust-in-automation research between nominal human presence and appropriate human reliance, oversight, and intervention authority.[^7][^8]
+The question in the Practical Delegation Test is therefore not whether humans remain "in the loop" in a vague sense. It is what part of the real judgment load must remain explicitly human if the work is still to be accepted legitimately. This is close to the distinction made in trust-in-automation research between nominal human presence and appropriate human reliance, oversight, and intervention authority.<a href="#references">[7]</a><a href="#references">[8]</a>
 
 A workflow may leave judgment with one person, authority with another, accountability with a manager, and liability with the organisation. Keeping those distinctions visible is essential to sound delegation.
 
@@ -222,21 +196,13 @@ Not all downstream review is a failure. Legitimate review is part of many health
 | Residual uncertainty is visible and named | Residual uncertainty is obscured by polish or confidence |
 | The reviewer has authority, time, and context to challenge it | The reviewer is socially or operationally pressured to accept it |
 
-```mermaid
-flowchart LR
-    A["Task and context"] --> B["AI-generated output"]
-    B --> C["Originator review"]
-    C --> D["Downstream consumer or approver"]
-    C --> E["Uncertainty absorbed early"]
-    B --> F["Output forwarded with weak validation"]
-    F --> G["Hidden uncertainty transferred downstream"]
-```
+![Where uncertainty goes in AI-assisted work](/assets/publications/delegating-work-to-ai/uncertainty-transfer.svg)
 
-This question is especially important in organisations where apparent throughput is rewarded more visibly than clean handoffs. In those environments, AI can easily become a machine for manufacturing downstream ambiguity under the appearance of productivity. The concern is not new. It echoes the long-standing automation problem in which humans are left with residual monitoring and exception-handling burdens after the apparently easier parts of the work have been delegated away.[^3][^4]
+This question is especially important in organisations where apparent throughput is rewarded more visibly than clean handoffs. In those environments, AI can easily become a machine for manufacturing downstream ambiguity under the appearance of productivity. The concern is not new. It echoes the long-standing automation problem in which humans are left with residual monitoring and exception-handling burdens after the apparently easier parts of the work have been delegated away.<a href="#references">[3]</a><a href="#references">[4]</a>
 
 ## 6. Delegation Modes
 
-AI is not used in only one way, and the framework becomes easier to apply once three broad modes are separated. These modes are a practical simplification informed by the wider literature on types and levels of human interaction with automation.[^7]
+AI is not used in only one way, and the framework becomes easier to apply once three broad modes are separated. These modes are a practical simplification informed by the wider literature on types and levels of human interaction with automation.<a href="#references">[7]</a>
 
 These modes are not the same thing as the delegation levels introduced in Section 7. Modes describe the kind of use. Levels describe the degree of delegated authority and review burden. In practice, exploratory use usually maps to human-led work with AI support, assistive use may range from human-led to checkpointed delegation, and executional use may range from checkpointed to direct delegation depending on verification and retained judgment.
 
@@ -246,14 +212,7 @@ These modes are not the same thing as the delegation levels introduced in Sectio
 | Assistive use | Usually human-led with AI support or checkpointed delegation |
 | Executional use | Usually checkpointed delegation or direct delegation |
 
-```mermaid
-flowchart LR
-    A["Exploratory use"] --> B["Assistive use"]
-    B --> C["Executional use"]
-    A1["Used to widen options, surface questions, or explore possibilities"] --- A
-    B1["Used to draft, critique, transform, or accelerate human-led work"] --- B
-    C1["Used to perform a meaningful part of the task as a delegate"] --- C
-```
+![Three modes of AI use](/assets/publications/delegating-work-to-ai/delegation-modes.svg)
 
 ### Exploratory Use
 
@@ -293,7 +252,7 @@ The aim is not maximum delegation. The aim is appropriate delegation.
 
 ## 8. Accountability in Practice
 
-Accountability only becomes meaningful if it shows up in actual controls, decisions, and evidence. That is also aligned with current AI risk-management frameworks, which treat governance, measurement, and management as operational responsibilities rather than abstract principles alone.[^1][^2]
+Accountability only becomes meaningful if it shows up in actual controls, decisions, and evidence. That is also aligned with current AI risk-management frameworks, which treat governance, measurement, and management as operational responsibilities rather than abstract principles alone.<a href="#references">[1]</a><a href="#references">[2]</a>
 
 ### 8.1 Practical Accountability Controls
 
@@ -335,7 +294,7 @@ The quality of an AI delegation decision depends partly on the surrounding organ
 
 ### 9.1 Incentives and Metric Distortion
 
-The framework works poorly when teams are rewarded only for visible speed, output volume, or short-term turnaround. Under those conditions, it becomes rational for people to generate more than the system can responsibly absorb. Review burden, rework, incident risk, and trust degradation then appear later in the workflow rather than in the local metric that drove the behaviour. This is one reason AI risk is often better understood as socio-technical rather than purely technical, and why workflow design can matter as much as model capability.[^1][^3][^9]
+The framework works poorly when teams are rewarded only for visible speed, output volume, or short-term turnaround. Under those conditions, it becomes rational for people to generate more than the system can responsibly absorb. Review burden, rework, incident risk, and trust degradation then appear later in the workflow rather than in the local metric that drove the behaviour. This is one reason AI risk is often better understood as socio-technical rather than purely technical, and why workflow design can matter as much as model capability.<a href="#references">[1]</a><a href="#references">[3]</a><a href="#references">[9]</a>
 
 Teams that want the framework to work in practice usually need at least some attention to:
 
@@ -359,16 +318,9 @@ In regulated or higher-risk settings, accountability may require formal document
 
 ## 10. Maturity Over Time
 
-Delegation decisions should not be treated as permanent properties of a task. Many workflows become safer to delegate as controls mature. That is consistent with lifecycle-oriented risk management, which treats governance, measurement, and management as ongoing rather than one-off design activities.[^1][^2]
+Delegation decisions should not be treated as permanent properties of a task. Many workflows become safer to delegate as controls mature. That is consistent with lifecycle-oriented risk management, which treats governance, measurement, and management as ongoing rather than one-off design activities.<a href="#references">[1]</a><a href="#references">[2]</a>
 
-```mermaid
-flowchart LR
-    A["Human-led with AI support"] --> B["Checkpointed delegation"]
-    B --> C["More direct delegation"]
-    A --- A1["Weak task definition, limited instrumentation, expensive review"]
-    B --- B1["Better prompts, templates, checks, evals, or workflow design"]
-    C --- C1["Stable task shape, evidence of reliability, structured verification"]
-```
+![Delegation maturity over time](/assets/publications/delegating-work-to-ai/delegation-maturity.svg)
 
 The same task may move across delegation levels over time because:
 
@@ -615,12 +567,12 @@ The framework should not be treated as successful merely because people use its 
 
 The Practical Delegation Test sits alongside several adjacent traditions rather than outside them.
 
-- Human-in-the-loop design has long recognised that nominal human involvement is not enough unless the human has real understanding and effective control.[^7][^8]
-- Research on automation bias and human factors has shown that plausible automated outputs can attract unearned trust, especially under time pressure or weak task design.[^4][^5][^6]
-- Sociotechnical risk thinking has emphasised that system performance depends on handoffs, incentives, and role design rather than on component capability alone.[^1][^3]
-- Software quality and assurance practice has long distinguished generation from verification, which is one reason testing, code review, and release controls remain necessary even when code generation becomes easier.[^3][^5]
-- AI risk-management and assurance frameworks, including governance models such as the NIST AI Risk Management Framework and its Generative AI Profile, address controls, documentation, monitoring, and organisational responsibility at a wider level than this paper attempts.[^1][^2]
-- Classic human-versus-machine allocation frameworks, such as Fitts' MABA-MABA framing and later levels-of-automation models, ask a related but broader question: what kinds of functions should humans or machines perform at all. This paper works at a narrower operational level. It assumes mixed workflows already exist and asks how a specific task or step should be delegated inside them.[^7]
+- Human-in-the-loop design has long recognised that nominal human involvement is not enough unless the human has real understanding and effective control.<a href="#references">[7]</a><a href="#references">[8]</a>
+- Research on automation bias and human factors has shown that plausible automated outputs can attract unearned trust, especially under time pressure or weak task design.<a href="#references">[4]</a><a href="#references">[5]</a><a href="#references">[6]</a>
+- Sociotechnical risk thinking has emphasised that system performance depends on handoffs, incentives, and role design rather than on component capability alone.<a href="#references">[1]</a><a href="#references">[3]</a>
+- Software quality and assurance practice has long distinguished generation from verification, which is one reason testing, code review, and release controls remain necessary even when code generation becomes easier.<a href="#references">[3]</a><a href="#references">[5]</a>
+- AI risk-management and assurance frameworks, including governance models such as the NIST AI Risk Management Framework and its Generative AI Profile, address controls, documentation, monitoring, and organisational responsibility at a wider level than this paper attempts.<a href="#references">[1]</a><a href="#references">[2]</a>
+- Classic human-versus-machine allocation frameworks, such as Fitts' MABA-MABA framing and later levels-of-automation models, ask a related but broader question: what kinds of functions should humans or machines perform at all. This paper works at a narrower operational level. It assumes mixed workflows already exist and asks how a specific task or step should be delegated inside them.<a href="#references">[7]</a>
 
 A simple way to read the relationship to NIST is:
 
@@ -651,12 +603,20 @@ The Practical Delegation Test does not exist to slow AI adoption. It exists to m
 
 ## References
 
-[^1]: National Institute of Standards and Technology. *Artificial Intelligence Risk Management Framework (AI RMF 1.0).* NIST AI 100-1, January 2023. https://doi.org/10.6028/NIST.AI.100-1
-[^2]: National Institute of Standards and Technology. *Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile.* NIST AI 600-1, July 2024. https://doi.org/10.6028/NIST.AI.600-1
-[^3]: Bainbridge, L. *Ironies of Automation.* Automatica, 19(6), 775-779, 1983. https://doi.org/10.1016/0005-1098(83)90046-8
-[^4]: Parasuraman, R., and Riley, V. *Humans and Automation: Use, Misuse, Disuse, Abuse.* Human Factors, 39(2), 230-253, 1997. https://doi.org/10.1518/001872097778543886
-[^5]: Lyell, D., and Coiera, E. *Automation Bias and Verification Complexity: A Systematic Review.* Journal of the American Medical Informatics Association, 24(2), 423-431, 2017. https://doi.org/10.1093/jamia/ocw105
-[^6]: Goddard, K., Roudsari, A., and Wyatt, J. C. *Automation Bias: A Systematic Review of Frequency, Effect Mediators, and Mitigators.* Journal of the American Medical Informatics Association, 19(1), 121-127, 2012. https://doi.org/10.1136/amiajnl-2011-000089
-[^7]: Parasuraman, R., Sheridan, T. B., and Wickens, C. D. *A Model for Types and Levels of Human Interaction with Automation.* IEEE Transactions on Systems, Man, and Cybernetics - Part A: Systems and Humans, 30(3), 286-297, 2000. https://doi.org/10.1109/3468.844354
-[^8]: Lee, J. D., and See, K. A. *Trust in Automation: Designing for Appropriate Reliance.* Human Factors, 46(1), 2004.
-[^9]: Simkute, A., Tankelevitch, L., Kewenig, V., Scott, A. E., Sellen, A., and Rintel, S. *Ironies of Generative AI: Understanding and Mitigating Productivity Loss in Human-AI Interactions.* arXiv, 2024. https://arxiv.org/abs/2402.11364
+[1] National Institute of Standards and Technology. *Artificial Intelligence Risk Management Framework (AI RMF 1.0).* NIST AI 100-1, January 2023. https://doi.org/10.6028/NIST.AI.100-1
+
+[2] National Institute of Standards and Technology. *Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile.* NIST AI 600-1, July 2024. https://doi.org/10.6028/NIST.AI.600-1
+
+[3] Bainbridge, L. *Ironies of Automation.* Automatica, 19(6), 775-779, 1983. https://doi.org/10.1016/0005-1098(83)90046-8
+
+[4] Parasuraman, R., and Riley, V. *Humans and Automation: Use, Misuse, Disuse, Abuse.* Human Factors, 39(2), 230-253, 1997. https://doi.org/10.1518/001872097778543886
+
+[5] Lyell, D., and Coiera, E. *Automation Bias and Verification Complexity: A Systematic Review.* Journal of the American Medical Informatics Association, 24(2), 423-431, 2017. https://doi.org/10.1093/jamia/ocw105
+
+[6] Goddard, K., Roudsari, A., and Wyatt, J. C. *Automation Bias: A Systematic Review of Frequency, Effect Mediators, and Mitigators.* Journal of the American Medical Informatics Association, 19(1), 121-127, 2012. https://doi.org/10.1136/amiajnl-2011-000089
+
+[7] Parasuraman, R., Sheridan, T. B., and Wickens, C. D. *A Model for Types and Levels of Human Interaction with Automation.* IEEE Transactions on Systems, Man, and Cybernetics - Part A: Systems and Humans, 30(3), 286-297, 2000. https://doi.org/10.1109/3468.844354
+
+[8] Lee, J. D., and See, K. A. *Trust in Automation: Designing for Appropriate Reliance.* Human Factors, 46(1), 2004.
+
+[9] Simkute, A., Tankelevitch, L., Kewenig, V., Scott, A. E., Sellen, A., and Rintel, S. *Ironies of Generative AI: Understanding and Mitigating Productivity Loss in Human-AI Interactions.* arXiv, 2024. https://arxiv.org/abs/2402.11364

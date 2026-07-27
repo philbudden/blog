@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">AI Delegation Modes</title>
+  <desc id="desc">Three AI use modes moving from exploratory use to assistive use and executional use, with short explanations below each mode.</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font: 700 30px Arial, sans-serif; fill: #1f2933; }
+      .section { font: 700 16px Arial, sans-serif; fill: #405466; text-transform: uppercase; letter-spacing: .5px; }
+      .label { font: 700 21px Arial, sans-serif; fill: #1f2933; }
+      .small { font: 500 15px Arial, sans-serif; fill: #405466; }
+      .mode { fill: #eef4f8; stroke: #55738b; stroke-width: 2; rx: 14; }
+      .note { fill: #f8fafc; stroke: #9aa8b5; stroke-width: 1.5; rx: 14; }
+      .decision { fill: #f4f0e8; stroke: #9b7b3b; stroke-width: 2; rx: 14; }
+      .line { stroke: #6b7c8b; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="620"/>
+  <text x="600" y="56" text-anchor="middle" class="title">Three Modes of AI Use</text>
+  <text x="600" y="94" text-anchor="middle" class="small">Modes describe the kind of use; delegation levels describe how much authority and review burden is being delegated.</text>
+
+  <rect x="90" y="165" width="280" height="88" class="mode"/>
+  <text x="230" y="199" text-anchor="middle" class="section">Mode 1</text>
+  <text x="230" y="226" text-anchor="middle" class="label">Exploratory use</text>
+
+  <rect x="460" y="165" width="280" height="88" class="mode"/>
+  <text x="600" y="199" text-anchor="middle" class="section">Mode 2</text>
+  <text x="600" y="226" text-anchor="middle" class="label">Assistive use</text>
+
+  <rect x="830" y="165" width="280" height="88" class="mode"/>
+  <text x="970" y="199" text-anchor="middle" class="section">Mode 3</text>
+  <text x="970" y="226" text-anchor="middle" class="label">Executional use</text>
+
+  <line x1="370" y1="209" x2="460" y2="209" class="line"/>
+  <line x1="740" y1="209" x2="830" y2="209" class="line"/>
+
+  <rect x="90" y="330" width="280" height="112" class="note"/>
+  <text x="230" y="360" text-anchor="middle" class="label">Widen options</text>
+  <text x="230" y="388" text-anchor="middle" class="small">Surface questions, possibilities,</text>
+  <text x="230" y="408" text-anchor="middle" class="small">and alternative framings while</text>
+  <text x="230" y="428" text-anchor="middle" class="small">the task is still being discovered.</text>
+
+  <rect x="460" y="330" width="280" height="112" class="note"/>
+  <text x="600" y="360" text-anchor="middle" class="label">Support human work</text>
+  <text x="600" y="388" text-anchor="middle" class="small">Draft, critique, transform,</text>
+  <text x="600" y="408" text-anchor="middle" class="small">or accelerate work that remains</text>
+  <text x="600" y="428" text-anchor="middle" class="small">substantively human-led.</text>
+
+  <rect x="830" y="330" width="280" height="112" class="note"/>
+  <text x="970" y="360" text-anchor="middle" class="label">Delegate execution</text>
+  <text x="970" y="388" text-anchor="middle" class="small">Let AI perform a meaningful</text>
+  <text x="970" y="408" text-anchor="middle" class="small">part of the task under clear</text>
+  <text x="970" y="428" text-anchor="middle" class="small">specification and review.</text>
+
+  <line x1="230" y1="253" x2="230" y2="330" class="line"/>
+  <line x1="600" y1="253" x2="600" y2="330" class="line"/>
+  <line x1="970" y1="253" x2="970" y2="330" class="line"/>
+
+  <rect x="300" y="492" width="600" height="82" class="decision"/>
+  <text x="600" y="526" text-anchor="middle" class="label">Do not mistake assistive use</text>
+  <text x="600" y="552" text-anchor="middle" class="label">for safe executional delegation</text>
+</svg>

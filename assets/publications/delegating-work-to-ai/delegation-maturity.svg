@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">Delegation Maturity Over Time</title>
+  <desc id="desc">A maturity diagram showing how a task may move from human-led AI support to checkpointed delegation and more direct delegation as controls improve.</desc>
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font: 700 30px Arial, sans-serif; fill: #1f2933; }
+      .section { font: 700 16px Arial, sans-serif; fill: #405466; text-transform: uppercase; letter-spacing: .5px; }
+      .label { font: 700 20px Arial, sans-serif; fill: #1f2933; }
+      .small { font: 500 15px Arial, sans-serif; fill: #405466; }
+      .level { fill: #eef4f8; stroke: #55738b; stroke-width: 2; rx: 14; }
+      .evidence { fill: #f8fafc; stroke: #9aa8b5; stroke-width: 1.5; rx: 14; }
+      .mature { fill: #eef7f0; stroke: #5d8c64; stroke-width: 2; rx: 14; }
+      .warning { fill: #f8f1f1; stroke: #a86767; stroke-width: 1.8; rx: 14; }
+      .line { stroke: #6b7c8b; stroke-width: 2; fill: none; }
+      .growth { stroke: #5d8c64; stroke-width: 2.5; fill: none; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="660"/>
+  <text x="600" y="56" text-anchor="middle" class="title">Delegation Can Mature Over Time</text>
+  <text x="600" y="94" text-anchor="middle" class="small">A task may become safer to delegate as specification, verification, and evidence improve.</text>
+
+  <rect x="80" y="160" width="300" height="92" class="level"/>
+  <text x="230" y="194" text-anchor="middle" class="section">Initial pattern</text>
+  <text x="230" y="222" text-anchor="middle" class="label">Human-led with AI support</text>
+
+  <rect x="450" y="160" width="300" height="92" class="level"/>
+  <text x="600" y="194" text-anchor="middle" class="section">Emerging pattern</text>
+  <text x="600" y="222" text-anchor="middle" class="label">Checkpointed delegation</text>
+
+  <rect x="820" y="160" width="300" height="92" class="mature"/>
+  <text x="970" y="194" text-anchor="middle" class="section">Mature pattern</text>
+  <text x="970" y="222" text-anchor="middle" class="label">More direct delegation</text>
+
+  <line x1="380" y1="206" x2="450" y2="206" class="growth"/>
+  <line x1="750" y1="206" x2="820" y2="206" class="growth"/>
+
+  <rect x="80" y="330" width="300" height="112" class="evidence"/>
+  <text x="230" y="360" text-anchor="middle" class="label">Why it starts here</text>
+  <text x="230" y="388" text-anchor="middle" class="small">Weak task definition, limited</text>
+  <text x="230" y="408" text-anchor="middle" class="small">instrumentation, expensive review,</text>
+  <text x="230" y="428" text-anchor="middle" class="small">or unclear judgment boundaries.</text>
+
+  <rect x="450" y="330" width="300" height="112" class="evidence"/>
+  <text x="600" y="360" text-anchor="middle" class="label">What improves</text>
+  <text x="600" y="388" text-anchor="middle" class="small">Better prompts, templates, checks,</text>
+  <text x="600" y="408" text-anchor="middle" class="small">evals, examples, and workflow</text>
+  <text x="600" y="428" text-anchor="middle" class="small">design reduce ambiguity.</text>
+
+  <rect x="820" y="330" width="300" height="112" class="evidence"/>
+  <text x="970" y="360" text-anchor="middle" class="label">What must be true</text>
+  <text x="970" y="388" text-anchor="middle" class="small">Stable task shape, evidence of</text>
+  <text x="970" y="408" text-anchor="middle" class="small">reliability, structured verification,</text>
+  <text x="970" y="428" text-anchor="middle" class="small">and visible accountability.</text>
+
+  <line x1="230" y1="252" x2="230" y2="330" class="line"/>
+  <line x1="600" y1="252" x2="600" y2="330" class="line"/>
+  <line x1="970" y1="252" x2="970" y2="330" class="line"/>
+
+  <rect x="280" y="500" width="640" height="104" class="warning"/>
+  <text x="600" y="526" text-anchor="middle" class="section">Regression risk</text>
+  <text x="600" y="552" text-anchor="middle" class="small">Delegation can also become less safe if tools, prompts,</text>
+  <text x="600" y="572" text-anchor="middle" class="small">context, usage patterns, or human review habits</text>
+  <text x="600" y="592" text-anchor="middle" class="small">drift over time.</text>
+</svg>
