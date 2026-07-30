@@ -9,7 +9,7 @@
   <div class="archive-entry__content">
     <p class="archive-entry__eyebrow">
       {{ publication.publication_kind | default: "Publication" }}
-      <span>{% if publication.placeholder %}Forthcoming{% else %}{{ reading_time }} min read{% endif %}</span>
+      <span>{% if publication.placeholder %}Forthcoming{% else %}{{ reading_time }} min overview{% endif %}</span>
     </p>
     <h3 class="archive-entry__title"><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3>
     <p class="archive-entry__summary">{{ publication.summary }}</p>

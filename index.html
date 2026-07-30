@@ -30,11 +30,11 @@ body_class: page-home
       {% if featured_publication %}
         <div class="feature-publication">
           <div class="feature-publication__copy">
-            <p class="section-kicker">Featured working paper</p>
+            <p class="section-kicker">Featured publication</p>
             <h2>{{ featured_publication.title }}</h2>
             <p>{{ featured_publication.summary }}</p>
             <div class="feature-publication__actions">
-              <a class="action-link" href="{{ featured_publication.url | relative_url }}">Read online</a>
+              <a class="action-link" href="{{ featured_publication.url | relative_url }}">View publication</a>
               {% if featured_publication.pdf_url %}
                 <a class="action-link" href="{{ featured_publication.pdf_url | relative_url }}">Download PDF</a>
               {% endif %}
@@ -48,17 +48,13 @@ body_class: page-home
               </div>
             {% endif %}
             <div>
-              <dt>Structure</dt>
-              <dd>15 sections</dd>
-            </div>
-            <div>
-              <dt>Includes</dt>
-              <dd>Worked examples</dd>
+              <dt>Type</dt>
+              <dd>{{ featured_publication.publication_kind | default: "Publication" }}</dd>
             </div>
             {% if featured_publication.pdf_url %}
               <div>
                 <dt>Format</dt>
-                <dd>PDF available</dd>
+                <dd>PDF download</dd>
               </div>
             {% endif %}
           </dl>
@@ -66,7 +62,7 @@ body_class: page-home
       {% else %}
         <div class="feature-publication">
           <div class="feature-publication__copy">
-            <p class="section-kicker">Featured working paper</p>
+            <p class="section-kicker">Featured publication</p>
             <h2>Longer pieces will appear here</h2>
             <p>Some arguments need more room than a blog post can sensibly give them. This is where I will put the work that benefits from that space.</p>
           </div>
