@@ -31,6 +31,13 @@ Those questions help teams choose between direct delegation, checkpointed delega
 
 The paper is written primarily for senior leaders, sponsors, and accountable owners who need to shape how AI-assisted work is adopted in practice. It uses operational examples because leaders cannot govern AI-assisted work only through policy statements or tool approvals; they need to understand what disciplined delegation looks like close to the work, where review debt, hidden uncertainty, and weak accountability usually appear.
 
+
+## Companion Practitioner Guide
+
+A short companion guide is also available for practitioners who want to apply the Practical Delegation Test directly to their own work:
+
+[Applying the Practical Delegation Test](/publications/applying-the-practical-delegation-test/)
+
 ## What This Paper Is
 
 This is a practical workplace white paper, not an academic paper and not a complete AI governance framework. It offers a named heuristic, supporting concepts, worked examples, and adoption guidance for ordinary organisational use.
