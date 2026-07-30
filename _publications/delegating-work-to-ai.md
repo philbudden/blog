@@ -33,6 +33,8 @@ Those questions help teams choose between direct delegation, checkpointed delega
 
 The whitepaper is written primarily for senior leaders, sponsors, and accountable owners who need to shape how AI-assisted work is adopted in practice.
 
+If you want the shorter at-the-point-of-work version, use the companion practitioner guide linked below.
+
 It uses operational examples because leaders cannot govern AI-assisted work only through policy statements or tool approvals. They need to understand what disciplined delegation looks like close to the work, where review debt, hidden uncertainty, and weak accountability usually appear.
 
 ## What it covers
