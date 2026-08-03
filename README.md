@@ -48,8 +48,10 @@ philbudden-blog/
 ├── _layouts/               # Page and article layouts
 ├── assets/
 │   ├── css/                # Site styling and design tokens
+│   ├── social/              # Generated Open Graph and LinkedIn preview images
 │   ├── js/                 # Theme, modal, tag filtering, callout, and search JS
 │   └── vendor/             # Vendored third-party browser assets
+├── tools/                   # Small local maintenance utilities
 ├── about/index.md          # Professional about page
 ├── blog/index.html         # Blog archive and filters
 ├── publications/index.html # Publication index
@@ -76,6 +78,8 @@ tags:
 series: interview-questions
 draft: false
 layout: article
+social_image: /assets/social/my-new-post.png
+social_image_alt: "My New Post social card"
 ---
 ```
 
@@ -88,6 +92,45 @@ Notes:
 - `series` is optional.
 - `draft` is optional. Set it to `true` if you want the post hidden from site
   navigation and search while still keeping the file in place.
+- `social_image` is optional. When present, the site emits Open Graph and
+  Twitter image metadata for a large link preview. Posts without it retain the
+  standard text-only preview metadata.
+- `social_image_alt` is required whenever `social_image` is set. Describe the
+  card's visible title and subject rather than repeating a filename.
+
+## Social cards
+
+Social cards are optional 1200 by 627 pixel PNGs for link previews on LinkedIn
+and other platforms. They are distribution assets, not article-body images.
+The shared format uses a theme marker, article title, short subtitle, and site
+domain so individual cards remain recognisable without making every post look
+identical.
+
+Create a card with the included local generator:
+
+```bash
+python3 tools/create_social_card.py \
+  --title "My New Post" \
+  --subtitle "A clear, reader-facing description of the article." \
+  --marker "WORKING WITH AI" \
+  --output assets/social/my-new-post.png
+```
+
+The generator uses the built-in macOS `sips` utility to render the PNG, reads
+its colour tokens from `assets/css/site.css`, checks that the result is exactly
+1200 by 627 pixels, and rejects content too long for the template. Review the
+generated image at full size before publishing.
+
+After adding the image, declare it in the corresponding article front matter:
+
+```yaml
+social_image: /assets/social/my-new-post.png
+social_image_alt: "My New Post social card"
+```
+
+Platforms cache previews. Publish the image and metadata before sharing the
+article URL, and use the platform's preview inspector if a previously cached
+card needs refreshing.
 
 ## How to create a new publication
 
@@ -260,10 +303,8 @@ Notes:
 ## Future enhancements
 
 - sitemap and robots.txt tuning
-- SEO metadata and social cards
 - pagination for larger archives
 - publication PDF generation pipeline
-- dedicated asset folders for publication downloads and social images
 - syntax-theme refinement or code-copy buttons
 - related-post suggestions
 - richer series metadata such as cover text or artwork
