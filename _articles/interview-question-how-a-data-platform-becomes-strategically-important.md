@@ -12,6 +12,8 @@ tags:
 series: interview-questions
 draft: false
 layout: article
+social_image: /assets/social/interview-question-how-a-data-platform-becomes-strategically-important.png
+social_image_alt: "When a Data Platform Becomes Strategically Important, about how trusted, reusable data improves organisational decisions."
 ---
 
 # Describe how a data platform becomes strategically important rather than merely technically useful.
