@@ -13,6 +13,7 @@ summary: One concept, one example, and one question each week on responsible AI,
       <p class="archive-hero__summary">A short weekly note on responsible AI, data engineering, technical leadership, and building useful systems.</p>
     </div>
     <div class="archive-hero__aside">
+      <p>Generative AI is a powerful tool. I openly use it to conduct research, challenge my thinking, generate drafts, and review my work. AI never owns what I think, or my personal judgement. Everything I publish is a reflection of my own thoughts and opinions.</p>
     </div>
   </header>
 
