@@ -1,0 +1,26 @@
+---
+layout: default
+title: The Practical Delegation Test
+body_class: page-delegation-test
+summary: A practical framework for deciding what to delegate to AI, what to check, and what should remain human.
+---
+{% assign test_resources = site.delegation_test | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
+
+<section class="archive-shell archive-shell--delegation-test">
+  <header class="archive-hero">
+    <div>
+      <p class="section-kicker">A practical framework for AI-assisted work</p>
+      <h1>The Practical Delegation Test.</h1>
+      <p class="archive-hero__summary">A simple way to decide what to delegate to AI, where human judgement should lead, and how uncertainty and accountability should remain visible.</p>
+    </div>
+    <div class="archive-hero__aside">
+      <p>Start with the practitioner guide when you need to make a decision about a real task. Read the whitepaper for the wider argument about delegation, verification, judgement, and accountability.</p>
+    </div>
+  </header>
+
+  <section class="archive-list archive-list--delegation-test" aria-label="Practical Delegation Test resources">
+    {% for resource in test_resources %}
+      {% include delegation-test-resource-card.html resource=resource %}
+    {% endfor %}
+  </section>
+</section>

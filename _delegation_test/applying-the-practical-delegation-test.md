@@ -1,9 +1,9 @@
 ---
 title: Applying the Practical Delegation Test
 date: 2026-07-30
-publication_kind: Practitioner guide
+resource_kind: Practitioner guide
 summary: A short companion guide for practitioners deciding whether to use AI on a real task, how far to delegate, and what still needs human judgement.
-pdf_url: /assets/publications/applying-the-practical-delegation-test.pdf
+pdf_url: /assets/practical-delegation-test/applying-the-practical-delegation-test.pdf
 draft: false
 topics:
   - Responsible AI adoption
@@ -12,7 +12,7 @@ topics:
   - Technical leadership
 ---
 
-*A companion guide to [Delegating Work to AI](/publications/delegating-work-to-ai/)*
+*A companion guide to [Delegating Work to AI](/practical-delegation-test/delegating-work-to-ai/)*
 
 ## Summary
 
@@ -31,7 +31,7 @@ Those questions help you decide whether AI can execute directly, whether the wor
 
 ## How this relates to the whitepaper
 
-The full whitepaper, [Delegating Work to AI](/publications/delegating-work-to-ai/), explains the wider argument, leadership framing, governance implications, and supporting concepts behind the Practical Delegation Test.
+The full whitepaper, [Delegating Work to AI](/practical-delegation-test/delegating-work-to-ai/), explains the wider argument, leadership framing, governance implications, and supporting concepts behind the Practical Delegation Test.
 
 This companion guide is for use closer to the work. It strips the framework down to the questions, prompts, delegation levels, and caution points a practitioner needs when deciding how to use AI on a real task.
 
@@ -41,4 +41,4 @@ Read the whitepaper if you want the full rationale. Use this guide when you want
 
 The guide is available as a PDF:
 
-[Download Applying the Practical Delegation Test](/assets/publications/applying-the-practical-delegation-test.pdf)
+[Download Applying the Practical Delegation Test](/assets/practical-delegation-test/applying-the-practical-delegation-test.pdf)
