@@ -5,8 +5,7 @@ body_class: page-home
 ---
 {% assign published_articles = site.articles | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
 {% assign latest_articles = published_articles | slice: 0, 4 %}
-{% assign published_publications = site.publications | where_exp: "item", "item.draft != true" | sort: "date" | reverse %}
-{% assign featured_publication = published_publications | first %}
+{% assign featured_resource = site.delegation_test | where: "slug", "applying-the-practical-delegation-test" | first %}
 
 <section class="home-shell">
   <header class="home-hero">
@@ -26,22 +25,22 @@ body_class: page-home
   </header>
 
   <section class="home-grid">
-    <section class="home-panel home-panel--publication">
-      {% if featured_publication %}
-        <div class="feature-publication">
-          <div class="feature-publication__copy">
-            <p class="section-kicker">Featured publication</p>
-            <h2>{{ featured_publication.title }}</h2>
-            <p>{{ featured_publication.summary }}</p>
-            <div class="feature-publication__actions">
-              <a class="action-link" href="{{ featured_publication.url | relative_url }}">View publication</a>
-              {% if featured_publication.pdf_url %}
-                <a class="action-link" href="{{ featured_publication.pdf_url | relative_url }}">Download PDF</a>
+    <section class="home-panel home-panel--delegation-test">
+      {% if featured_resource %}
+        <div class="feature-delegation-test">
+          <div class="feature-delegation-test__copy">
+            <p class="section-kicker">The Practical Delegation Test</p>
+            <h2>{{ featured_resource.title }}</h2>
+            <p>{{ featured_resource.summary }}</p>
+            <div class="feature-delegation-test__actions">
+              <a class="action-link" href="{{ featured_resource.url | relative_url }}">Use the practitioner guide</a>
+              {% if featured_resource.pdf_url %}
+                <a class="action-link" href="{{ featured_resource.pdf_url | relative_url }}">Download PDF</a>
               {% endif %}
             </div>
           </div>
-          <dl class="feature-publication__meta" aria-label="Publication details">
-            {% if featured_publication.review_status == "draft-peer-review" %}
+          <dl class="feature-delegation-test__meta" aria-label="Guide details">
+            {% if featured_resource.review_status == "draft-peer-review" %}
               <div>
                 <dt>Status</dt>
                 <dd>Draft under peer review</dd>
@@ -49,9 +48,9 @@ body_class: page-home
             {% endif %}
             <div>
               <dt>Type</dt>
-              <dd>{{ featured_publication.publication_kind | default: "Publication" }}</dd>
+              <dd>{{ featured_resource.resource_kind | default: "Guide" }}</dd>
             </div>
-            {% if featured_publication.pdf_url %}
+            {% if featured_resource.pdf_url %}
               <div>
                 <dt>Format</dt>
                 <dd>PDF download</dd>
@@ -60,11 +59,11 @@ body_class: page-home
           </dl>
           </div>
       {% else %}
-        <div class="feature-publication">
-          <div class="feature-publication__copy">
-            <p class="section-kicker">Featured publication</p>
-            <h2>Longer pieces will appear here</h2>
-            <p>Some arguments need more room than a blog post can sensibly give them. This is where I will put the work that benefits from that space.</p>
+        <div class="feature-delegation-test">
+          <div class="feature-delegation-test__copy">
+            <p class="section-kicker">The Practical Delegation Test</p>
+            <h2>A practical guide will appear here</h2>
+            <p>This is where I will share practical tools for deciding how work should be delegated to AI.</p>
           </div>
         </div>
       {% endif %}

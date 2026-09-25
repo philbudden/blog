@@ -4,9 +4,9 @@ layout: default
 {% assign words = page.content | strip_html | number_of_words %}
 {% assign reading_time = words | divided_by: 200.0 | ceil %}
 
-<article class="reading-shell reading-shell--publication">
+<article class="reading-shell reading-shell--delegation-test-resource">
   <header class="reading-hero">
-    <p class="section-kicker">{{ page.publication_kind | default: "Publication" }}</p>
+    <p class="section-kicker">{{ page.resource_kind | default: "Resource" }}</p>
     <h1>{{ page.title }}</h1>
     {% if page.summary %}
       <p class="reading-hero__summary">{{ page.summary }}</p>
@@ -27,7 +27,7 @@ layout: default
       </div>
       <div class="reading-sidebar__panel">
         <p class="reading-sidebar__label">Format</p>
-        <p>{{ page.publication_kind | default: "Publication" }}</p>
+        <p>{{ page.resource_kind | default: "Resource" }}</p>
       </div>
       <div class="reading-sidebar__panel">
         <p class="reading-sidebar__label">PDF</p>
@@ -51,13 +51,13 @@ layout: default
 
     <div class="reading-main">
       {% if page.placeholder %}
-        <aside class="notice-panel" aria-label="Forthcoming publication notice">
-          <strong>Forthcoming publication.</strong> I will update this page when the full paper and downloadable PDF are ready.
+        <aside class="notice-panel" aria-label="Forthcoming resource notice">
+          <strong>Forthcoming resource.</strong> I will update this page when the full paper and downloadable PDF are ready.
         </aside>
       {% endif %}
       {% if page.review_status == "draft-peer-review" %}
         <aside class="notice-panel" aria-label="Draft review notice">
-          <strong>Draft under peer review.</strong> {{ page.review_note | default: "This publication is available as a draft while peer review is in progress." }}
+          <strong>Draft under peer review.</strong> {{ page.review_note | default: "This resource is available as a draft while peer review is in progress." }}
         </aside>
       {% endif %}
 

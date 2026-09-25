@@ -1,9 +1,9 @@
 ---
 title: Delegating Work to AI
 date: 2026-07-18
-publication_kind: Whitepaper
+resource_kind: Whitepaper
 summary: A practical framework for senior leaders deciding where AI can execute, where humans should lead, and how accountability should be retained.
-pdf_url: /assets/publications/delegating-work-to-ai.pdf
+pdf_url: /assets/practical-delegation-test/delegating-work-to-ai.pdf
 draft: false
 topics:
   - Responsible AI adoption
@@ -48,7 +48,7 @@ The paper explains:
 
 A short companion guide is also available for practitioners who want to apply the Practical Delegation Test directly to their own work:
 
-[Applying the Practical Delegation Test](/publications/applying-the-practical-delegation-test/)
+[Applying the Practical Delegation Test](/practical-delegation-test/applying-the-practical-delegation-test/)
 
 Use the companion guide when you want the practical version beside you. Use the whitepaper when you want the full rationale, leadership framing, and governance argument.
 
@@ -56,4 +56,4 @@ Use the companion guide when you want the practical version beside you. Use the 
 
 The whitepaper is available as a PDF:
 
-[Download Delegating Work to AI](/assets/publications/delegating-work-to-ai.pdf)
+[Download Delegating Work to AI](/assets/practical-delegation-test/delegating-work-to-ai.pdf)

@@ -2,7 +2,7 @@
 
 This is a self-contained Jekyll site designed for GitHub Pages deployment. It
 is Markdown-first, responsive, accessible by default, and structured as the
-canonical public home for blog posts, long-form publications, and professional
+canonical public home for blog posts, the Practical Delegation Test, and professional
 context.
 
 ## Recommended architecture
@@ -16,14 +16,13 @@ Key choices:
 - `Jekyll` for static generation and GitHub Pages compatibility.
 - `_articles/` as a collection instead of the default `_posts/`, so filenames
   can stay human-readable rather than using date-prefixed post filenames.
-- `_publications/` as a collection for whitepapers, frameworks, guides, reports,
-  and other long-form public artefacts.
+- `_delegation_test/` as the collection for the Test's whitepaper and practitioner guide.
 - `_series/` as a collection for series metadata and standalone series pages.
 - Canonical article pages with modal-overlay progressive enhancement on listing
   pages. This preserves accessibility, no-JS fallback, and deep links.
 - `MiniSearch` vendored locally for fuzzy client-side search without a Node
   build pipeline.
-- Placeholder publication pages are allowed for local review, but must be
+- Placeholder Test-resource pages are allowed for local review, but must be
   clearly labelled and replaced before public release.
 
 Trade-offs:
@@ -42,7 +41,7 @@ Trade-offs:
 ```text
 philbudden-blog/
 ├── _articles/              # Markdown blog posts
-├── _publications/          # Long-form public artefacts
+├── _delegation_test/       # Practical Delegation Test resources
 ├── _series/                # One Markdown file per series
 ├── _includes/              # Reusable template fragments
 ├── _layouts/               # Page and article layouts
@@ -54,7 +53,7 @@ philbudden-blog/
 ├── tools/                   # Small local maintenance utilities
 ├── about/index.md          # Professional about page
 ├── blog/index.html         # Blog archive and filters
-├── publications/index.html # Publication index
+├── practical-delegation-test/index.html # Practical Delegation Test landing page
 ├── series/index.html       # Series index page
 ├── tags/index.html         # Legacy redirect to the Writing page topic filters
 ├── index.html              # Home page
@@ -132,22 +131,20 @@ Platforms cache previews. Publish the image and metadata before sharing the
 article URL, and use the platform's preview inspector if a previously cached
 card needs refreshing.
 
-## How to create a new publication
+## How to create a Practical Delegation Test resource
 
-Only add material to `_publications/` when it is explicitly approved for public
-release. Do not import private notes, drafts, organisation-specific material, or
-ambiguous Obsidian documents into this site.
+Only add material to `_delegation_test/` when it is explicitly approved for public release and directly supports the Practical Delegation Test. Do not import private notes, drafts, organisation-specific material, or ambiguous Obsidian documents into this site.
 
-1. Add a new Markdown file to `_publications/`.
+1. Add a new Markdown file to `_delegation_test/`.
 2. Use front matter like this:
 
 ```yaml
 ---
 title: "My Public Whitepaper"
 date: 2026-07-13
-publication_kind: Whitepaper
+resource_kind: Whitepaper
 summary: "One or two sentences for listings and search results."
-pdf_url: /assets/publications/my-public-whitepaper.pdf
+pdf_url: /assets/practical-delegation-test/my-resource.pdf
 topics:
   - Responsible AI adoption
   - AI strategy
@@ -155,14 +152,14 @@ draft: false
 ---
 ```
 
-3. Write the publication body in Markdown.
+3. Write the resource body in Markdown.
 4. Add the PDF to a public asset location and point `pdf_url` at it.
 
 Notes:
 
 - Leave `pdf_url` out until the PDF has been generated and approved.
 - Use `placeholder: true` only for local review scaffolding. Placeholder pages
-  should be replaced before publication.
+  should be replaced before public release.
 - Blog posts do not need downloadable PDFs.
 
 ## How to create a new series
@@ -204,7 +201,7 @@ Series ordering:
 
 ## How search works
 
-- The build emits `search.json` from published articles and publications.
+- The build emits `search.json` from published articles and Practical Delegation Test resources.
 - The browser loads that JSON and builds a `MiniSearch` index locally.
 - Search covers:
   - title
@@ -304,7 +301,7 @@ Notes:
 
 - sitemap and robots.txt tuning
 - pagination for larger archives
-- publication PDF generation pipeline
+- Practical Delegation Test PDF generation pipeline
 - syntax-theme refinement or code-copy buttons
 - related-post suggestions
 - richer series metadata such as cover text or artwork
