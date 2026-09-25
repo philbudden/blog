@@ -23,4 +23,32 @@ summary: A practical framework for deciding what to delegate to AI, what to chec
       {% include delegation-test-resource-card.html resource=resource %}
     {% endfor %}
   </section>
+
+  <section class="feedback-panel" aria-labelledby="delegation-feedback-heading">
+    <div class="feedback-panel__intro">
+      <p class="section-kicker">Help improve the test</p>
+      <h2 id="delegation-feedback-heading">What happened when you used it?</h2>
+      <p>The Practical Delegation Test is intended to become more useful through real practice. I welcome positive experiences, problems, disagreements, and examples of where the questions did not fit the work.</p>
+    </div>
+
+    <form class="feedback-form" action="https://formspree.io/f/mvkgbwab" method="post">
+      <div class="feedback-form__field">
+        <label for="delegation-feedback-message">Your feedback</label>
+        <textarea id="delegation-feedback-message" name="message" rows="7" required></textarea>
+      </div>
+
+      <div class="feedback-form__field">
+        <label for="delegation-feedback-email">Email address <span>(optional, if you would like a reply)</span></label>
+        <input id="delegation-feedback-email" name="email" type="email" autocomplete="email">
+      </div>
+
+      <div class="feedback-form__trap" aria-hidden="true">
+        <label for="delegation-feedback-company">Company</label>
+        <input id="delegation-feedback-company" name="company" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button class="feedback-form__button" type="submit">Send feedback</button>
+      <p class="feedback-form__meta">Please do not include confidential, sensitive, or personal information.</p>
+    </form>
+  </section>
 </section>
