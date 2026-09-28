@@ -6,10 +6,17 @@ RUN rm -f /etc/apt/sources.list.d/yarn.list \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y --no-install-recommends \
         build-essential \
+        chromium \
         libffi-dev \
         libgmp-dev \
         libxml2-dev \
         libxslt1-dev \
+        nodejs \
+        npm \
+        poppler-utils \
         zlib1g-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+# Marp produces the committed browser deck and PDF from the canonical Markdown.
+RUN npm install --global @marp-team/marp-cli@4.5.1

@@ -11,6 +11,14 @@ layout: default
     {% if page.summary %}
       <p class="reading-hero__summary">{{ page.summary }}</p>
     {% endif %}
+    {% if page.slides_url %}
+      <div class="resource-actions" aria-label="Presentation actions">
+        <a class="action-link action-link--primary" href="{{ page.slides_url | relative_url }}">{{ page.slides_label | default: "View slides" }}</a>
+        {% if page.pdf_url %}
+          <a class="action-link" href="{{ page.pdf_url | relative_url }}" download>Download PDF</a>
+        {% endif %}
+      </div>
+    {% endif %}
   </header>
 
   <div class="reading-layout">
@@ -29,6 +37,12 @@ layout: default
         <p class="reading-sidebar__label">Format</p>
         <p>{{ page.resource_kind | default: "Resource" }}</p>
       </div>
+      {% if page.slides_url %}
+        <div class="reading-sidebar__panel">
+          <p class="reading-sidebar__label">Slides</p>
+          <a href="{{ page.slides_url | relative_url }}">{{ page.slides_label | default: "View slides" }}</a>
+        </div>
+      {% endif %}
       <div class="reading-sidebar__panel">
         <p class="reading-sidebar__label">PDF</p>
         {% if page.pdf_url %}
