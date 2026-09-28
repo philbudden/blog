@@ -2,6 +2,7 @@
 title: "Delegating Work to AI: Conference Presentation"
 date: 2026-09-25
 resource_kind: Conference presentation
+resource_order: 3
 summary: A conference presentation on the Practical Delegation Test, from defining the work through verification, retained judgment, and accountability.
 slides_url: /practical-delegation-test/slides/
 slides_label: View slides

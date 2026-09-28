@@ -23,12 +23,6 @@ layout: default
 
   <div class="reading-layout">
     <aside class="reading-sidebar">
-      {% if page.date %}
-        <div class="reading-sidebar__panel">
-          <p class="reading-sidebar__label">Published</p>
-          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
-        </div>
-      {% endif %}
       <div class="reading-sidebar__panel">
         <p class="reading-sidebar__label">Overview</p>
         <p>{{ reading_time }} min</p>

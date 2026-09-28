@@ -2,6 +2,7 @@
 title: Applying the Practical Delegation Test
 date: 2026-07-30
 resource_kind: Practitioner guide
+resource_order: 2
 summary: A short companion guide for practitioners deciding whether to use AI on a real task, how far to delegate, and what still needs human judgement.
 pdf_url: /assets/practical-delegation-test/applying-the-practical-delegation-test.pdf
 draft: false

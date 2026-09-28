@@ -1,11 +1,6 @@
 {% assign words = resource.content | strip_html | number_of_words %}
 {% assign reading_time = words | divided_by: 200.0 | ceil %}
 <article class="archive-entry archive-entry--delegation-test {% if resource.placeholder %}archive-entry--placeholder{% endif %}">
-  <div class="archive-entry__date">
-    {% if resource.date %}
-      <time datetime="{{ resource.date | date_to_xmlschema }}">{{ resource.date | date: "%b %-d, %Y" }}</time>
-    {% endif %}
-  </div>
   <div class="archive-entry__content">
     <p class="archive-entry__eyebrow">
       {{ resource.resource_kind | default: "Resource" }}
