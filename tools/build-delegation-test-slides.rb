@@ -5,12 +5,14 @@ require "fileutils"
 require "open3"
 require "pathname"
 require "tempfile"
+require "cgi"
 
 ROOT = Pathname.new(__dir__).join("..").realpath
 PUBLIC_HTML = ROOT.join("practical-delegation-test/slides/index.html")
 PUBLIC_PDF = ROOT.join("assets/practical-delegation-test/delegating-work-to-ai-conference-talk.pdf")
 PUBLIC_ASSET_PREFIX = "../../assets/practical-delegation-test/delegating-work-to-ai/"
 SOURCE_ASSET_PREFIX = "../../deliverables/practical-delegation-test-guide/diagram-options/"
+PUBLIC_DESCRIPTION = "A visual introduction to the Practical Delegation Test, a framework for deciding what to delegate to AI and where human judgement should lead."
 
 def fail!(message)
   warn "ERROR: #{message}"
@@ -38,10 +40,24 @@ def public_markdown(markdown)
     .gsub(SOURCE_ASSET_PREFIX, PUBLIC_ASSET_PREFIX)
 end
 
-def note_sentences(notes)
-  notes.flat_map { |note| note.gsub(/\s+/, " ").scan(/[^.]+\./) }
-       .map(&:strip)
-       .select { |sentence| sentence.length >= 60 }
+def normalise_text(text)
+  CGI.unescapeHTML(text.gsub(/<[^>]+>/, " "))
+     .gsub(/\s+/, " ")
+     .strip
+end
+
+def note_fragments(notes)
+  notes.flat_map do |note|
+    # Make source Markdown comparable to the visible text emitted by Marp.
+    plain_note = note
+      .gsub(/!\[([^\]]*)\]\([^)]*\)/, '\\1')
+      .gsub(/\[([^\]]+)\]\([^)]*\)/, '\\1')
+      .gsub(/[`*_~#>]/, "")
+    normalised_note = normalise_text(plain_note)
+    sentences = normalised_note.split(/(?<=[.!?])\s+/)
+    candidates = sentences.empty? ? [normalised_note] : sentences
+    candidates.select { |fragment| fragment.length >= 20 }
+  end.uniq
 end
 
 def add_return_link(html)
@@ -78,8 +94,8 @@ Tempfile.create(["delegation-test-public", ".marp.md"], PUBLIC_HTML.dirname.to_s
   prepared.write(clean)
   prepared.flush
 
-  run!("marp", prepared.path, "--html", "--theme-set", theme.to_s, "--output", PUBLIC_HTML.to_s)
-  run!("marp", prepared.path, "--html", "--allow-local-files", "--theme-set", theme.to_s, "--pdf", "--output", PUBLIC_PDF.to_s)
+  run!("marp", prepared.path, "--html", "--description", PUBLIC_DESCRIPTION, "--theme-set", theme.to_s, "--output", PUBLIC_HTML.to_s)
+  run!("marp", prepared.path, "--html", "--description", PUBLIC_DESCRIPTION, "--allow-local-files", "--theme-set", theme.to_s, "--pdf", "--output", PUBLIC_PDF.to_s)
 end
 
 html = PUBLIC_HTML.read
@@ -90,9 +106,17 @@ fail!("public HTML retains a rendered note element") if html.include?("<div clas
 pdf_text, pdf_status = Open3.capture2("pdftotext", PUBLIC_PDF.to_s, "-")
 fail!("could not extract PDF text for note validation") unless pdf_status.success?
 
-note_sentences(notes).each do |sentence|
-  fail!("public HTML contains speaker-note text") if html.include?(sentence)
-  fail!("public PDF contains speaker-note text") if pdf_text.include?(sentence)
+public_html_text = normalise_text(html)
+public_pdf_text = normalise_text(pdf_text)
+public_slide_text = normalise_text(clean)
+
+note_fragments(notes).each do |fragment|
+  # A note occasionally repeats on-slide copy to cue the presenter. It is not
+  # evidence of a note leak when that exact phrase belongs on the public slide.
+  next if public_slide_text.include?(fragment)
+
+  fail!("public HTML contains speaker-note text") if public_html_text.include?(fragment)
+  fail!("public PDF contains speaker-note text") if public_pdf_text.include?(fragment)
 end
 
 puts "Generated #{PUBLIC_HTML.relative_path_from(ROOT)} and #{PUBLIC_PDF.relative_path_from(ROOT)}"

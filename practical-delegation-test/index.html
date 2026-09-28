@@ -4,7 +4,7 @@ title: The Practical Delegation Test
 body_class: page-delegation-test
 summary: A practical framework for deciding what to delegate to AI, what to check, and what should remain human.
 ---
-{% assign test_resources = site.delegation_test | where_exp: "item", "item.draft != true" | sort: "resource_order" %}
+{% assign test_resources = site.delegation_test | where_exp: "item", "item.draft != true" | sort: "resource_order", "last" %}
 
 <section class="archive-shell archive-shell--delegation-test">
   <header class="archive-hero">

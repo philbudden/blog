@@ -174,7 +174,7 @@ ruby tools/build-delegation-test-slides.rb \
   /secondbrain/templates/marp-themes/secondbrain.css
 ```
 
-The generator removes every ordinary HTML comment before Marp renders the deck. This retains Marp directives such as slide classes while removing presenter notes and other source-only comments. It then checks every extracted speaker-note sentence against the generated HTML and PDF; the command fails if any note text is found.
+The generator removes every ordinary HTML comment before Marp renders the deck. This retains Marp directives such as slide classes while removing presenter notes and other source-only comments. It then normalises the rendered HTML and PDF text, checks every distinct speaker-note fragment that is not also on-slide copy, and fails if any note text is found.
 
 ## How to create a new series
 
