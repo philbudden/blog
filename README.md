@@ -162,6 +162,20 @@ Notes:
   should be replaced before public release.
 - Blog posts do not need downloadable PDFs.
 
+## Rebuilding the conference presentation
+
+The canonical Practical Delegation Test conference deck remains the Marp Markdown source in the SecondBrain vault. The site carries only generated public artifacts: the browser deck at `/practical-delegation-test/slides/` and its PDF download.
+
+From the project devcontainer, with the vault mounted into the container, rebuild both artifacts with:
+
+```bash
+ruby tools/build-delegation-test-slides.rb \
+  /secondbrain/documents/drafts/practical-delegation-test-conference-talk-deck/practical-delegation-test-conference-talk-deck.marp.md \
+  /secondbrain/templates/marp-themes/secondbrain.css
+```
+
+The generator removes every ordinary HTML comment before Marp renders the deck. This retains Marp directives such as slide classes while removing presenter notes and other source-only comments. It then normalises the rendered HTML and PDF text, checks every distinct speaker-note fragment that is not also on-slide copy, and fails if any note text is found.
+
 ## How to create a new series
 
 1. Add a new Markdown file under `_series/`, for example

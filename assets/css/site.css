@@ -744,7 +744,7 @@ textarea {
 
 .archive-entry {
   display: grid;
-  grid-template-columns: 8rem minmax(0, 1fr) 2rem;
+  grid-template-columns: minmax(0, 1fr) 2rem;
   gap: 1.25rem;
   align-items: start;
   padding: 1.4rem 0;
@@ -836,6 +836,14 @@ textarea {
 .reading-hero {
   max-width: 56rem;
   padding-top: 0.6rem;
+}
+
+.resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.25rem;
+  align-items: center;
+  margin-top: 1.5rem;
 }
 
 .reading-layout {
@@ -1070,6 +1078,11 @@ textarea {
 
   .reading-sidebar {
     grid-template-columns: 1fr;
+  }
+
+  .resource-actions {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .article-prose {

@@ -2,6 +2,7 @@
 title: Delegating Work to AI
 date: 2026-07-18
 resource_kind: Whitepaper
+resource_order: 1
 summary: A practical framework for senior leaders deciding where AI can execute, where humans should lead, and how accountability should be retained.
 pdf_url: /assets/practical-delegation-test/delegating-work-to-ai.pdf
 draft: false
