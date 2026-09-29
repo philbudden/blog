@@ -755,6 +755,10 @@ textarea {
   background: transparent;
 }
 
+.archive-entry--delegation-test {
+  grid-template-columns: minmax(0, 1fr) 2rem;
+}
+
 .archive-entry__date {
   color: var(--ink-faint);
   font-size: 0.84rem;
