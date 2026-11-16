@@ -105,7 +105,7 @@ In human-led work with AI support, a person controls the substance and acceptanc
 
 Exploratory use usually sits within human-led work with AI support. Assistive use may be human-led or involve checkpointed delegation. Executional use may be checkpointed or directly delegated, depending on verification and retained judgement. These are typical relationships, not automatic allocations.
 
-For the evidence-pack assignment, an effective checkpoint needs a person who can resolve which document to use, with time and access to the sources. For the complaint response, the officer needs to be able to withhold the reply or seek a different remedy. A review step needs a defined job and the power to stop the work progressing.
+For the evidence-pack assignment, an effective checkpoint needs a person who can resolve which document to use, with time and access to the sources. For the complaint response, the officer needs to be able to withhold the reply or seek a different remedy. A review step needs a defined job and the power to stop the work progressing. I explored this more fully in [A Human in the Loop Needs a Job](https://philipbudden.co.uk/posts/a-human-in-the-loop-needs-a-job/).
 
 ## Agree what the next person can assume
 
