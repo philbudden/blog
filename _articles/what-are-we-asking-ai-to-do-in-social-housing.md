@@ -1,5 +1,5 @@
 ---
-title: "What Are We Asking AI to Do?"
+title: "What Role Should AI Play?"
 date: 2026-11-16
 summary: "How exploratory, assistive and executional uses of AI shape judgement, checking and accountability in social housing."
 tags:
@@ -11,10 +11,10 @@ tags:
 draft: false
 layout: article
 social_image: /assets/social/what-are-we-asking-ai-to-do-in-social-housing.png
-social_image_alt: "What Are We Asking AI to Do? Delegation modes in social housing."
+social_image_alt: "What Role Should AI Play? Delegation modes in social housing."
 ---
 
-# What Are We Asking AI to Do?
+# What Role Should AI Play?
 
 My Practical Delegation Test is a way to decide what work to delegate to AI, what should remain human-led and who answers for the result. It distinguishes three broad Delegation Modes: exploratory, assistive and executional use. They describe the kind of use, with different implications for what needs to be settled before work begins.
 
